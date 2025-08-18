@@ -1,0 +1,247 @@
+<!--Định nghĩa HTML ---------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!--
+* HTML viết tắt của Hyper Text Markup Language.
+* 
+* Là ngôn ngữ đánh dấu siêu văn bản.
+* 
+* Không phải là ngôn ngữ lập trình.
+* 
+* HTML có tác dụng tạo bố cục và định dạng trang web.
+* 
+-->
+
+<!--Cú pháp đơn giản của 1 file HTML------------------------------------------------------------------------------------------------------------------------------------------>
+
+<!DOCTYPE html>    
+<html>                
+    <head>
+        <title>TITLE</title>
+    </head>
+    <body>
+        <h1>CONTENT</h1>
+    </body>
+</html>
+
+<!--
+* Trong đó:     <!DOCTYPE html>: DOCTYPE dịch ra là kiểu tài liệu, tức là để khai báo đây là kiểu tài liệu gì. Cụ thể điền html có nghĩa là đây là tài liệu viết bằng HTML.
+* 
+*               <html></html>: Cặp thẻ bắt buộc, element cấp cao nhất, có nhiệm vụ đóng gói tất cả nội dung của trang HTML.
+* 
+*               <head></head>: Khai báo các thông tin meta của trang web như: tiêu đề trang, charset.
+* 
+*               <title></title>: Cặp thẻ nằm bên trong thẻ <head>, dùng để khai báo tiêu đề của trang.
+* 
+*               <body></body>: Cặp thẻ dùng để đóng gói tất cả các nội dung sẽ hiển thị trên trang.
+* 
+*               <h1></h1>: Phần từ xác định một tiêu đề lớn.
+* 
+*               <p></p>: Phần tử xác định một đoạn văn bản.
+* 
+-->
+
+<!-- Một số thẻ <meta> trong HTML--------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!-- 
+* <meta charset="UTF-8">:                                                     Xác định bộ ký tự được sử dụng, utf-8 để hỗ trợ hiển thị tiếng Việt.
+* 
+* <meta name="keywords" content="HTML, CSS, JavaScript">:                     Xác định từ khóa cho công cụ tìm kiếm.
+* 
+* <meta name="description" content="Free Web tutorials">:                     Xác định mô tả về trang web của bạn.
+* 
+* <meta name="author" content="John Doe">:                                    Xác định tác giả của một trang.
+* 
+* <meta name="viewport" content="width=device-width, initial-scale=1.0">:     Đặt chế độ xem để làm cho trang web của bạn hiển thị tốt trên tất cả các thiết bị.
+*  
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TITLE</title>
+    </head>
+    <body>
+        <h1>CONTENT</h1>
+    </body>
+</html>
+
+<!--Tạo Elements, Attributes--------------------------------------------------------------------------------------------------------------------------------------->
+
+<!-- Element---------------------------------------------------------------------------------------------------------->
+<!-- 
+* Elements (phần tử)      + Được xác định bởi:        + Một thẻ bắt đầu
+* 
+*                                                     + Một vài nội dung
+* 
+*                                                     + Một thẻ kết thúc.
+* 
+*                        + Cú pháp: <tagname>Nội dung...</tagname>
+* 
+*                             + Trong đó:     <tagname>: Thẻ bắt đầu của element
+* 
+*                                             </tagname>: Thẻ kết thúc của element
+* 
+*                                             Nội dung...: Nội dung của element
+* 
+*                             Ví dụ: <h1>Tiêu đề lớn</h1>
+* 
+*                         *Lưu ý: Các tagname không phân biệt chữ hoa, chữ thường. Nhưng nên viết chữ thường.
+* 
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">          <!--Này được gọi là 1 element không có tagname ở cuối-->
+        <title>TITLE</title>            <!--Này được gọi là 1 element-->
+    </head>
+    <body>
+        <h1>CONTENT</h1>
+    </body>
+</html>
+
+<!-- Attributes------------------------------------------------------------------------------------------------------>
+
+<!-- 
+* Attributes (thuộc tính):        + Sẽ cung cấp thêm thông tin cho các element, nằm trong thẻ mở.
+* 
+*                                 + Một element có thể có nhiều thuộc tính.
+* 
+*                                 + Cú pháp: <tagname attribute-name="value">Nội dung...</tagname>
+* 
+*                                     + Trong đó:   attribute-name: Tên thuộc tính
+* 
+*                                                   "value": Giá trị của thuộc tính
+* 
+*                                     Ví dụ: <html lang="vi"></html>
+* 
+* 
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="HTML, CSS, JavaScript">                  <!--Này có thuộc tính name và content-->
+        <meta name="description" content="Free Web tutorials">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TITLE</title>
+    </head>
+    <body>
+        <h1>CONTENT</h1>
+    </body>
+</html>
+
+
+<!-- Tạo Headings, Paragraphs, Formatting ------------------------------------------------------------------------------------------------------------------------------>
+
+<!-- Headings------------------------------------------------------------------------------------------------------>
+<!-- 
+* Headings (tiêu đề):       + Là những tiêu đề hoặc phụ đề hiển thị trên web.
+* 
+*                           + Có 6 thẻ heading:         + <h1></h1>: Thẻ tiêu đề quan trọng nhất. Mỗi trang chỉ có 1 thẻ h1. Nếu 1 trang có nhiều thẻ h1 thì web vẫn chạy nhưng như vậy sẽ không chuẩn SEO. Mỗi trang web ví dụ như là gioi-thieu.html hoặc index.html).
+* 
+*                                                       + <h2></h2>
+* 
+*                                                       + <h3></h3>
+* 
+*                                                       + <h4></h4>
+* 
+*                                                       + <h5></h5>
+* 
+*                                                       + <h6></h6>: Thẻ tiêu đề ít quan trọng nhất.
+* 
+*
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="HTML, CSS, JavaScript">                  <!--Này có thuộc tính name và content-->
+        <meta name="description" content="Free Web tutorials">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TITLE</title>
+    </head>
+    <body>
+        <h1>CONTENT</h1>
+        <h2>CONTENT</h2>
+        <h3>CONTENT</h3>
+        <h4>CONTENT</h4>
+    </body>
+</html>
+
+<!-- Paragraphs (đoạn văn)------------------------------------------------------------------------------------------------------>
+<!-- 
+* Paragraphs (đoạn văn):        + Luôn luôn bắt đầu trên một dòng mới và thường là một khối văn bản.
+* 
+*                               + Cú pháp: <p>Nội dung…</p>
+* 
+* Một số thẻ liên quan:         + <hr> (horizontal rules - quy tắc ngang): Dùng để ngắt theo chủ đề, và được hiển thị dưới dạng 1 đường kẻ ngang (empty tag - thẻ trống).
+* 
+*                               + <br> (break - ngắt): Dùng để ngắt dòng trong 1 đoạn văn bản
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="HTML, CSS, JavaScript">               
+        <meta name="description" content="Free Web tutorials">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TITLE</title>
+    </head>
+    <body>
+        <h1>CONTENT</h1>
+        <p>Tôi là Quang Khải đẹp trai, siêu đẹp trai </p>
+        <hr>
+        <p>
+                Tôi sinh ra có biệt tài là đẹp trai
+            <br>Tôi nghĩ tôi đẹp trai hơn tỉ phú Elon Musk
+        </p>
+    </body>
+</html>
+
+<!-- Formatting (định dạng)------------------------------------------------------------------------------------------------------>
+<!-- 
+* Formatting (định dạng):   + <b></b> (bold - in đậm): Văn bản in đậm
+* 
+*                           + <strong></strong>: Văn bản in đậm và quan trọng
+* 
+*                           + <i></i> (italic - in nghiêng): Văn bản in nghiêng
+* 
+*                           + <em></em> (emphasized - nhấn mạnh): Văn bản in nghiêng và quan trọng
+* 
+*                           + <small></small>: Văn bản chữ nhỏ hơn
+* 
+*                           + <sub></sub> (subscripted - chỉ số dưới): Văn bản có chỉ số dưới
+* 
+*                           + <sup></sup> (superscripted - chỉ số trên): Văn bản có chỉ số trên
+* 
+*                           + <ins></ins> (inserted - chèn): Văn bản được chèn, có gạch chân bên dưới.
+* 
+*                           + <del></del> (deleted - đã xóa): Văn bản đã xóa
+* 
+*                           + <mark></mark> (marked - đánh dấu): Văn bản được đánh dấu
+*
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="HTML, CSS, JavaScript">                 
+        <meta name="description" content="Free Web tutorials">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TITLE</title>
+    </head>
+    <body>
+        <h1>CONTENT</h1>
+        <p>Tôi là <b>Quang Khải</b> đẹp trai, siêu đẹp trai </p>
+    </body>
+</html>

@@ -1,0 +1,703 @@
+<!-- List (Danh sách) ----------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* list-style-type: chỉ định kiểu đánh dấu mục danh sách.
+* 
+*       + list-style-type: disc; // Hình tròn đen. Mặc định.
+* 
+*       + list-style-type: circle; // Hình tròn có viền đen và trống bên trong.
+* 
+*       + list-style-type: square; // Hình vuông
+* 
+*       + list-style-type: disclosure-closed; // Hình tam giác trỏ sang phải
+* 
+*       + list-style-type: none; // Bị ẩn
+* 
+*       + list-style-type: upper-roman; // Chữ la mã I, II, III
+* 
+*       + list-style-type: lower-alpha; // Chữ cái a, b, c
+*
+* Link nghiên cứu thêm: https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        ul{
+            list-style-type: circle;
+        }
+    </style>
+    <ul>
+        <li>Mục 1</li>
+        <li>Mục 2</li>
+    </ul>
+</body>
+</html>
+
+
+<!-- 
+* list-style-position: chỉ định vị trí của các điểm đánh dấu mục danh sách.
+* 
+*       + list-style-position: outside; // Các điểm đánh dấu nằm bên ngoài
+* 
+*       + list-style-position: inside; // Các điểm đánh dấu nằm bên trong
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        ul{
+            list-style-position: inside;
+        }
+    </style>
+    <ul>
+        <li>Mục 1</li>
+        <li>Mục 2</li>
+    </ul>
+</body>
+</html>
+
+<!-- Table (Bảng) ----------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 2px solid #000;
+        }
+
+        th, td{
+            padding: 10px;
+        }
+
+        th {
+            background-color: orange;
+            color: white;
+        }
+    </style>
+    <table>
+        <thead>
+            <tr>
+                <th>Hàng 1 cột 1</th>
+                <th>Hàng 1 cột 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hàng 2 cột 1</td>
+                <td>Hàng 2 cột 2</td>
+            </tr>
+            <tr>
+                <td>Hàng 3 cột 1</td>
+                <td>Hàng 3 cột 2</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+<!-- Display (Hiển thị) ------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* display: inline; (không đặt được chiều rộng và chiều cao, không thêm được margin và padding cho bên trên và bên dưới)
+* 
+* display: block; (Chiều rộng kéo dài từ trái sang phải, luôn bắt đầu ở một hàng mới. Cho phép đặt chiều rộng và chiều cao, cho phép đặt margin, padding cho bên trên và bên dưới)
+* 
+* display: inline-block; (Chiều rộng mặc định bằng chiều rộng của element, không bắt đầu ở một hàng mới. Cho phép đặt chiều rộng và chiều cao, cho phép đặt margin, padding cho bên trên và bên dưới)
+* 
+* display: none; (Ẩn đi hoàn toàn)
+* 
+* visibility: hidden; // Ẩn nhưng vẫn chiếm một khoảng trống
+*
+* visibility: visible; // Hiển thị. mặc định.
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thuộc tính display</title>
+  <style>
+    .inline {
+      display: inline;
+      background-color: lightgreen;
+    }
+    .block {
+      display: block;
+      background-color: lightblue;
+    }
+    .inline-block {
+      display: inline-block;
+      background-color: lightcoral;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>1. display: inline;</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <span class="inline">Thẻ inline 1</span>
+    <span class="inline">Thẻ inline 2</span>
+    Quis fuga dolorem laudantium molestiae tempora ipsam id esse natus architecto aspernatur,
+    ipsum ratione nemo, provident commodi rerum. Facilis laborum neque accusantium.
+  </p>
+
+  <h2>2. display: block;</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <span class="block">Thẻ block 1</span>
+    <span class="block">Thẻ block 2</span>
+    Quis fuga dolorem laudantium molestiae tempora ipsam id esse natus architecto aspernatur,
+    ipsum ratione nemo, provident commodi rerum. Facilis laborum neque accusantium.
+  </p>
+
+  <h2>3. display: inline-block;</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <span class="inline-block">Thẻ inline-block 1</span>
+    <span class="inline-block">Thẻ inline-block 2</span>
+    Quis fuga dolorem laudantium molestiae tempora ipsam id esse natus architecto aspernatur,
+    ipsum ratione nemo, provident commodi rerum. Facilis laborum neque accusantium.
+  </p>
+
+</body>
+</html>
+
+<!-- Position (Vị trí)----------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Thuộc tính position để xác định vị trí element muốn hiển thị. Có 5 giá trị khác nhau
+* 
+*       + position: static; // Vị trí ở trạng thái mặc định của phần tử (tức là các thuộc tính top, bottom, right, left không có hiệu lực)
+* 
+*       + position: relative; // Vị trí tương đối so với vị trí mặc định và áp dụng được các thuộc tính top, right, bottom, left.
+* 
+*       + position: absolute; // Vị trí tuyệt đối cho các thành phần theo thành phần bao ngoài hoặc cửa sổ trình duyệt.
+*  
+*       + position: fixed; // Được định vị so với khung nhìn (viewport), có nghĩa là nó luôn ở một vị trí cố định ngay cả khi trang được cuộn. Các thuộc tính top, right, bottom và left được sử dụng để định vị element.
+* 
+*       + position: sticky; // Có thể hiểu đơn giản là sự kết hợp của position: relative và position: fixed. Nó cũng na ná relative nhưng mà khi các bạn scroll đến vị trí của nó sẽ giống hệt như fixed và khi các bạn scroll lên ra khỏi nó thì nó sẽ quay lại vị trí ban đầu dưới dạng relative.
+*
+* Lưu ý khi dùng position: absolute thì box cha không được dùng position: static
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ví dụ position</title>
+  <style>
+    body {
+      height: 2000px; /* Tạo chiều cao trang để dễ scroll */
+      padding: 20px;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #000;
+      font-size: 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .box_1 {
+      background-color: orange;
+    }
+
+    .box_2 {
+      background-color: green;
+      position: relative;
+      left: 100px;
+    }
+
+    .box_3 {
+      background-color: blue;
+      position: absolute;
+      top: 200px;
+      left: 200px;
+    }
+
+    .box_4 {
+      background-color: red;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+
+    .box_5 {
+      background-color: purple;
+      position: sticky;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box box_1">Static</div>
+
+  <div class="box box_2">Relative</div>
+
+  <div class="box box_3">Absolute</div>
+
+  <div class="box box_4">Fixed</div>
+
+  <div class="box box_5">Sticky</div>
+
+</body>
+</html>
+
+<!-- Z-index--------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Thuộc tính z-index thiết lập thứ tự xếp chồng nhau của một thành phần vị trí.
+* 
+* Giá trị mặc định là 0.
+* 
+* z-index càng cao thì element đó càng nằm trên.
+* 
+* Chú ý: z-index chỉ làm việc cùng với thuộc tính position có giá trị sau: absolute, fixed, relative, sticky. Đối với giá trị static thì z-index không áp dụng được.
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ví dụ z-index</title>
+  <style>
+    body {
+      height: 2000px; /* để thấy rõ sticky và fixed */
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #000;
+      font-size: 40px;
+      color: white;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .box_1 {
+      background-color: orange;
+      position: relative;
+      z-index: 1;
+    }
+
+    .box_2 {
+      background-color: green;
+      position: relative;
+      left: 100px;
+      top: -100px;
+      z-index: 2;
+    }
+
+    .box_3 {
+      background-color: blue;
+      position: absolute;
+      top: 80px;
+      left: 150px;
+      z-index: 3;
+    }
+
+    .box_4 {
+      background-color: red;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      z-index: 0;
+    }
+
+    .box_5 {
+      background-color: purple;
+      position: sticky;
+      top: 0;
+      z-index: 4;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="box box_1">Box 1</div>
+  <div class="box box_2">Box 2</div>
+  <div class="box box_3">Box 3</div>
+  <div class="box box_4">Box 4 (Fixed)</div>
+  <div class="box box_5">Box 5 (Sticky)</div>
+
+</body>
+</html>
+
+<!-- Overflow (Tràn ra)---------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--
+* Thuộc tính overflow xác định điều gì sẽ xảy ra nếu một thành phần box tràn nội dung.
+* 
+* Có các giá trị sau:   + overflow: visible; // Khi chiều cao của box không đủ chứa text, thì text vẫn hiển thị tràn qua box, đây là mặc định.
+* 
+*                       + overflow: hidden; // Khi chiều cao của box không đủ chứa text, thì text bị tràn sẽ được ẩn đi.
+*
+*                       + overflow: scroll; // Khi chiều cao của box không đủ chứa text, thì text bị tràn sẽ được ẩn đi và xuất hiện thanh scroll, khi cuộn sẽ hiển thị text. Khi sử dụng thành phần này sẽ xuất hiện cả thanh scroll ngang và dọc.
+*
+*                       + overflow: auto; // Khi chiều cao của box không đủ chứa text, thì thanh scroll sẽ tự động hiển thị. Khi sử dụng thành phần này sẽ xuất hiện thanh scroll dọc.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box-1{
+            background-color: orange;
+            border: 3px solid #000;
+            width:200px;
+            height:100px;
+            overflow: visible;
+        }
+
+        .box-2{
+            position: relative;
+            background-color: orange;
+            border: 3px solid #000;
+            width:200px;
+            height:100px;
+            top:-100px;
+            left:225px;
+            overflow: hidden;
+        }
+
+        .box-3{
+            position: relative;
+            background-color: orange;
+            border: 3px solid #000;
+            width:200px;
+            height:100px;
+            top:-200px;
+            left:450px;
+            overflow: scroll;
+        }
+
+        .box-4{
+            position: relative;
+            background-color: orange;
+            border: 3px solid #000;
+            width:200px;
+            height:100px;
+            top:-200px;
+            left:450px;
+            overflow: auto;
+        }
+
+    </style>
+    <div class="box-1">
+        Trong thời đại công nghệ phát triển, mạng xã hội đã trở thành một phần không thể thiếu trong cuộc sống hàng ngày của con người. Chúng ta có thể kết nối với bạn bè, gia đình và đồng nghiệp một cách dễ dàng và nhanh chóng qua các nền tảng như Facebook, Instagram, và Twitter. Tuy nhiên, bên cạnh những lợi ích đó, mạng xã hội cũng mang lại không ít những vấn đề, chẳng hạn như thông tin sai lệch, nghiện mạng xã hội, và mất quyền riêng tư. Vì vậy, mỗi người cần phải sử dụng mạng xã hội một cách có trách nhiệm và tỉnh táo để không bị cuốn vào những mặt tiêu cực của nó.
+    </div>
+
+    <div class="box-2">
+        Trong thời đại công nghệ phát triển, mạng xã hội đã trở thành một phần không thể thiếu trong cuộc sống hàng ngày của con người. Chúng ta có thể kết nối với bạn bè, gia đình và đồng nghiệp một cách dễ dàng và nhanh chóng qua các nền tảng như Facebook, Instagram, và Twitter. Tuy nhiên, bên cạnh những lợi ích đó, mạng xã hội cũng mang lại không ít những vấn đề, chẳng hạn như thông tin sai lệch, nghiện mạng xã hội, và mất quyền riêng tư. Vì vậy, mỗi người cần phải sử dụng mạng xã hội một cách có trách nhiệm và tỉnh táo để không bị cuốn vào những mặt tiêu cực của nó.
+    </div>
+
+    <div class="box-3">
+        Trong thời đại công nghệ phát triển, mạng xã hội đã trở thành một phần không thể thiếu trong cuộc sống hàng ngày của con người. Chúng ta có thể kết nối với bạn bè, gia đình và đồng nghiệp một cách dễ dàng và nhanh chóng qua các nền tảng như Facebook, Instagram, và Twitter. Tuy nhiên, bên cạnh những lợi ích đó, mạng xã hội cũng mang lại không ít những vấn đề, chẳng hạn như thông tin sai lệch, nghiện mạng xã hội, và mất quyền riêng tư. Vì vậy, mỗi người cần phải sử dụng mạng xã hội một cách có trách nhiệm và tỉnh táo để không bị cuốn vào những mặt tiêu cực của nó.
+    </div>
+
+    <div class="box-4">
+        Trong thời đại công nghệ phát triển, mạng xã hội đã trở thành một phần không thể thiếu trong cuộc sống hàng ngày của con người. Chúng ta có thể kết nối với bạn bè, gia đình và đồng nghiệp một cách dễ dàng và nhanh chóng qua các nền tảng như Facebook, Instagram, và Twitter. Tuy nhiên, bên cạnh những lợi ích đó, mạng xã hội cũng mang lại không ít những vấn đề, chẳng hạn như thông tin sai lệch, nghiện mạng xã hội, và mất quyền riêng tư. Vì vậy, mỗi người cần phải sử dụng mạng xã hội một cách có trách nhiệm và tỉnh táo để không bị cuốn vào những mặt tiêu cực của nó.
+    </div>
+
+    <div class="box-4">
+        Trong thời đại
+    </div>
+</body>
+</html>
+
+<!-- Combinator selectors (Bộ chọn tổ hợp)-------------------------------------------------------------------------------------------------------------------- -->
+<!--
+* Adjacent sibling selectors (Bộ chọn anh chị em liền kề)
+* 
+* Chọn phần tử tag02 được đặt cùng cấp và phải kề ngay sau phần tử tag01 (mỗi tag01 chỉ có một tag02 kề ngay sau).
+* 
+* Cú pháp:  tag01 + tag02 { /*Viết css trong này*/ }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div + p {
+            background-color: yellow;
+        }
+    </style>
+    <p>Nội dung 0</p>
+    <div>
+        <p>Nội dung 1</p>
+        <p>Nội dung 2</p>
+    </div>
+    <p>Nội dung 3</p>
+    <p>Nội dung 4</p>
+</body>
+</html>
+
+<!-- 
+* General sibling selectors (Bộ chọn anh chị em chung)
+* 
+* Chọn tất cả phần tử tag02 cùng cấp với phần tử tag01, và những phần tử tag02 phải nằm sau phần tử tag01.
+* 
+* Cú pháp:  tag01 ~ tag02 { /*Viết css trong này*/ }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div ~ p {
+            background-color: yellow;
+        }
+    </style>
+    <p>Nội dung 0</p>
+    <div>
+        <p>Nội dung 1</p>
+        <p>Nội dung 2</p>
+    </div>
+    <p>Nội dung 3</p>
+    <p>Nội dung 4</p>
+</body>
+</html>
+
+<!--
+* Child selectors (Bộ chọn con)
+* 
+* Chọn tất cả phần tử tag02 là cấp con đầu tiên (cấp 1) của phần tử tag01.
+* 
+* Cú pháp: tag01 > tag02 { /*Viết css trong này*/ }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div > p {
+            background-color: yellow;
+        }
+    </style>
+    <div>
+        <p>Nội dung 1</p>
+        <p>Nội dung 2</p>
+        <section>
+            <p>Nội dung 3</p>
+            <p>Nội dung 4</p>
+        </section>
+    </div>
+    <p>Nội dung 5</p>
+    <p>Nội dung 6</p>
+</body>
+</html>
+
+<!-- 
+* Descendant selectors (Bộ chọn hậu duệ)
+* 
+* Chọn tất cả phần tử tag02 bên trong phần tử tag01.
+* 
+* Cú pháp: tag01 tag02 { /*Viết css trong này*/ }
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* h3{
+            color:orange
+        } */
+        .parent .children h3{
+            color:orange
+        }
+    </style>
+    <h3>Nội dung h3</h3>
+    <div class="parent">
+        <div class="children">
+            <h3>Nội dung h3</h3>
+        </div>
+        <div class="children">
+            <h3>Nội dung h3</h3>
+        </div>
+        <div class="children">
+            <h3>Nội dung h3</h3>
+        </div>
+        <div class="children">
+            <h3>Nội dung h3</h3>
+            <div class="oo">
+                <h3>Nội dung h3</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- Pseudo-class selectors (Bộ chọn lớp giả)------------------------------------------------------------------------------------------------------------------ -->
+<!--
+* Dùng để xác định trạng thái đặc biệt của một element.
+* 
+* Cú pháp:  selector:pseudo-class {
+* 	            property: value;
+*           }
+* 
+* Một số pseudo-class phổ biến:     + :link: khi liên kết chưa được truy cập lần nào. (Chỉ dùng cho thẻ a)
+* 
+*                                   + :visited: khi liên kết đã được truy cập sau lần đầu tiên. (Chỉ dùng cho thẻ a)
+* 
+*                                   + :hover: khi di chuyển chuột lên element.
+* 
+*                                   + :active: khi phần tử được click vào, áp dụng cho tất cả các thẻ.
+* 
+*                                   + :first-child: thiết lập thuộc tính cho element đầu tiên.
+* 
+*                                   + :last-child: thiết lập thuộc tính cho element cuối cùng.
+* 
+*                                   + :nth-child(n): n có thể là các giá trị even (chẵn), odd (lẻ), một số, một biểu thức (an + b).
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        a {
+            color :black;
+        }
+        a:link {
+            color:orange;
+        }
+        a:visited {
+            color:red;
+        }
+        a:hover{
+            color:green;
+        }
+    </style>
+    <a href="https://www.youtube.com/">
+        Link sang trang
+    </a>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        ul li:nth-child(3){
+            color:red;
+        }
+    </style>
+    <ul>
+        <li>Mục 1</li>
+        <li>Mục 2</li>
+        <li>Mục 3</li>
+    </ul>
+</body>
+</html>
+
+<!-- Pseudo-elements selectors (Bộ chọn phần tử giả) ----------------------------------------------------------------------------------------------------- -->
+<!--  -
+* Được sử dụng để tạo ra một phần tử giả và định kiểu (style) cho phần tử giả đó mà không cần tạo ra một phần tử thật.
+* 
+* Cú pháp:  selector::pseudo-element {
+* 	            property: value;
+*           }
+* 
+* Danh sách pseudo-element:         + ::before: Chèn nội dung nào đó trước nội dung của mỗi element. (Phải thêm content: "";)
+* 
+*                                   + ::after: Chèn nội dung nào đó sau nội dung của mỗi element. (Phải thêm content: "";)
+* 
+*                                   + ::first-letter: Chọn chữ cái đầu tiên của mỗi element.
+* 
+*                                   + ::first-line: Chọn dòng đầu tiên của mỗi element.
+* 
+*                                   + ::marker: Chọn các điểm đánh dấu của các mục danh sách (thẻ <ul> và <ol>)
+* 
+*                                   + ::selection: Được dùng để style cho một vùng văn bản được người dùng chọn (hay còn gọi là "bôi đen"). Chỉ có một số thuộc tính css khả dụng với ::selection là color, background, cursor, và outline.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* .box span {
+            background-color: orange;
+        } */
+        .box::before {
+            content: "Nội dung phía trước";
+            background-color: orange;
+            padding-top:20px;
+            display:inline-block;
+         }
+    </style>
+    <div class="box">
+        <!-- <span>Nội dung phía trước</span> -->
+        Nội dung 1
+    </div>
+</body>
+</html>
+
+<!-- Opacity (Độ mờ)------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!--  
+* Thuộc tính opacity chỉ định độ mờ/độ trong suốt của một element.
+* 
+* Thuộc tính opacity có thể nhận giá trị từ 0 đến 1. Giá trị càng thấp thì element càng mờ.
+* 
+* Cú pháp: opacity: 0.6; // Element sẽ mờ đi 40%
+ -->

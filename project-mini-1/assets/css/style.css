@@ -1,0 +1,753 @@
+/* Đây là file css chính của giao diện */
+
+/* Bước 3 */
+/* Bước 3.1: Code phần header */
+
+.header-top {
+    background-color: var(--color-one);
+    color: var(--color-two);
+    padding: 10px;
+    text-align: center;
+    font-size:18px;
+}
+/* End bước 3.1 */
+
+/* Bước 3.2: Code phần main */
+.header-main .inner-wrap {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+}
+
+/* Bước 3.2.1: Code phần inner-logo */
+.header-main .inner-logo img {
+    height: 48px;
+    width: auto;
+    margin-right: 5px;
+}
+
+.header-main .inner-logo span {
+    font-size:22px;
+    font-weight: 600;
+}
+
+.header-main .inner-logo a {
+    color: var(--color-one);
+    display: flex;
+    align-items: center;
+}
+
+/* Bước 3.2.2: Code phần inner-menu */
+.header-main .inner-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+}
+
+.header-main .inner-menu ul li {
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.header-main .inner-menu ul li a {
+    font-size: 18px;
+    color: var(--color-one);
+}
+
+/* Bước 3.2.3: Code phần inner-contact */
+.header-main .inner-contact {
+    font-size: 18px;
+    color: var(--color-three);
+}
+
+/* Bước 3.2.4: Code phần inner-social */
+.header-main .inner-social ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+}
+
+.header-main .inner-social li {
+    margin-left: 15px;
+}
+
+.header-main .inner-social ul li a {
+    color: var(--color-one);
+    font-size: 26px;
+}
+
+.header-main .inner-icon-mobile {
+    display:none;
+}
+/* End bước 3.2 */
+
+/* End bước 3 */
+
+
+/* Bước 4: */
+
+/* Bước 4.1: Code giao diện tổng quan cho box 2 trước */
+.section-one {
+    background-color: #F1F2F6;
+    padding: 100px;
+}
+
+.section-one .inner-wrap {
+    display: flex;
+}
+
+/* Bước 4.2: Code phần content */
+.section-one .inner-content {
+    width: 50%;
+}
+
+/* Bước 4.2.1: Code phần title */
+.section-one .inner-content .inner-title {
+    font-size: 64px;
+    color: var(--color-one);
+}
+
+/* Bước 4.2.2: Code phần description */
+.section-one .inner-content .inner-description {
+    font-size: 20px;
+    color: var(--color-one);
+    margin-bottom: 40px;
+}
+
+/* Bước 4.2.3: Code phần list */
+.section-one .inner-content .inner-list {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.section-one .inner-content .inner-list .inner-item {
+    width: 50%;
+    color: var(--color-three);
+    display: flex;
+    align-items: center;
+}
+
+.section-one .inner-content .inner-list .inner-item i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Bước 4.2.4: Code phần button */
+.button {
+    background-color: var(--color-two);
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 45px;
+} 
+
+.button:hover {
+    color:var(--color-two);
+    background-color: white;
+}
+/* Bước 4.3: Code phần image */
+.section-one .inner-image {
+    width: 50%;
+}
+
+.section-one .inner-image img {
+    width: 100%;
+}
+
+.section-one .inner-image {
+    position: relative;
+}
+.section-one .inner-image .inner-sale {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    background-color: var(--color-two);
+    color: var(--color-one);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.section-one .inner-image .inner-sale span:nth-child(1) {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.section-one .inner-image .inner-sale span:nth-child(2) {
+    font-size: 42px;
+    font-weight: 600;
+}
+/* End bước 4 */
+
+/* Bước 5: Code box chính 2 */
+.section-two {
+    padding: 100px 0;
+}
+.section-two .inner-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Bước 5.1: Code background của inner box */
+.section-two .inner-wrap .inner-box {
+    width: calc(100%/3 - 20px);
+    height: auto;
+    aspect-ratio: 4/3;              /* Giúp ảnh có tỉ lệ 4/3 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bước 5.2: Code ảnh của inner box */
+.section-two .inner-wrap .inner-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;              /* Giúp ảnh tự co dãn hết width/heihgt mà không bị vỡ*/
+}
+
+.section-two .inner-wrap .inner-box:hover img {
+    transform: scale(1.1);
+}
+
+/* Bước 5.3: Code content bên trong inner box đó */
+.section-two .inner-wrap .inner-box .inner-content {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+}
+
+.section-two .inner-wrap .inner-box .inner-tag {
+    background-color:#139F5D;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    color: white;
+    margin-bottom: 10px
+}
+
+.section-two .inner-wrap .inner-box .inner-title {
+    margin-top: 0;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight:600;
+}
+
+.section-two .inner-wrap .inner-box .inner-title-2 {
+    color:var(--color-one);
+    margin-bottom:0;
+}
+
+.section-two .inner-wrap .inner-box .inner-sale {
+    font-size: 48px;
+    color: var(--color-two);
+    font-weight: 500;
+    margin-top:0;
+    margin-bottom: 10px;
+    
+}
+
+.section-two .inner-wrap .inner-box .inner-price-old {
+    font-size:28px;
+    color:var(--color-three);
+    text-decoration: line-through;
+    margin-bottom:10px;
+}
+
+/* Bước 5.4: Code button của inner box đó */
+.section-two .inner-wrap .inner-box .button-inner-one {
+    background-color: var(--color-one);
+    position: absolute;
+    bottom: 18px;
+}
+
+.section-two .inner-wrap .inner-box .button-inner-one:hover {
+    background-color: white;
+    color:var(--color-one);
+    position: absolute;
+    bottom: 18px;
+    border: solid 2px var(--color-one);
+}
+
+
+/* End bước 5 */
+
+/* Bước 6: Code box chính 3 */
+.section-three {
+    background-color: #F0F2F5;
+    padding: 50px 0;
+}
+
+.section-three .inner-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.section-three .inner-header .inner-title {
+    font-size: 48px;
+    color: var(--color-one);
+    font-weight: 600;
+}
+
+.section-three .inner-header .inner-description {
+    font-size: 24px;
+    color: var(--color-three);
+}
+
+.section-three .inner-main {
+    display: flex;
+    justify-content: center;
+    margin: 0 32px;
+}
+
+.section-three .inner-main .inner-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    width: 200px;
+}
+
+.section-three .inner-main .inner-box .inner-icon {
+    color:var(--color-three);
+    font-size:40px;
+    margin-bottom: 16px;
+}
+
+.section-three .inner-main .inner-box .inner-title {
+    color: var(--color-one);
+    font-size: 22.4px;
+    font-weight: 500;
+    margin: 12px;
+}
+
+.section-three .inner-main .inner-box .inner-description {
+    color: var(--color-three);
+    font-size: 17.6px;
+    text-align: center;
+}
+/* End bước 6 */
+
+/* Bước 7: Code box chính 4 */
+.section-four {
+    padding: 50px 0;
+}
+
+.section-four .inner-wrap {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.section-four .inner-wrap .inner-content {
+    padding: 0 16px;
+    text-align: left;
+    width: 368px;
+}
+
+.section-four .inner-wrap .inner-content .inner-title {
+    font-size:60px;
+    font-weight: 600;
+    color: var(--color-one);
+    margin-bottom: 32px;
+}
+
+.section-four .inner-wrap .inner-content .inner-description {
+    font-size: 22.4px;
+    color: var(--color-one);
+    margin-bottom: 32px;
+}
+
+.section-four .inner-wrap .inner-img {
+    padding: 0 16px
+}
+
+.section-four .inner-wrap .inner-img img {
+    width: 432px;
+    height: 429px;
+}
+
+.section-four .inner-wrap .inner-button {
+    background-color: var(--color-two);
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 45px;
+    display: inline-block;
+} 
+
+.section-four .inner-wrap .inner-button:hover {
+    color:var(--color-two);
+    background-color: white;
+    border: solid 2px var(--color-two);
+}
+
+/* End bước 7 */
+
+/* Bước 8: Code box chính 5 */
+.section-five {
+    background-color: #F0F2F5;
+    padding: 32px 0;
+}
+
+.section-five .inner-wrap {
+    background-color: white;
+    padding: 32px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-five .inner-wrap .inner-content {
+    display: flex;
+    font-size: 20px;
+    color: var(--color-two);
+    font-weight: 500;
+}
+
+.section-five .inner-wrap .inner-button {
+    background-color: #139F5D;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 45px;
+}
+
+
+
+.section-five .inner-wrap .inner-button:hover {
+    color: #139F5D;
+    background-color:white;
+    border: solid 2px #139F5D;
+}
+/* End bước 8 */
+
+
+/* Bước 9 Code box chính 6 */
+.section-six {
+    padding: 80px 0px;
+}
+
+.section-six .inner-header {
+    font-size: 32px;
+    color: var(--color-one);
+    text-align: center;
+    font-weight: 500;
+}
+
+.section-six .inner-main {
+    display: flex;
+    justify-content: center;
+}
+
+.section-six .inner-main .inner-box .inner-img img {
+    width: 180px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.section-six .inner-main .inner-box .inner-content {
+    padding: 16px;
+}
+
+.section-six .inner-main .inner-box .inner-content .inner-description {
+    color: var(--color-one);
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.section-six .inner-main .inner-box .inner-content .inner-price {
+    font-size: 22px;
+    color: var(--color-one);
+    font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.section-six .inner-main .inner-box .inner-content .inner-icon a {
+    color: var(--color-two);
+    font-size: 22px;
+}
+/* End bước 9 */
+
+
+/* Bước 10 Code box chính 7 */
+.section-seven {
+    padding: 70px 0;
+    background-color: #F0F2F5;
+}
+
+.section-seven .inner-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-seven .inner-wrap .inner-title {
+    margin-bottom: 48px;
+    padding: 0 5px;
+    color: var(--color-one);
+    font-size: 32px;
+    font-weight: 600;
+    width: 350px;
+    text-align: center;
+}
+
+.section-seven .inner-wrap .inner-content {
+    padding: 0 5px;
+}
+
+.section-seven .inner-wrap .inner-content .email {
+    padding: 8px 24px;
+    border:0px;
+    border-radius:45px;
+    color:var(--color-three);
+    font-size: 16px;
+}
+
+.section-seven .inner-wrap .inner-content .Subscribe {
+    padding: 8px 24px;
+    border:0px;
+    border-radius:45px;
+    background-color:var(--color-two);
+    color:white;
+    font-size: 16px;
+}
+
+.section-seven .inner-wrap .inner-content .Subscribe:hover {
+    background-color:white;
+    color:var(--color-two);
+    border: solid 2px var(--color-two);
+    font-size: 16px;
+}
+/* End bước 10 */
+
+
+/* Bước 11 Code box chính 8 */
+.section-eight {
+    padding: 48px 0px;
+}
+
+.section-eight .inner-wrap {
+    padding: 0 32px;
+}
+
+.section-eight .inner-title {
+    margin-bottom: 32px;
+    font-size: 32px;
+    color: var(--color-one);
+    font-weight: 600;
+    text-align: center;
+}
+/* End bước 11 */
+
+
+/* Bước 12 Code box chính 9 */
+.section-night {
+    padding: 96px 0px;
+    background-color: #F0F2F5;
+}
+
+.section-night .inner-header {
+    text-align: center;
+    color: var(--color-one);
+    font-size:48px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+    margin-bottom: 32px;
+}
+
+.section-night .inner-header .inner-icon {
+    color: var(--color-two);
+}
+
+.section-night .inner-main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.section-night .inner-main .inner-box {
+    padding: 32px;
+    width: 320px;
+    height: 270px;
+    background: white;
+}
+
+.section-night .inner-main .inner-box .inner-title {
+    color: var(--color-three);
+    font-size: 18px;
+    margin-bottom: 16px;
+    width: 250px;
+    height: 100px;
+}
+
+.section-night .inner-main .inner-box .inner-name {
+    font-size: 18px;
+    color:var(--color-one);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.section-night .inner-main .inner-box .inner-icon {
+    color:var(--color-two);
+}
+/* End bước 12 */
+
+
+/* Bước 13: Code box chính 10 */
+.section-ten {
+    padding: 48px 0;
+}
+
+.section-ten .inner-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-ten .inner-content {
+    padding: 0 16px;
+    width: 480px;
+}
+
+.section-ten .inner-content .inner-title {
+    font-size: 48px;
+    color: var(--color-one);
+    font-weight: 600;
+    margin: 32px 0;
+}
+
+.section-ten .inner-content .title-1 {
+    width: 260px;
+}
+
+.section-ten .inner-content .inner-description {
+    color: var(--color-three);
+    font-size: 18px;
+    margin-bottom: 48px;
+}
+
+.section-ten .inner-content .inner-button {
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.section-ten .inner-content .inner-button a {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-one);
+    border-radius: 45px;
+    padding: 10px 20px;
+    border: solid 1px var(--color-three);
+}
+
+.section-ten .inner-content .inner-button:hover a {
+    background-color: var(--color-one);
+    color: white;
+}
+
+.section-ten .inner-content .inner-icon {
+    font-size: 22px;
+    margin-bottom: 16px;
+    margin-top: 32px;
+    padding: 0 8px;
+    color: gray;
+}
+/* End bước 13 */
+
+
+/* Bước 14: Code box chính 11 */
+.inner-eleven {
+    background-color: var(--color-one);
+    padding: 48px 0px;
+}
+
+.inner-eleven .inner-wrap {
+    display: flex;
+    justify-content: left;
+}
+
+.inner-eleven .inner-wrap .inner-box {
+    margin-bottom: 16px;
+    padding: 0 16px;
+}
+
+.inner-eleven .inner-wrap .inner-box ul {
+    list-style-type: none;
+    line-height: 32px;
+}
+
+.inner-eleven .inner-wrap .inner-box li {
+    font-size: 18px;
+    color:white;
+}
+
+/* End bước 14 */
+
+/* Bước 15: Code box chính 12 */
+.section-twelve .inner-wrap {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: var(--color-one);
+}
+/* End bước 12 */
+
+
+/* Bước 16: Code responsive */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    .header-main .inner-contact {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    .header-top {
+        font-size:16px;
+    }
+    .header-main .inner-social {
+        display:none;
+    }
+    .header-main .inner-icon-mobile {
+        display:block;
+        font-size:24px;
+        color:var(--color-one);
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+}
+/* End bước 7 */

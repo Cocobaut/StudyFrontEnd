@@ -1,0 +1,192 @@
+<!-- 01. Một số Utilities phổ biến ------------------------------------------------------------------------------------------------------ -->
+
+<!-- 1.1. Colors -------------------------------------------------------------------------------------- -->
+
+<!-- Bootstrap hỗ trợ định dạng một số màu chữ bằng cách chỉ cần gọi các class của bootstrap nhưng trong thực tế rất ít dùng -->
+
+<!-- 
+* Các nguồn:    + Color: https://getbootstrap.com/docs/4.6/utilities/colors/
+*
+*               + Background color: https://getbootstrap.com/docs/4.6/utilities/colors/
+ -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <p class="text-primary">.text-primary</p>
+    <p class="text-secondary">.text-secondary</p>
+    <p class="text-success">.text-success</p>
+    <p class="text-danger">.text-danger</p>
+    <p class="text-warning">.text-warning</p>
+    <p class="text-info">.text-info</p>
+    <p class="text-light bg-dark">.text-light</p>
+    <p class="text-dark">.text-dark</p>
+    <p class="text-body">.text-body</p>
+    <p class="text-muted">.text-muted</p>
+    <p class="text-white bg-dark">.text-white</p>
+    <p class="text-black-50">.text-black-50</p>
+    <p class="text-white-50 bg-dark">.text-white-50</p>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+    <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+    <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+    <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+    <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+    <div class="p-3 mb-2 bg-info text-white">.bg-info</div>
+    <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+    <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+    <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+    <div class="p-3 mb-2 bg-transparent text-dark">.bg-transparent</div>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+<!-- 1.2. Display ---------------------------------------------------------------------------------------->
+
+<!-- Boostrap sẽ giúp format display inline và display block -->
+
+<!-- Nguồn display inline và block: https://getbootstrap.com/docs/4.6/utilities/display/ -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!-- Display inline -->
+    <div class="d-inline p-2 bg-primary text-white">d-inline</div>
+    <div class="d-inline p-2 bg-dark text-white">d-inline</div>
+
+    <!-- Display block -->
+    <span class="d-block p-2 bg-primary text-white">d-block</span>
+    <span class="d-block p-2 bg-dark text-white">d-block</span>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+
+<!-- 1.3. Flex --------------------------------------------------------------------------------------- -->
+
+<!-- Boostrap sẽ giúp format display flex -->
+
+<!-- Nguồn display flex: https://getbootstrap.com/docs/4.6/utilities/flex/ -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">Flex item 1</div>
+        <div class="p-2 bd-highlight">Flex item 2</div>
+        <div class="p-2 bd-highlight">Flex item 3</div>
+    </div>
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 bd-highlight">Flex item 1</div>
+        <div class="p-2 bd-highlight">Flex item 2</div>
+        <div class="p-2 bd-highlight">Flex item 3</div>
+    </div>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+
+<!-- 1.4. Float -------------------------------------------------------------------------------------- -->
+
+<!-- Boostrap sẽ giúp format float nhưng phần này thực tế sẽ ít dùng tới -->
+
+<!-- Nguồn: https://getbootstrap.com/docs/4.6/utilities/float/ -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="float-left">Float left on all viewport sizes</div><br>
+    <div class="float-right">Float right on all viewport sizes</div><br>
+    <div class="float-none">Don't float on all viewport sizes</div>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+<!-- 1.5. Text --------------------------------------------------------------------------------------- -->
+
+<!-- Boostrap sẽ giúp format text nhưng phần này thực tế sẽ ít dùng tới -->
+
+<!-- Nguồn: https://getbootstrap.com/docs/4.6/utilities/text/ -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <p class="text-justify">Some placeholder text to demonstrate justified text alignment. Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia.</p>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

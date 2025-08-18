@@ -1,0 +1,655 @@
+<!-- Flexbox--------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Định nghĩa------------------------------------------------------------------------------------------ -->
+<!-- 
+* Flexbox Layout là một kiểu bố cục trang có khả năng:
+* 
+*       Tự cân đối kích thước
+* 
+*       Thay đổi chiều rộng/chiều cao
+* 
+*       Thay đổi thứ tự phần tử
+* 
+* Flexbox có 2 thành phần là:
+* 
+*       container: là phần tử cha dùng để bọc bên ngoài.
+* 
+*       item: là phần tử con của container.
+-->
+
+<!-- display flex---------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Giúp sắp xếp các phần tử một cách dễ dàng, linh hoạt hơn trước.
+* 
+* Cú pháp:    selector {
+*               display: gia-tri;
+*           }
+-->
+<!-- 
+Giá trị             Ví dụ                                           Mô tả
+flex            .container {                    Giúp các thành phần linh hoạt. Chiều rộng bằng 100%.
+                    display: flex;
+                }
+
+inline-flex     .container {                    Giúp các thành phần linh hoạt. Chiều rộng bằng chiều rộng của các item bên trong.
+                    display: inline-flex;
+                }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #7C4991;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .item {
+            background-color: #F7941F;
+            border: 3px solid #fff;
+            padding: 10px;
+            margin: 10px;
+            font-size: 28px;
+            color: #000;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .container {
+            display: flex;
+            /* display: inline-flex */
+        }
+    </style>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>
+
+<!-- flex-direction-------------------------------------------------------------------------------------- -->
+<!--  
+* Xác định hướng của main-axis để container sắp xếp lại các item.
+* 
+* Cú pháp:  selector {
+*               flex-direction: gia-tri;
+*           }
+-->
+
+<!-- 
+Giá trị             Ví dụ                                               Mô tả
+row             .container {                        Mặc định. Item được sắp xếp theo chiều ngang, từ trái qua phải.
+                    display: flex;
+                    flex-direction: row;
+                }
+
+row-reverse     .container {                        Item được sắp xếp theo chiều ngang, từ phải qua trái
+                    display: inline-flex;
+                    flex-direction: row-reverse;
+                }
+
+column           .container {                       Item được sắp xếp theo chiều dọc, từ trên xuống dưới
+                    display: inline-flex;
+                    flex-direction: column;
+                }
+
+column-reverse  .container {                        Item được sắp xếp theo chiều dọc, từ dưới lên trên.
+                    display: inline-flex;
+                    flex-direction: column-reverse;
+                }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #7C4991;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .item {
+            background-color: #F7941F;
+            border: 3px solid #fff;
+            padding: 10px;
+            margin: 10px;
+            font-size: 28px;
+            color: #000;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>
+
+<!-- flex-wrap------------------------------------------------------------------------------------------- -->
+<!-- 
+* Thuộc tính flex-wrap cho phép item có tự động xuống dòng hay không khi kích thước container thay đổi
+* 
+* Cú pháp:  selector {
+*               flex-wrap: gia-tri;
+*           }
+-->
+<!-- 
+Giá trị             Ví dụ                                               Mô tả
+nowrap          .container {                        Mặc định, tất cả các item sẽ nằm trên một dòng..
+                    display: flex;
+                    flex-wrap: nowrap;
+                }
+
+wrap             .container {                       Khi tổng chiều rộng các item cộng lại lớn hơn chiều rộng của container thì item sẽ tự động xuống dòng
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+wrap-reverse    .container {                       Tương tự như wrap, nhưng thay vì xuống dòng thì item sẽ tự động nhảy lên trên
+                    display: flex;
+                    flex-wrap: wrap-reverse;
+                }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #7C4991;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .item {
+            background-color: #F7941F;
+            border: 3px solid #fff;
+            padding: 10px;
+            margin: 10px;
+            font-size: 28px;
+            color: #000;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap:wrap;
+        }
+    </style>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item">Item 7</div>
+        <div class="item">Item 8</div>
+        <div class="item">Item 9</div>
+        <div class="item">Item 10</div>
+        <div class="item">Item 11</div>
+    </div>
+</body>
+</html>
+
+<!-- justify-content------------------------------------------------------------------------------------- -->
+<!-- 
+* Thuộc tính justify-content để điều chỉnh vị trí bắt đầu và căn chỉnh các item theo trục main-axis.
+* 
+* Cú pháp:      selector {
+*                   justify-content: gia-tri;
+*               }
+-->
+
+<!-- 
+Giá trị             Ví dụ                                               Mô tả
+flex-start      .container {                       Mặc định. Item sẽ bắt đầu từ lề chính main-start của container
+                    display: flex;
+                    justify-content: flex-start;
+                }
+
+flex-end        .container {                       Item sẽ bắt đầu từ lề chính main-end của container (khác với flex-direction: row-reverse; là đổi hướng hiển thị)
+                    display: flex;
+                    justify-content: flex-end;
+                }
+
+center          .container {                        Item sẽ nằm giữa container.
+                    display: flex;                  
+                    justify-content: center;
+                }
+
+space-between   .container {                        Khoảng cách giữa các item bằng nhau.
+                    display: flex;                  Item đầu tiên và cuối cùng sát với lề 
+                    justify-content: space-between;
+                }
+
+space-around    .container {                       Tương tự space-between, nhưng khác ở chỗ: Khoảng cách giữa item và lề = 1/2 khoảng cách giữa item và item
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+space-evenly    .container {                       Tương tự space-between, nhưng khác ở chỗ: Khoảng cách giữa item và lề = khoảng cách giữa item và item
+                    display: flex;
+                    justify-content: space-evenly;
+                }
+-->            
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #7C4991;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .item {
+            background-color: #F7941F;
+            border: 3px solid #fff;
+            padding: 10px;
+            margin: 10px;
+            font-size: 28px;
+            color: #000;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>
+
+<!-- align-items-------------------------------------------------------------------------------------------- -->
+<!-- 
+* Thuộc tính align-items sử dụng để điều chỉnh vị trí bắt đầu và căn chỉnh các item theo trục cross-axis.
+* 
+* Dùng để căn chỉnh cho một dòng.
+* 
+* Cú pháp:  selector {
+*               align-items: gia-tri;
+*           }
+-->
+
+<!-- 
+Giá trị             Ví dụ                                               Mô tả
+stretch        .container {                       Mặc định. Các phần tử sẽ tự động tăng chiều cao để lấp đầy chiều cao của container, nhưng sẽ ưu tiên giá trị height (nếu có)
+                    display: flex;
+                    align-items: stretch;
+                }
+
+flex-start      .container {                       Item sẽ bắt đầu từ lề cross-start của container
+                    display: flex;
+                    align-items: flex-start;
+                }
+
+flex-end        .container {                       Item sẽ bắt đầu từ lề cross-end của container
+                    display: flex;
+                    align-items: flex-end;
+                }
+
+center          .container {                        Item sẽ căn giữa theo chiều của cross-axis.
+                    display: flex;                  
+                    align-items: center;
+                }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #7C4991;
+            padding: 20px;
+            border-radius: 5px;
+            height:300px;
+        }
+
+        .item {
+            background-color: #F7941F;
+            border: 3px solid #fff;
+            padding: 10px;
+            margin: 10px;
+            font-size: 28px;
+            color: #000;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-end;
+        }
+    </style>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>
+
+<!-- align-content---------------------------------------------------------------------------------------------- -->
+<!-- 
+* Thuộc tính align-content sử dụng để điều chỉnh vị trí bắt đầu và căn chỉnh các item theo trục cross-axis.
+* 
+* Dùng để căn chỉnh cho nhiều dòng.
+* 
+* Cú pháp:      selector {
+*                   align-content: gia-tri;
+*               }
+-->
+
+<!--
+Giá trị             Ví dụ                                               Mô tả
+stretch        .container {                       Mặc định. Các phần tử tự động tăng chiều cao sao cho lấp đầy container (Vẫn ưu tiên giá trị height nếu có)
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: stretch;
+                }
+
+flex-start      .container {                       Item sẽ bắt đầu từ lề chứa cross-start của container
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: flex-start;
+                }
+
+flex-end        .container {                       Item sẽ bắt đầu từ lề chứa cross-end của container.
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: flex-end;
+                }
+
+center          .container {                       Item sẽ nằm giữa container căn theo cross-axis.
+                    display: flex;
+                    flex-wrap: wrap;                  
+                    align-content: center;
+                }
+
+space-between   .container {                        Khoảng cách giữa các item bằng nhau.
+                    display: flex;                  Item đầu tiên và cuối cùng sát với lề
+                    flex-wrap: wrap;
+                    align-content: space-between;
+                }
+
+space-around    .container {                       Tương tự space-between, nhưng khác ở chỗ: Khoảng cách giữa item và lề = 1/2 khoảng cách giữa item và item.
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: space-around;
+                }
+
+space-evenly    .container {                       Tương tự space-between, nhưng khác ở chỗ: Khoảng cách giữa item và lề = khoảng cách giữa item và item
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: space-evenly;
+                }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #7C4991;
+            padding: 20px;
+            border-radius: 5px;
+            height:300px;
+        }
+
+        .item {
+            background-color: #F7941F;
+            border: 3px solid #fff;
+            padding: 10px;
+            margin: 10px;
+            font-size: 28px;
+            color: #000;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .container {
+            display: flex;
+            /* align-items: flex-end; */
+            align-content: flex-end;
+            flex-wrap: wrap;
+        }
+    </style>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item">Item 7</div>
+        <div class="item">Item 8</div>
+        <div class="item">Item 9</div>
+        <div class="item">Item 10</div>
+        <div class="item">Item 11</div>
+        <div class="item">Item 12</div>
+    </div>
+</body>
+</html>
+
+<!-- align-seft-------------------------------------------------------------------------------------- -->
+<!-- 
+* Tương tự như align-items nhưng là áp dụng cho một item nào đó.
+* 
+* Cú pháp:  selector {
+*               align-seft: gia-tri;
+*           }
+-->
+
+<!--
+Giá trị             Ví dụ                                               Mô tả
+auto            .item:nth-child(2) {                      Mặc định. 
+                    align-self: auto;
+                }
+
+stretch        .item:nth-child(2) {                       Các phần tử sẽ tự động tăng chiều cao để lấp đầy chiều cao của container, nhưng sẽ ưu tiên giá trị height (nếu có)
+                    align-self: stretch;
+                }
+
+flex-start      .item:nth-child(2) {                      Item sẽ bắt đầu từ lề cross-start của container
+                    align-self: flex-start;
+                }
+
+flex-end        .item:nth-child(2){                       Item sẽ bắt đầu từ lề cross-end của container.
+                    align-self: flex-end;
+                }
+
+center         .item:nth-child(2){                        Item sẽ căn giữa theo chiều của cross-axis.
+                    align-self: center;
+                }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #7C4991;
+            padding: 20px;
+            border-radius: 5px;
+            height:300px;
+        }
+
+        .item {
+            background-color: #F7941F;
+            border: 3px solid #fff;
+            padding: 10px;
+            margin: 10px;
+            font-size: 28px;
+            color: #000;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .item:nth-child(2) {
+            align-self: flex-start;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+    </style>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>
+
+<!-- order----------------------------------------------------------------------------------------------- -->
+<!-- 
+* Thuộc tính order dùng để sắp xếp lại vị trí của các item.
+* 
+* Cú pháp:  selector {
+*                order: gia-tri; /* mặc định là 0 */
+*           }
+* Trong đó: gia-tri >= 0
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #7C4991;
+            padding: 20px;
+            border-radius: 5px;
+            height:300px;
+        }
+
+        .item {
+            background-color: #F7941F;
+            border: 3px solid #fff;
+            padding: 10px;
+            margin: 10px;
+            font-size: 28px;
+            color: #000;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .item:nth-child(1) {
+            order: 3;
+        }
+
+        .item:nth-child(2) {
+            order: 0;
+        }
+
+        .item:nth-child(3) {
+            order: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+    </style>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>

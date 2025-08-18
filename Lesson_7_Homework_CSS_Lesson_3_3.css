@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #F9F9FF;
+    padding:40px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    padding:20px;
+}
+
+.parent {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.child {
+    display: inline-flex;
+    background-color: #FFFFFF;
+    margin-right: 20px;
+    width: calc(17% - 60px / 4);
+    border-radius: 12px;
+    border:1px solid gray;
+}
+
+.child .image {
+    width: 100px;
+    height: 80px;
+}
+.child img {
+    width: 80%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.inner-button{
+    color: #192335;
+    font-weight: 550;
+}
+
+.content:hover {
+    color: #2F57EF;
+}
+
+.inner-button:hover {
+    color: #2F57EF;
+}
+
+.inner-button {
+    text-decoration: none;
+}

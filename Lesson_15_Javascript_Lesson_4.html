@@ -1,0 +1,607 @@
+<!-- 01. Khái niệm BOM ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+ 
+<!-- 
+* BOM là chữ viết tắt của Browser Object Model, hay còn gọi là các đối tượng liên quan đến trình duyệt.
+* 
+* Các BOM giúp ta biết được lịch sử lướt web, lưu các hành động và trạng thái của người dùng trên trang.
+* 
+* Các loại BOM:     + window
+* 
+*                   + screen
+* 
+*                   + location
+* 
+*                   + history
+* 
+*                   + navigator
+* 
+*                   + popup
+* 
+*                   + timing
+* 
+*                   + cookies 
+-->
+
+
+<!-- 02. BOM Window------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 2.1. Khái niệm----------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* window là một đối tượng có những phương thức và thuộc tính được dùng để xử lý trình duyệt.
+* 
+* window có cấp độ cao nhất. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(window);
+    </script>
+</body>
+</html>
+
+
+<!-- 2.2. innerHeight và innerWidth------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* innerHeight để lấy kích thước chiều cao của tài liệu.
+* 
+* innerWidth để lấy kích thước chiều rộng của tài liệu.
+* 
+* Cú pháp:      + window.innerHeight;
+* 
+*               + window.innerWidth; 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(window.innerHeight);
+        console.log(window.innerWidth);
+    </script>
+</body>
+</html>
+
+
+<!-- 2.3. window.open()------------------------------------------------------------------------------------------------------------ -->
+<!-- 
+* Để mở một cửa sổ mới.
+* 
+* Cú pháp: window.open(url, name, options)
+* 
+* Trong đó:     + url: là đường dẫn website bạn muốn mở
+* 
+*               + name: là tên bạn đặt cho cửa sổ này
+* 
+*               + options: là một chuỗi các thông số được cách nhau bởi dấu phẩy, sau đây là các thông số thông dụng.
+* 
+*               + height: chiều cao của cửa sổ. Đơn vị pixels.
+* 
+*               + width: chiều rộng của cửa sổ. Đơn vị pixels.
+* 
+*               + top: vị trí hiển thị cửa sổ so với lề trên. Đơn vị pixels.
+* 
+*               + left: vị trí hiển thị cửa sổ so với lề trái. Đơn vị pixels. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openTab()">Opennewtab</button>
+
+    <script>
+        function openTab() {
+            window.open("https://www.youtube.com/", "_blank", "width=1200");
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 2.4. window.close()--------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Để đóng cửa sổ mà ta đã dùng lệnh open() để mở.
+* 
+* Cú pháp:      + Gọi hàm mở cửa sổ:
+* 
+*               + var myWindow = window.open(url, name, options)
+* 
+*               + Gọi hàm đóng cửa sổ:
+* 
+*               + myWindow.close(); 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openTab()">Open new tab</button>
+    <button onclick="closeTab()">Close tab</button>
+    <script>
+
+        let tab;
+
+        function openTab() {
+            tab = window.open("https://www.youtube.com/", "_blank", "width=1200");
+        }
+
+        function closeTab() {
+            tab.close();
+        }
+
+    </script>
+</body>
+</html>
+
+
+<!-- 2.5. window.location.href------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Để lấy đường dẫn hiện tại của trang web.
+* 
+* Cú pháp: window.location.href; 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        console.log(window.location.href);
+
+    </script>
+</body>
+</html>
+
+
+<!-- 03. BOM Screen-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 3.1. screen.width và screen.height--------------------------------------------------------------------------------------- -->
+
+<!-- 
+* screen.width để lấy chiều rộng màn hình máy tính (không phải chiều rộng của màn hình trình duyệt)
+* 
+* screen.height để lấy chiều cao màn hình máy tính (không phải chiều cao của màn hình trình duyệt) 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let screenWidth = window.screen.height;
+        let screenHeight = window.screen.width;
+
+        setTimeout(() => {
+            console.log(screenHeight, screenWidth);
+        }, 5000);
+
+    </script>
+</body>
+</html>
+
+
+<!-- 04. BOM Location------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- 4.1. Khái niệm----------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* location là một đối tượng được dùng để xử lý các vấn đề liên quan đến URL của trang web
+* 
+* Cú pháp: window.location hoặc location 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(window.location);
+
+    </script>
+</body>
+</html>
+
+<!-- 4.2. Phương thức reload()------------------------------------------------------------------------------------------------ -->
+<!-- 
+* Để load lại trang web
+* 
+* Cú pháp: location.reload() 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="reloadWeb()">Reload web</button>
+    <script>
+        function reloadWeb() {
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
+
+<!-- 4.3. Các thuộc tính------------------------------------------------------------------------------------------------------ -->
+<!-- 
+* hash: lấy phần sau dấu # của URL
+* 
+* host: lấy hostname và port của URL
+* 
+* hostname: lấy hostname
+* 
+* href: lấy URL
+* 
+* origin: trả về protocol, hostname và port của URL
+* 
+* pathname: lấy path name của URL
+* 
+* port: lấy port của URL
+* 
+* search: lấy phần query string của URL (sau dấu ?)
+* 
+* Ví dụ: https://daca.vn/index.html?search=test123#abc 
+-->
+
+
+<!-- 05. BOM History----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 5.1. Khái niệm--------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* history dùng để quản lý lịch sử lướt web.
+* 
+* Khi bạn lướt web thì trình duyệt sẽ lưu lại lịch sử lướt web của bạn. Dựa vào lịch sử đó, ta có thể xem lại những ngày trước đã xem những gì, truy cập vào những trang nào.
+* 
+* Cú pháp: window.history hoặc history 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(window.history);
+    </script>
+</body>
+</html>
+
+<!-- 5.2. Xem lịch sử lướt web -->
+<!-- 
+* history.length: đếm tổng số trang đã lưu trong history
+* 
+* history.back(): trở lại trang trước
+* 
+* history.forward(): đi tới trang kế tiếp
+* 
+* history.go(number): đi tới một trang:     + nếu number âm thì tính từ trang hiện tại trừ đi number
+* 
+*                                           + nếu number dương thì tính từ trang hiện tại cộng với number 
+-->
+
+<!-- 06. BOM Navigator---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 6.1. Khái niệm---------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* navigator được dùng để kiểm tra các thông tin về người dùng như trình duyệt đang sử dụng là gì? hệ điều hành đang sử dụng là gì? Trình duyệt có bật cookie hay không? có thể kiểm tra được tên và phiên bản của trình duyệt.
+* 
+* Cú pháp: window.navigator hoặc navigator 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(window.navigator);
+    </script>
+</body>
+</html>
+
+<!-- 6.2. Một số thuộc tính-------------------------------------------------------------------------------------------------- -->
+<!-- 
+* navigator.cookieEnabled: Để kiểm tra trình duyệt có bật Cookie hay không.
+* 
+* navigator.appName: Để kiểm tra tên trình duyệt.
+* 
+* navigator.appCodeName: Để kiểm tra tên mã code của trình duyệt.
+* 
+* navigator.appVersion: Để kiểm tra Version của trình duyệt.
+* 
+* navigator.platform: Xem hệ điều hành mà người dùng đang sử dụng.
+* 
+* navigator.language: Để kiểm tra ngôn ngữ của trình duyệt. 
+-->
+
+
+<!-- 07. BOM Popup----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* alert("Nội dung");
+* 
+* confirm("Nội dung");
+* 
+* prompt("Nội dung","Nội dung mặc định"); 
+-->
+
+<!-- 08. BOM Timing------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- 
+* setTimeout(function, milliseconds)
+* 
+* setInterval(function, milliseconds) 
+-->
+
+<!-- 09. Cookies--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 9.1. Khái niệm-------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Cookie là dữ liệu được lưu trữ trong một file text, và nằm trong máy tính, nên việc lưu trữ cookie sẽ là vĩnh viễn hoặc là một thời gian cụ thể, tất cả đều do bạn thiết lập.
+* 
+* Khi trình duyệt gửi thông tin lên server thì cookies sẽ được gửi kèm theo. Đây cũng là thông tin để trả lời cho câu hỏi tạo sao Cookie được lưu trữ ở Client mà trên Server vẫn đọc được.
+* 
+* Cookie được lưu trữ ở dạng name=value
+-->
+
+<!-- 9.2. Các thao tác với cookie------------------------------------------------------------------------------------------ -->
+<!-- 
+* Tạo cookie
+* 
+* Cú pháp: document.cookie = 'name=value';
+* 
+* Để thiết lập thời gian sống cho cookie thì ta sử dụng từ khóa expires. Định dạng thời gian là UTC. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="login()">Đăng nhập</button>
+    <script>
+        function login() {
+            if (true) {
+                document.cookie='token=mvisdvmsindsocinsncodsnc; expires=Thu, 01 Jan 2030 00:00:00 UTC';
+                document.cookie='email=mvisdvmsindsocinsncodsnc';
+                document.cookie='fullname=mvisdvmsindsocinsncodsnc';
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- Hàm set cookie: Tạo hoặc cập nhật cookie mới trên trình duyệt. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="login()">Đăng nhập</button>
+    <script>
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // days → milliseconds
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+        function login() {
+            setCookie("token", "áidcisdcisdcsi", 1);
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 
+* Lấy giá trị cookie
+* 
+* Cú pháp: var giatri = document.cookie;
+* 
+* Lúc này kết quả sẽ trả về một chuỗi Cookie có cấu trúc name=value, trường hợp bạn lưu nhiều cookie thì nó sẽ có dạng name1=value1;name2=value2.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="login()">Đăng nhập</button>
+    <script>
+        // Hàm set cookie: Tạo hoặc cập nhật cookie mới trên trình duyệt.
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // days → milliseconds
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+
+        // Hàm get cookie: Đọc lại thông tin đã lưu từ cookie (có sẵn trên mạng)
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let c = cookies[i].trim();
+                if (c.indexOf(nameEQ) === 0) {
+                    return decodeURIComponent(c.substring(nameEQ.length));
+                }
+            }
+            return null; // Không tìm thấy
+        }
+
+        function login() {
+            setCookie("token", "áidcisdcisdcsi", 1);
+        }
+
+        var allCookie = document.cookie;
+        console.log(allCookie);
+        var email = getCookie("email");
+        console.log(email);
+    </script>
+</body>
+</html>
+
+
+<!-- 
+* Đổi giá trị cho cookie
+* 
+* Để thay đổi giá trị cho Cookie thì bạn chỉ việc gán lại giá trị cho cookie. Không sinh ra cookie mới mà sẽ ghi đè lên cookie cũ.
+* 
+* Cú pháp: document.cookie = 'name=value';
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="login()">Đăng nhập</button>
+    <button onclick="updateInfo()">Cập nhật</button>
+    <script>
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let c = cookies[i].trim();
+                if (c.indexOf(nameEQ) === 0) {
+                    return decodeURIComponent(c.substring(nameEQ.length));
+                }
+            }
+            return null; 
+        }
+
+        function login() {
+            setCookie("token", "áidcisdcisdcsi", 1);
+        }
+
+        var allCookie = document.cookie;
+        console.log(allCookie);
+
+        //Hàm thay đổi giá trị cookie
+        function updateInfo() {
+            document.cookie = 'email=test@gmail.com';
+        }
+
+        var email = getCookie("email");
+        console.log(email);
+    </script>
+</body>
+</html>
+
+<!-- 
+* Xóa cookie
+* 
+* Chỉ cần xét lại giá trị ngày hết hạn expires về những thời gian trước đấy.
+* 
+* Cú pháp: document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC"; 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="login()">Đăng nhập</button>
+    <button onclick="deleteInfo()">Cập nhật</button>
+    <script>
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let c = cookies[i].trim();
+                if (c.indexOf(nameEQ) === 0) {
+                    return decodeURIComponent(c.substring(nameEQ.length));
+                }
+            }
+            return null; 
+        }
+
+        function login() {
+            setCookie("token", "áidcisdcisdcsi", 1);
+        }
+
+        let allCookie = document.cookie;
+        console.log(allCookie);
+
+        function deleteInfo() {
+            document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        }
+
+        let email = getCookie("email");
+        console.log(email);
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* Box head */
+.box-head {
+    text-align: center;
+}
+.box-head .inner-title {
+    font-weight: 600;
+    color: #124265;
+    font-size:32px;
+    margin-top: 0;
+}
+
+.box-head .inner-desc {
+    font-size: 16px;
+    color: #8a8a8a;
+    margin-top:0;
+}
+
+/* Section one */
+.section-one .inner-main {
+    background-color: #F3F9FD;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.section-one .inner-main::after {
+    content: "";
+    width: 0; 
+    height: 0; 
+    position: absolute;
+    top: 39%;
+    left: calc(50% - 20px);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #F3F9FD;
+}
+
+.section-one .inner-content {
+    position: relative;
+}
+
+.section-one .inner-content::before {
+    content:"\f10d";
+    font-weight: 900;
+    font-family: "Font Awesome 6 Free";
+    color: #C9E3F5;
+    font-size: 20px;
+}
+
+.section-one .inner-content::after {
+    content:"\f10e";
+    font-weight: 900;
+    font-family: "Font Awesome 6 Free";
+    color: #C9E3F5;
+    font-size: 20px;
+}
+
+.section-one .inner-infor {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.section-one .inner-infor img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.section-one .inner-infor .inner-position {
+    color: #8a8a8a;
+}

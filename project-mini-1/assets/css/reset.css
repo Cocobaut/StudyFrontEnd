@@ -1,0 +1,9 @@
+/* Do trình duyệt có sẵn một số thuộc tính mặc định cho một số loại thẻ, sẽ gây ảnh hưởng tương đối nhiều khi ta viết CSS.
+ * 
+ * Chính vì vậy người ta mới nghĩ ra file reset CSS để khắc phục những nhược điểm đấy.
+ *
+ * Link file reset CSS phổ biến: https://cdnjs.com/libraries/normalize
+ *
+ * Lưu ý: Nên nhúng file đuôi .min.css để loại bỏ khoảng trắng và các comment không cần thiết, giúp cho file nhẹ hơn, web sẽ load nhanh hơn.
+ */
+

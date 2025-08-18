@@ -1,0 +1,169 @@
+.HW1 {
+    list-style-type: none;
+    display: block;
+    border:1px solid #000;
+    background-color: #bebebe;
+    padding:10px;
+    width: 200px;
+}
+
+i {
+    padding:10px;
+    background-color: #bebebe;
+}
+
+table {
+    border-collapse: collapse;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
+table, th, td {
+    border:1px solid #000;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    color:white;
+    background-color: chartreuse;
+}
+
+.HW3 {
+    padding:5px;
+    background-color: orange;
+    color:white;
+    font-weight: 900;
+    border-radius: 5px;
+}
+
+.HW3 ul li{
+    display: inline;
+    padding:10px;
+    margin: 0;
+    list-style-type: none;
+}
+
+.HW3 ul li:hover{
+    background-color: black;
+}
+
+.Main-content{
+    position:relative;
+    background-color: #bebebe;
+    height:700px;
+    width:auto;
+    margin-top:10px;
+    margin-bottom:20px;
+    border-radius:5px;
+}
+
+.Content-1{
+    position:relative;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius:5px;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.Content-2 {
+    position:relative;
+    left:1700px;
+
+    background-color: orange;
+    width: 100px;
+    height: 100px;
+    border-radius:5px;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.Content-3{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    border-radius:5px;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.Content-4{
+    position:absolute;
+    bottom:0px;
+    right:0px;
+
+    background-color: blueviolet;
+    width: 100px;
+    height: 100px;
+    border-radius:5px;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.end{
+    position: relative;
+    background-color: #003062;
+    display: block;
+    padding:20px;
+    border-radius:5px;
+    color:white;
+    z-index: 1;
+}
+
+.first-end::first-letter{
+    font-size:40px;
+}
+
+.first-end::before{
+    content: '';
+    position: absolute;
+    top:0px;
+    left:0px;
+
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Hình tròn đen mờ */
+    z-index: -1;
+}
+
+.first-end::after{
+    content:'';
+    position:absolute;
+    right:0px;
+
+    width: 80px;
+    height:80px;
+    border-radius:100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Hình tròn đen mờ */
+    z-index: -1;
+}
+
+.footer{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background-color: black;
+    padding:20px;
+    border-radius: 5px;
+    z-index:1000;
+}

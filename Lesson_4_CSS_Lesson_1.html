@@ -1,0 +1,1036 @@
+<!-- Định nghĩa CSS ---------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Khái niệm:    + CSS: viết tắt của Cascading Style Sheets
+* 
+*               + Là ngôn ngữ được dùng để định dạng kiểu hiển thị cho các phần tử HTML.
+*
+-->
+
+<!-- Cú pháp đơn giản của CSS ------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!--  
+* Cú pháp:  selector { 
+*               property: value;
+*           }
+* 
+* Trong đó: + selector: Được gọi là bộ chọn
+* 
+*           + property: Được gọi là thuộc tính
+*   
+*           + value: Được gọi là giá trị của thuộc tính
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h1 {
+            color: red;
+        }
+        p {
+            font: size 30px;
+        }
+    </style>
+    <h1>Nội dung thẻ h1</h1>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!-- Selectors ------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Khái niệm ------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Selectors:        + Bộ chọn CSS chọn (các) phần tử HTML mà bạn muốn tạo kiểu.
+*
+*                   + Ví dụ: Các thẻ <h1>, <p>, <table>,... thì viết trong css sẽ chỉ lấy tên thẻ là h1, p, table
+*
+* Bộ chọn CSS được chia làm 5 loại:     + Simple selectors (Bộ chọn đơn giản)
+*
+*                                       + Combinator selectors (Bộ chọn tổ hợp)
+*
+*                                       + Pseudo-class selectors (Bộ chọn lớp giả)
+*
+*                                       + Pseudo-elements selectors (Bộ chọn phần tử giả)
+*
+*                                       + Attribute selectors (Bộ chọn thuộc tính)
+*
+-->
+
+
+<!-- Simple selectors -------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Bộ chọn element (element selector): chọn các phần tử HTML dựa trên tên phần tử.
+*
+* Ví dụ:  p {
+*           text-align: center;
+*	        color: red;
+*         }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p {
+            font: size 30px;
+            color:blue;
+        }
+    </style>
+    <p>Nội dung thẻ p1</p>
+    <p>Nội dung thẻ p2</p>
+</body>
+</html>
+
+<!-- 
+* Bộ chọn id (id selector): Sử dụng thuộc tính id (identifier - định danh) của một phần tử HTML để chọn một phần tử cụ thể. Lưu ý: Tên id không được bắt đầu bằng số.
+*
+* Ví dụ:  #title {
+*           text-align: center;
+*	        color: red;
+*         }
+*
+* Lưu ý: hạn chế dùng cách này
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #test {
+            font: size 30px;
+            color:blue;
+        }
+    </style>
+    <p>Nội dung thẻ p1</p>
+    <p id="test">Nội dung thẻ p2</p>
+</body>
+</html>
+
+<!-- 
+* Bộ chọn class (class selector): chọn các thành phần HTML với một thuộc tính class cụ thể. Lưu ý: Tên class không được bắt đầu bằng số.
+*
+* Ví dụ:  .title {
+*           text-align: center;
+*	        color: red;
+*         }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .text-orange{
+            color:orange;
+        }
+    </style>
+    <p class="text-orange">Nội dung 01</p>
+    <p class="text-orange">Nội dung 02</p>
+    <p>Nội dung 03</p>
+</body>
+</html>
+
+
+<!-- 
+* Bộ chọn chung (universal selector): chọn tất cả các thành phần HTML trên trang..
+*
+* Ví dụ:  * {
+*           text-align: center;
+*	        color: red;
+*         }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            color:red;
+        }
+    </style>
+    <h1>Nội dung h1</h1>
+    <p>Nội dung p</p>
+</body>
+</html>
+
+<!-- 
+* Bộ chọn nhóm (grouping selector): Bộ chọn nhóm chọn tất cả các element, id, class có cùng thuộc tính và giá trị thuộc tính.
+*
+* Ví dụ:  h1, h2, p {
+*           text-align: center;
+*	        color: red;
+*         }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h1, p{
+            color:red;
+        }
+    </style>
+    <h1>Nội dung h1</h1>
+    <h2>Nội dung h2</h2>
+    <p>Nội dung p</p>
+</body>
+</html>
+
+
+<!-- 3 kiểu chèn CSS ---------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Loại 1: Inline CSS (Nội tuyến) --------------------------------------------------------------------------------------->
+<!--  
+* Ta sẽ thêm thuộc tính style vào trong thẻ mà muốn sửa CSS.
+*
+* Có thể được sử dụng để áp dụng một kiểu duy nhất cho một element.
+*
+* Ví dụ: <p style="color:red;">This is a paragraph.</p>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="color: red; font-size: 40px">Nội dung thẻ p</p>
+</body>
+</html>
+
+<!-- Loại 2: Internal CSS (Nội bộ) --------------------------------------------------------------------------------------->
+<!--  
+* Ta sẽ thêm thẻ <style></style> và bất cứ đâu trong file html, sau đó viết CSS vào trong thẻ <style> đó.
+*
+* Thường thì thẻ <style> này sẽ nằm trong thẻ <head></head>.
+*
+* Có thể được sử dụng nếu có một trang HTML duy nhất.
+*
+* Ví dụ:
+*           <style>
+*               p {
+*                   color:red;
+*               }
+*           </style>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p {
+            font: size 30px;
+            color:blue;
+        }
+    </style>
+    <p>Nội dung thẻ p1</p>
+    <p>Nội dung thẻ p2</p>
+</body>
+</html>
+
+<!-- Loại 3: External CSS (Bên ngoài)----------------------------------------------------------------------------------- -->
+<!--  
+* Ta thêm 1 file css ở bên ngoài, sau đó dùng thẻ <link /> đặt ở trong thẻ <head></head> và chèn đường dẫn vào thuộc tính href ở trong thẻ link.
+*
+* Có thể thay đổi giao diện của toàn bộ trang web bằng cách chỉ thay đổi một tệp.
+*
+* Ví dụ: <link rel="stylesheet" href="mystyle.css">
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS_Lesson_1.css">
+</head>
+<body>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+
+<!-- 
+* Lưu ý: Nếu trùng bộ chọn và tên thuộc tính, thì giá trị của bộ chọn cuối cùng được sử dụng.
+* 
+*   h1 {
+* 	    color: navy;
+*   }
+*   h1 {
+* 	    color: orange;   
+*   }
+*   → Màu được chọn sẽ là màu orange.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h1{
+            color:aqua;
+        }
+        h1{
+            color:blanchedalmond;
+        }
+    </style>    
+    <h1>Nội dung thẻ h1</h1>
+</body>
+</html>
+
+
+<!-- Colors (Màu sắc), Backgrounds (Nền) --------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Colors (Màu sắc) -----------------------------------------------------------------------------------------------------  -->
+<!-- 
+* Colors: Màu sắc được gán giá trị bằng cách sử dụng: 
+* 	
+*   + Một số màu được đặt tên sẵn: white, black, red, green, blue, yellow, orange,... (ít sử dụng)
+* 	
+*   + HEX (Phổ biến nhất) 
+* 	
+*   + RGB (ít sử dụng)
+* 	
+*   + HSL (cực ít sử dụng)
+-->
+
+<!--
+* HEX (Phổ biến nhất):  + Màu HEX được chỉ định bằng: #RRGGBB, trong đó các số nguyên thập lục phân RR (đỏ), GG (xanh lục) và BB (xanh dương) chỉ định các thành phần của màu.
+* 
+*                       + Cú pháp: #RRGGBB
+* 
+*                           Ví dụ: #000000 (màu đen), #FFFFFF (màu trắng), #FF0000 (màu đỏ)
+* 
+*                           h1 {
+* 	                            color: #FF0000;   
+*                           }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p{
+            color:#FF5733;
+        }
+    </style>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+
+<!-- Backgrounds (Nền): dùng để thêm nền vào cho element------------------------------------------------------------------------------------------------ -->
+<!--
+* background-color: nền là màu sắc
+*
+*   Ví dụ:
+*         body {
+* 	        background-color: lightblue;
+*         }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p{
+            background-color:#FF5733;
+        }
+    </style>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!--  
+* background-image: nền là hình ảnh hoặc màu gradient.
+* 
+*       + Giá trị là kiểu hình ảnh.
+* 
+*           Ví dụ: background-image: url("hinh-anh.jpg");
+* 
+*       + Có thể chèn nhiều hình ảnh: (url nào ở trước thì sẽ nằm bên trên)
+* 
+*           Ví dụ: background-image: url("hinh-1.png"), url("hinh-2.jpg");
+* 
+*       + Có thể là kiểu gradient: Tạo ra một dải màu chuyển đổi từ màu này đến màu khác.
+* 
+*           Ví dụ: background-image: linear-gradient(180deg, #000000, #ffffff);
+* 
+*       + Kết hợp cả hình ảnh và gradient:
+* 
+*           Ví dụ: background-image: linear-gradient(180deg, #00000080, #ffffffad), url("hinh-anh.jpg");
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p{
+            background-image: url(images/image1.png);
+        }
+    </style>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p{
+            background-image: linear-gradient(180deg, #000000, #ffffff);
+            width: 700px;
+            height: 500px;
+        }
+    </style>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!--
+* background-size: Kích thước của background.
+* 
+*   + Giá trị có thể là đơn vị (px, %, …).
+* 
+*       + Ví dụ: background-size: 100% auto;
+* 
+*   + contain: sẽ co dãn hình ảnh để hình ảnh nằm trọn trong khung element, hình ảnh không bị vỡ.
+* 
+*       + Ví dụ: background-size: contain;
+* 
+*   + cover: kéo dãn hình ảnh sao cho vừa với khung, cắt bỏ đi những phần ảnh thừa để hình ảnh không bị vỡ.
+* 
+*       + Ví dụ: background-size: cover;
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p{
+            background-image: url(images/image1.jpg);
+            background-size: contain;
+            width: 200px;
+            height:200px;
+        }
+    </style>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!-- 
+* background-repeat: nền được lặp lại hay không.
+*
+* Ví dụ:    + background-repeat: no-repeat; // Không lặp lại ảnh
+* 	
+*           + background-repeat: repeat-x; // Lặp theo trục ngang
+* 	 
+*           + background-repeat: repeat-y; // Lặp theo trục dọc
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p{
+            background-image: url(images/image1.jpg);
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            width: 200px;
+            height:200px;
+        }
+    </style>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!--  
+* background-position: vị trí hình nền so với element. Có các giá trị: top, left, right, bottom, center.
+* 
+* Ví dụ:    + background-position: top left; // trên - trái
+* 
+*           + background-position: top right; // trên - phải
+* 
+*           + background-position: top center; // trên - giữa
+* 
+*           + background-position: bottom left; // dưới - trái
+* 
+*           + background-position: bottom right; // dưới - phải
+* 
+*           + background-position: bottom 30px right 20px; // cách dưới 30px - cách phải 20px
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Paragraph</title>
+    <style>
+        p {
+            background-image: url(images/image1.jpg);
+            background-size: cover;
+            background-position: bottom right;
+            width: 100px;
+            height:100px;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!--
+* background-attachment: nền sẽ được cuộn hoặc cố định.
+* 
+* Ví dụ:    + background-attachment: fixed; // Hình nền được fix cố định khi di cuộn web
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Paragraph</title>
+    <style>
+        p {
+            background-image: url(images/image1.jpg);
+            background-size: cover;
+            background-position: bottom right;
+            width: 100px;
+            height:100px;
+            color: white;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!-- Coi 2 Boxmodel trước khi coi 2 thuộc tính dưới---------------------------------------------------------------- -->
+
+<!-- 
+* background-clip: xác định phạm vi được thiết lập màu nền của phần tử (Áp dụng cho background là màu sắc)
+* 
+*   + border-box: Mặc định. Đổ màu từ content cho đến hết border.
+* 
+*   + padding-box: Đổ màu từ content cho đến hết padding.
+* 
+*   + content-box: Chỉ đổ màu phần content
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .boxModel {
+            background-color: brown;
+            border: 10px dashed #000;
+        }
+    </style>
+    <div class="boxModel">Content1</div>
+</body>
+</html>
+
+<!--  
+* background-origin: giống background-clip, nhưng blackground-clip là dành cho nền là màu sắc, còn background-origin là dùng cho nền  ảnh.
+* 
+*           + content-box: background chỉ chiếm phần content.
+* 
+*           + padding-box: background chiếm phần content và padding.
+* 
+*           + border-box: background chiếm phần content, padding và border.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .boxModel {
+            background-image: url(images/image1.jpg);
+            background-origin: padding-box;
+        }
+    </style>
+    <div class="boxModel">Content1</div>
+</body>
+</html>
+
+<!-- Box Model, Borders, Padding, Margins ------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Box Model (Mô hình hộp) ---------------------------------------------------------------------------------- -->
+<!--  
+* Tất cả các element có thể được coi là các cái hộp.
+* 
+* Hộp này bao gồm: lề, đường viền, phần đệm và nội dung.
+* 
+* Vào dev tools chọn tab Computed sẽ thấy sơ đồ của một element dùng để biểu diễn cho element ta đã chọn.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .boxModel {
+            padding:50px;
+            border: 10px solid #000;
+            margin-bottom: 100px;
+        }
+    </style>
+    <div class="boxModel">Content1</div>
+    <div class="boxModel">Content2</div>
+</body>
+</html>
+
+<!--  
+* Một số thuộc tính:    + Content (Nội dung) - Nội dung của element, nơi văn bản và hình ảnh xuất hiện.
+* 
+*                       + Padding - Tạo một khoảng trống xung quanh nội dung. Phần đệm trong suốt.
+* 
+*                       + Border (Đường viền): Đường viền bao quanh padding (phần đệm) và nội dung.
+* 
+*                       + Margin (Lề) - Tạo khoảng cách cho vùng bên ngoài border (đường viền). Lề trong suốt.
+-->
+
+<!-- Borders (Đường viền) ----------------------------------------------------------------------------------- -->
+<!--  
+* Đường viền bao quanh padding (phần đệm) và nội dung. Dùng để bao bọc 1 element
+* 
+* Tên thuộc tính: border-style
+* 
+* Các kiểu border:      + dotted - Đường viền chấm
+* 
+*                       + dashed - Đường viền nét đứt
+* 
+*                       + solid - Đường viền liền
+* 
+*                       + double - Đường viền kép
+* 
+*                       + groove - Đường viền có rãnh 3D
+* 
+*                       + ridge - Đường viền có gờ 3D
+* 
+*                       + inset - Đường viền 3D chìm vào trong.
+* 
+*                       + outset - Đường viền 3D nổi lên trên.
+* 
+*                       + none - Không có viền
+* 
+*                       + hidden - Đường viền bị ẩn
+
+* Ví dụ: p {border: 5px solid red;}
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .boxModel {
+            padding:50px;
+            border: 10px dotted #000;
+            margin-bottom: 100px;
+        }
+    </style>
+    <div class="boxModel">Content1</div>
+    <div class="boxModel">Content2</div>
+</body>
+</html>
+
+<!-- Padding (Phần đệm)------------------------------------------------------------------------------------- -->
+<!-- Padding (phần đệm) tạo một khoảng trống xung quanh nội dung, và nằm bên trong đường viền. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .boxModel {
+            padding-top:50px;
+            padding-bottom:100px;
+            padding-right:30px;
+            padding-left:80px;
+            border: 10px dotted #000;
+            margin-bottom: 100px;
+        }
+    </style>
+    <div class="boxModel">Content1</div>
+    <div class="boxModel">Content2</div>
+</body>
+</html>
+
+<!-- Margins (Lề)------------------------------------------------------------------------------------------- -->
+<!-- Margin (Lề) để tạo khoảng cách giữa element này với element khác. Margin nằm bên ngoài border. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .boxModel {
+            padding:50px;
+            border: 10px dotted #000;
+            margin-top:100px;
+            margin-left:50px;
+            margin-right:20px;
+            margin-bottom: 100px;
+        }
+    </style>
+    <div class="boxModel">Content1</div>
+    <div class="boxModel">Content2</div>
+</body>
+</html>
+
+
+<!-- Thuộc tính height, width---------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* height: Chiều cao của element
+* 
+* width: Chiều rộng của element
+* 
+* min-height: chiều cao tối thiểu của element
+* 
+* min-width: chiều rộng tối thiểu của element
+* 
+* max-height: chiều cao tối đa của element
+* 
+* max-width: chiều rộng tối đa của element
+* 
+* Lưu ý: Chiều cao và chiều rộng là của phần content nằm bên trong phần padding. Không bao gồm padding, border, margin
+-->
+<!-- Ta học thêm 1 thuộc tính box sizing thuộc tính để set coi height với width là chiều cao, chiều rộng của content box hay là border box -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{
+            box-sizing: border-box;
+            background-color: aquamarine;
+            border:10px solid #000;
+            height:100px;
+        }
+    </style>
+    <div class="box">Nội dung thẻ box</div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{
+            box-sizing: border-box;
+            background-color: aquamarine;
+            border:10px solid #000;
+            height:100px;
+            width: 50vw;
+            min-width: 200px;
+            max-width: 400px;
+        }
+    </style>
+    <div class="box">Nội dung thẻ box</div>
+</body>
+</html>
+
+<!-- Text, Fonts, Icons--------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 6.1. Text ------------------------------------------------------------------------------- -->
+<!--  
+* Text Color: thuộc tính color được sử dụng để đặt màu cho văn bản.
+*   
+*   Ví dụ: color: green;
+-->
+<!-- 
+* Text Align: được sử dụng để thiết lập căn lề ngang của văn bản.
+* 
+*   + text-align: center; // Căn giữa
+* 
+*   + text-align: left; // Căn trái
+* 
+*   + text-align: right; // Căn phải
+* 
+*   + text-align: justify; // Căn đều 2 bên
+ -->
+
+<!--
+* Text Transform: thuộc tính text-transform được sử dụng để chỉ định chữ hoa và chữ thường trong văn bản.
+* 
+*   + text-transform: uppercase; // VIẾT CHỮ HOA
+* 
+*   + text-transform: lowercase; // viết chữ thường
+* 
+*   + text-transform: capitalize; // Viết Hoa Các Chữ Cái Đầu
+ -->
+
+
+<!-- 6.2 Fonts------------------------------------------------------------------------------- -->
+<!-- 
+* Trong CSS có năm họ phông chữ:    + Phông chữ Serif (có chân) có một nét nhỏ ở các cạnh của mỗi chữ cái.
+* 
+*                                   + Phông chữ Sans-serif (không chân) có đường kẻ rõ ràng (không có nét nhỏ đi kèm).
+* 
+*                                   + Phông chữ Monospace (Đơn cách) - ở đây tất cả các chữ cái có cùng chiều rộng cố định.
+* 
+*                                   + Phông chữ Cursive (Chữ viết ẩu) bắt chước chữ viết tay của con người.
+* 
+*                                   + Phông chữ Fantasy (tưởng tượng) là phông chữ trang trí/vui tươi.
+
+Trang google fonts: https://fonts.google.com/
+
+-->
+<!--
+* Thuộc tính 1: font-family: Để chỉ định font chữ của văn bản
+* 
+* Ví dụ:    + font-family: "Times New Roman", Times, serif;
+* 
+*           + font-family: Arial, Helvetica, sans-serif;
+* 
+*           + font-family: "Lucida Console", "Courier New", monospace;
+-->
+
+<!-- Cách nhúng 1: -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        .box{
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    <div class="box">Nội dung thẻ box</div>
+</body>
+</html>
+
+<!-- Cách nhúng 2: -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        }
+    </style>
+    <div class="box">Nội dung thẻ box</div>
+</body>
+</html>
+
+<!-- 
+* Thuộc tính 2: font-style: Thuộc tính font-style chủ yếu được sử dụng để chỉ định văn bản in nghiêng.
+* 
+* Thuộc tính này có 3 giá trị:      + normal - Văn bản được hiển thị bình thường
+* 
+*                                   + italic - Văn bản được hiển thị in nghiêng
+* 
+*                                   + oblique (xiên) - Văn bản "nghiêng" (xiên rất giống với chữ nghiêng, nhưng nghiêng hơn và ít được sử dụng)
+* 
+-->
+<!--  
+* Thuộc tính 3: Font Weight:
+* 
+* Thuộc tính font-weight để chỉ định độ dày của chữ
+* 
+* Giá trị có thể là: normal, bold, 100, 200, 300,..., 800,900
+* 
+* Ví dụ:    + font-weight: 700;
+* 
+*           + font-weight: bold;
+* 
+*           + font-weight: normal;
+* 
+*           + font-weight: 400;
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{
+            font-weight: 200;
+        }
+    </style>
+    <div class="box">Nội dung thẻ box</div>
+</body>
+</html>
+
+<!--  
+* Thuộc tính 4: Font Size:
+* 
+* Thuộc tính font-size dùng để đặt kích thước của văn bản
+* 
+* Ví dụ:    + font-size: 12px;
+* 
+*           + font-size: 14px;
+* 
+*           + font-size: 16px;
+* 
+*           + font-size: 18px;
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{
+            font-size: 200;
+        }
+    </style>
+    <div class="box">Nội dung thẻ box</div>
+</body>
+</html>
+
+<!-- 6.3 Icons------------------------------------------------------------------------------- -->
+<!-- 
+* Link lấy icon: Link website: https://fontawesome.com/search?o=r&m=free
+* 
+* Link nhúng icon: Link CDN: https://cdnjs.com/libraries/font-awesome
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <p>
+        <i class="fa-solid fa-circle-user"></i>
+        Content
+    </p>
+</body>
+</html>

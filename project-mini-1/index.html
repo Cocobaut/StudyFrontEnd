@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Thứ tự link các file css -->
+    <link rel="stylesheet" href="/project-mini-1/assets/css/reset.css">
+    <link rel="stylesheet" href="/project-mini-1/assets/css/base.css">
+    <link rel="stylesheet" href="/project-mini-1/assets/css/style.css">
+</head>
+<body>
+    <!-- Bước 1: khai báo các biến color trong file base -->
+    <!-- Bước 2: khai báo font cho các chữ trong file base -->
+
+    <!-- Khi code web ta sẽ code theo từng box: + Coi web được chia làm bao nhiêu box chính
+     
+                                                + 1 box chính có bao nhiêu con, 
+                                                
+                                                + Nếu các box chính có 1 style chung thì ta sẽ phải tạo 1 box cha cho các box đó 
+    -->
+    
+    <!-- Khi code thì 1 box luôn có 2 div chính: box-top và box-main -->
+
+    <!-- Bước 3: Code box chính 1: header -->
+    <header class="header">
+        <!-- Bước 3.1: Code header top -->
+        <div class="header-top">
+            Due to the COVID 19 epidemic, orders may be processed with a slight delay
+        </div>
+
+        <!-- Bước 3.2: Code header main -->
+        <div class="header-main">
+            
+            <!-- Container sẽ giúp canh trái, canh phải  -->
+            <div class="container">
+
+                <!-- Inner-wrap sẽ giúp bọc các box con bên trong header-main (dùng cho display flex) -->
+                <div class="inner-wrap">
+                    <div class="inner-logo">
+                        <a href="/">
+                            <img src="/project-mini-1/images/logo.png">
+                            <span> CureM4</span>
+                        </a>
+                    </div>
+                    <div class="inner-menu">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Shop
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Products
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Contacts
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="inner-contact">
+                        Need help? 0942180805
+                    </div>
+                    <div class="inner-social">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="inner-icon-mobile">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End bước 3 -->
+
+    <!-- Bước 4: Code box chính 2: main  -->
+    <div class="section-one">
+        <!-- Container sẽ giúp canh trái, canh phải  -->
+        <div class="container">
+
+            <!-- Inner-wrap sẽ giúp bọc các box con bên trong section-one-main (dùng cho display flex) -->
+            <div class="inner-wrap">
+                <div class="inner-content">
+                    <h1 class="inner-title">
+                        Antivirus
+                        <br>
+                        Mask Store
+                    </h1>
+                    <p class="inner-description">
+                        The easiest way to protect yourself
+                    </p>
+                    <div class="inner-list">
+                        <div class="inner-item">
+                            <i class="fa-solid fa-shield-heart"></i>
+                            <span>Anti-Bacterial</span>
+                        </div>
+                        <div class="inner-item">
+                            <i class="fa-solid fa-earth-americas"></i>
+                            <span>Anti-Virus</span>
+                        </div>
+                    </div>
+                    <a href="#" class="button">Shop now</a>
+                </div>
+                <div class="inner-image">
+                    <img src="/project-mini-1/images/product1.jpg" alt="/">
+                    <div class="inner-sale">
+                        <span>only</span>
+                        <span>$25</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 4 -->
+
+
+    <!-- Bước 5: Code box chính 3 -->
+    <div class="section-two">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-box">
+                    <img src="/project-mini-1/images/mbr.jpeg" alt="/">
+                    <div class="inner-content">
+                        <div class="inner-tag">
+                            New
+                        </div>
+                        <div class="inner-title">
+                            Antivirus
+                            <br>
+                            Mask
+                        </div>
+                        <a href="#" class="button-inner-one button">More</a>
+                    </div>
+                </div>
+                <div class="inner-box">
+                    <img src="/project-mini-1/images/card1.jpg" alt="/">
+                    <div class="inner-content">
+                        <div class="inner-title inner-title-2">
+                            Basic
+                            <br>
+                            Mask
+                        </div>
+                        <div class="inner-sale">-30%</div>
+                        <a href="#" class="button-inner-one button">Shop now</a>
+                    </div>
+                </div>
+                <div class="inner-box">
+                    <img src="/project-mini-1/images/mbr-3.jpg" alt="/">
+                    <div class="inner-content">
+                        <div class="inner-title inner-title-2">
+                            Medical Mask
+                        </div>
+                        <div class="inner-price-new inner-sale">$15.99</div>
+                        <div class="inner-price-old">$29.99</div>
+                        <a href="#" class="button-inner-one button">Buy now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 5: -->
+
+    <!-- Bước 6: Code box chính 3 -->
+    <div class="section-three">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-header">
+                    <div class="inner-title">
+                        Effective and reliable
+                    </div>
+                    <div class="inner-title">
+                        protection for your
+                    </div>
+                    <div class="inner-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+                <div class="inner-main">
+                    <div class="inner-box">
+                        <div class="inner-icon">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                        <div class="inner-title">
+                            Anti-Virus
+                        </div>
+                        <div class="inner-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing.
+                        </div>
+                    </div>
+                    <div class="inner-box">
+                        <div class="inner-icon">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <div class="inner-title">
+                            Anti-Bacterial
+                        </div>
+                        <div class="inner-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing.
+                        </div>
+                    </div>
+                    <div class="inner-box">
+                        <div class="inner-icon">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <div class="inner-title">
+                            Safety
+                        </div>
+                        <div class="inner-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 6 -->
+    
+    <!-- Bước 7: Code box chính 4 -->
+    <div class="section-four">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-content">
+                    <div class="inner-title">
+                        Effective & reliable protection
+                    </div>
+                    <div class="inner-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                    <div class="inner-button">
+                        About
+                    </div>
+                </div>
+                <div class="inner-img">
+                    <img src="/project-mini-1/images/features1.jpg" alt="/">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 7 -->
+
+    <!-- Bước 8: Code box chính 5 -->
+    <div class="section-five">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-content">
+                    <div class="inner-icon">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                    <span>100% Secure delivery without contacting the courier</span>
+                </div>
+                <a class="inner-button" href="#">More</a>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 8 -->
+
+    <!-- Bước 9: Code box chính 6 -->
+    <div class="section-six">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-header">
+                    Featured products
+                </div>
+                <div class="inner-main">
+                    <div class="inner-box">
+                        <div class="inner-img">
+                            <img src="/project-mini-1/images/features2.jpg" alt="/">
+                        </div>
+                        <div class="inner-content">
+                            <div class="inner-description">
+                            Basic Mask
+                            </div>
+                            <div class="inner-price">
+                                $1.99
+                            </div>
+                            <div class="inner-icon">
+                                <a href="#">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-box">
+                        <div class="inner-img">
+                            <img src="/project-mini-1/images/features1.jpg" alt="/">
+                        </div>
+                        <div class="inner-content">
+                            <div class="inner-description">
+                            Antivirus Mask
+                            </div>
+                            <div class="inner-price">
+                                $3.99
+                            </div>
+                            <div class="inner-icon">
+                                <a href="#">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>                    
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-box">
+                        <div class="inner-img">
+                            <img src="/project-mini-1/images/mbr-2.jpg" alt="/">
+                        </div>
+                        <div class="inner-content">
+                             <div class="inner-description">
+                                Medical Mask
+                            </div>
+                            <div class="inner-price">
+                                $1.99
+                            </div>
+                            <div class="inner-icon">
+                                <a href="#">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-box">
+                        <div class="inner-img">
+                            <img src="/project-mini-1/images/product12.jpg" alt="/">
+                        </div>
+                        <div class="inner-content">
+                            <div class="inner-description">
+                                Basic Mask
+                            </div>
+                            <div class="inner-price">
+                                $2.99
+                            </div>
+                            <div class="inner-icon">
+                                <a href="#">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-box">
+                        <div class="inner-img">
+                            <img src="/project-mini-1/images/mbr-3.jpg" alt="/">
+                        </div>
+                        <div class="inner-content">
+                            <div class="inner-description">
+                                Medical Mask
+                            </div>
+                            <div class="inner-price">
+                                $3.99
+                            </div>
+                            <div class="inner-icon">
+                                <a href="#">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 9 -->
+
+    <!-- Bước 10: Code box chính 7 -->
+    <div class="section-seven">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-title">
+                    Join our newsletter and get $20 discount
+                </div>
+                <div class="inner-content">
+                    <form method="POST" action="/" target="/">
+                        <input type="text" id="email" name="email" class="email" placeholder="Enter your email address">
+                        <input type="submit" value="Subscribe" class="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 10 -->
+
+    <!-- Bước 11: Code box chính 8 -->
+    <div class="section-eight">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-title">
+                    Watch Video
+                </div>
+                <div class="inner-content">
+                   <iframe width="1206" height="550" src="https://www.youtube.com/embed/VA8PzkQa8d8?si=Z9MmtOYTva83Dnpm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 11 -->
+
+    <!-- Bước 12: Code box chính 9 -->
+    <div class="section-night">
+        <div class="inner-wrap">
+            <div class="inner-header">
+                <div class="inner-icon">
+                    <i class="fa-solid fa-quote-right"></i>
+                </div>
+                <div class="inner-content">
+                    Latest reviews
+                </div>
+            </div>
+            <div class="inner-main">
+                <div class="inner-box">
+                    <div class="inner-title">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis diam at libero aliquam, sed vestibulum elit feugiat.
+                    </div>
+                    <div class="inner-name">
+                        John Smith
+                    </div>
+                    <div class="inner-icon">
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </div>
+                <div class="inner-box">
+                    <div class="inner-title">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis diam at libero aliquam, sed vestibulum elit feugiat.
+                    </div>
+                    <div class="inner-name">
+                        John Smith
+                    </div>
+                    <div class="inner-icon">
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </div>
+                <div class="inner-box">
+                    <div class="inner-title">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis diam at libero aliquam, sed vestibulum elit feugiat.
+                    </div>
+                    <div class="inner-name">
+                        John Smith
+                    </div>
+                    <div class="inner-icon">
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </div>
+                <div class="inner-box">
+                    <div class="inner-title">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis diam at libero aliquam, sed vestibulum elit feugiat.
+                    </div>
+                    <div class="inner-name">
+                        John Smith
+                    </div>
+                    <div class="inner-icon">
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 12 -->
+
+    <!-- Bước 13: Code box chính 10 -->
+    <div class="section-ten">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-content">
+                    <div class="inner-title title-1">
+                        How can we help you?
+                    </div>
+                    <div class="inner-description">
+                        We are at your disposal 7 days a week!
+                    </div>
+                    <hr>
+                    <div class="inner-title title-2">
+                        989-879-0847
+                    </div>
+                    <div class="inner-description">
+                        <div class="inner-day">
+                            Monday-Friday:9:00-20:00
+                        </div>
+                        <div class="inner-day">
+                            Saturday:11:00-15:00
+                        </div>
+                    </div>
+                    <div class="inner-button">
+                        <a href="#">contact@yoursite.com</a>
+                    </div>
+                    <hr>
+                    <div class="inner-icon">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-discord"></i>
+                        <i class="fa-brands fa-font-awesome"></i>
+                    </div>
+                </div>
+                <div class="inner-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31355.926910795326!2d106.66009055!3d10.77366655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed913384e0b%3A0xab59fe8772b3638b!2zQuG6o28gdMOgbmcgWSBo4buNYyBD4buVIHRydXnhu4FuIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1753847121466!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End bước 13 -->
+
+    <!-- Bước 14: Code box chính 11 -->
+     <div class="inner-eleven">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-box">
+                    <ul>
+                        <li>About us</li>
+                        <li>Delivery</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+                <div class="inner-box">
+                    <ul>
+                        <li>Affiliate</li>
+                        <li>Sales</li>
+                        <li>Terms</li>
+                    </ul>
+                </div>
+                <div class="inner-box">
+                    <ul>
+                        <li>Bestsellers</li>
+                        <li>Discount</li>
+                        <li>Latest products</li>
+                    </ul>
+                </div>
+                <div class="inner-box">
+                    <ul>
+                        <li>My account</li>
+                        <li>My orders</li>
+                        <li>Returns</li>
+                    </ul>
+                </div>
+                <div class="inner-box">
+                    <ul>
+                        <li>Shipping</li>
+                        <li>Wishlist</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- End bước 14 -->
+
+    <!-- Bước 15: Code box chính 12 -->
+     <div class="section-twelve">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="inner-content">
+                    Copyright 2025 Mobirise. All Rights Reserved
+                </div>
+                <div class="inner-visa">
+                    Đây là các icon liên quan đến visa
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- End bước 15 -->
+</body>
+</html>

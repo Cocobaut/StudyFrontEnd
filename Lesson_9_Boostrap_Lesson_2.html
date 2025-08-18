@@ -1,0 +1,551 @@
+<!-- 1. Các component (thường xuyên được sử dụng)--------------------------------------------------------------------------------------- -->
+
+<!-- 1.1. Collapse (Sự biến hình) ------------------------------------------------------------------------------- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+	<div class="accordion" id="accordionExample">
+	<div class="card">
+		<div class="card-header" id="headingOne">
+		<h2 class="mb-0">
+			<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			Collapsible Group Item #1
+			</button>
+		</h2>
+		</div>
+
+		<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+		<div class="card-body">
+			Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+		</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header" id="headingTwo">
+		<h2 class="mb-0">
+			<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			Collapsible Group Item #2
+			</button>
+		</h2>
+		</div>
+		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		<div class="card-body">
+			Some placeholder content for the second accordion panel. This panel is hidden by default.
+		</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header" id="headingThree">
+		<h2 class="mb-0">
+			<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			Collapsible Group Item #3
+			</button>
+		</h2>
+		</div>
+		<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+		<div class="card-body">
+			And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+		</div>
+		</div>
+	</div>
+	</div>
+    
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+    <script src="/boostrap/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+
+<!-- Ví dụ -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<style>
+		.section-one .inner-main {
+			border-radius: 10px;
+			overflow: hidden;
+		}
+		.section-one .inner-head{
+			text-align: center;
+			padding: 10px;
+			background-image: linear-gradient(-30deg, #f57f20, #d62b08);
+		}
+		.section-one .inner-head h2 {
+			font-size:32px;
+			font-weight: 700;
+			color:white;
+		}
+
+		.section-one .inner-body {
+			border: 1px solid gray;
+			padding: 20px;
+			border-radius: 0 0 10px 10px;
+		}
+
+		.section-one .card-header {
+			border: 0;
+			padding: 0;
+			background-color: white;
+		}
+		.section-one .btn {
+			border: 1px solid transparent;
+		}
+
+		.section-one .card {
+			margin-bottom: 10px;
+		}
+
+		.section-one .collapsed {
+			border: 1px solid white;
+		}
+	</style>
+	<div class="section-one">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="inner-main">
+						<div class="inner-head">
+							<h2>Câu hỏi thường gặp</h2>
+						</div>
+						<div class ="inner-body">
+							<div class="accordion" id="accordionExample">
+								<div class="card">
+									<div class="card-header" id="headingOne">
+									<h2 class="mb-0">
+										<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Logo là gì
+										</button>
+									</h2>
+									</div>
+
+									<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+									<div class="card-body">
+										Logo là một hình ảnh đại diện thương hiệu được có thể được tạo thành từ văn bản và biểu tượng. Một logo tốt thể hiện những gì một thương hiệu làm và giá trị của thương hiệu. Thiết kế logo là việc tạo ra hình ảnh thương hiệu trực quan hoàn hảo cho một công ty. Tùy thuộc vào loại logo, logo có thể bao gồm biểu tượng, tên thương hiệu (tên viết tắt cũng với dòng giới thiệu (tagline)).
+									</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="headingTwo">
+									<h2 class="mb-0">
+										<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										Vì sao cần thiết kê logo chuyên nghiệp?
+										</button>
+									</h2>
+									</div>
+									<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+									<div class="card-body">
+										Logo là điểm chạm đầu tiên với khách hàng và là nền tảng để xây dựng thương hiệu bền vững.
+										Thiết kế Logo chuyên nghiệp là cách đảm bảo logo của doanh nghiệp được xây dựng dựa trên các yếu tố chiến lược, có định hướng và gắn kết với khách hàng mục tiêu.
+										Thiết kế logo chuyên nghiệp giúp doanh nghiệp:
+
+										Ăn điểm và gây ấn tượng thương hiệu bất bại
+										Đảm bảo tính ứng dụng, linh hoạt
+										Thu hút khách hàng
+										Thúc đẩy doanh thu, tăng trưởng thành thương hiệu
+										Nổi bật hơn so với đối thủ
+										Gia tăng giá trị thương hiệu
+									</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="headingThree">
+									<h2 class="mb-0">
+										<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										Collapsible Group Item #3
+										</button>
+									</h2>
+									</div>
+									<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+									<div class="card-body">
+										And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+									</div>
+									</div>
+								</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+    <script src="/boostrap/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+
+<!-- 1.2. Dropdowns (Thả xuống)  -------------------------------------------------------------------------------- -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<div class="dropdown">
+		<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+			Dropdown button
+		</button>
+		<div class="dropdown-menu">
+			<a class="dropdown-item" href="#">Action</a>
+			<a class="dropdown-item" href="#">Another action</a>
+			<a class="dropdown-item" href="#">Something else here</a>
+		</div>
+	</div>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+    <script src="/boostrap/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+
+<!-- 1.3. Forms (Biểu mẫu) -------------------------------------------------------------------------------------- -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<style>
+		.section-one .inner-main {
+			border-radius: 10px;
+			overflow: hidden;
+		}
+		.section-one .inner-head{
+			text-align: center;
+			padding: 10px;
+			background-image: linear-gradient(-30deg, #f57f20, #d62b08);
+			color:white;
+		}
+		.section-one .inner-head title {
+			font-size:32px;
+			font-weight: 700;
+		}
+
+		.section-one .inner-body {
+			border: 1px solid gray;
+			padding: 20px;
+			border-radius: 0 0 10px 10px;
+		}
+
+		.section-one .inner-body .button {
+			background-image: linear-gradient(-30deg, #f57f20, #d62b08);
+			color:white;
+			border-radius: 10px;
+			border: 1px solid white;
+			padding: 10px;
+		}
+	</style>
+	<div class="section-one">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="inner-main">
+						<div class="inner-head">
+							<div class="title">
+								<h2>Tiêu đề form</h2>
+							</div>
+							<div class="content-form">
+								<p>Lorem, ipsum dolor sit amet consectetur adipisicng elit. Quam natus ab eius, earum sequi....</p>
+							</div>
+						</div>
+						<div class="inner-body">
+							<form action="">
+								<div class="row">
+									<div class="col-xl-6">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Họ và tên*">
+										</div>
+									</div>
+									<div class="col-xl-6">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Số điện thoại*">
+										</div>
+									</div>
+									<div class="col-xl-12">
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Số điện thoại*"></textarea>
+										</div>
+									</div>
+									<div class="col-xl-12">
+										<button class="button">
+											gửi ngay
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+    <script src="/boostrap/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+
+
+<!-- 1.4. Modal ------------------------------------------------------------------------------------------------- -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<style>
+		.modal-form .modal-header {
+			flex-direction: column;
+			justify-content: center;
+			align-items:center;
+			position: relatve;
+		}
+
+		.modal-form .modal-header .close {
+			position: absolute;
+			top: -2px;
+			right: -2px;
+			background-color: black;
+			opacity: 1;
+			color: white;
+			border-radius: 50%;
+			width: 32px;
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.modal-form .modal-header .inner-image {
+			height: auto;
+			width: auto;
+			margin-bottom: 6px;
+		}
+
+		.modal-form .modal-header .inner-title {
+			font-size: 22px;
+			font-weight: 700;
+		}
+	</style>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade modal-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<img class="inner-image" src="https://cdn.daca.vn/media/logo/logo.svg" alt="logo">
+					<h5 class="inner-title">Liên hệ với chúng tôi</h5>
+					<p class="inner=description">Lorem ipsum dolor sit, amet consectetur adipiscing elit</p>
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="">
+						<div class="row">
+							<div class="col-12">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Họ và tên">
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Số điện thoại">
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Họ và tên">
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<button class="button">
+								gửi đi
+							</button>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+
+<!-- 1.5. Navs -------------------------------------------------------------------------------------------------- -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<style>
+		@media (min-width: 1200px) {
+			.col-xl-20 {
+				-ms-flex: 0 0 20%;
+				flex: 0 0 20%;
+				max-width: 20%;
+			}
+		}
+	</style>
+	<div class="section-one">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="inner-head">
+						<h2>Thảm đế cao su</h2>
+					</div>
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item" role="presentation">
+							<button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Sản phẩm mới</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Sản phẩm nổi bật</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="contact-tab" data-toggle="tab" data-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Khuyến mãi</button>
+						</li>
+					</ul>
+
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<h3>Sản phẩm mới</h3>
+							<div class="row">
+								<div class="colxl-20 col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="product-item">
+										Ảnh, tiêu đề, giá
+									</div>
+								</div>
+								<div class="colxl-20 col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="product-item">
+										Ảnh, tiêu đề, giá
+									</div>
+								</div>
+								<div class="colxl-20 col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="product-item">
+										Ảnh, tiêu đề, giá
+									</div>
+								</div>
+								<div class="colxl-20 col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="product-item">
+										Ảnh, tiêu đề, giá
+									</div>
+								</div>
+								<div class="colxl-20 col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="product-item">
+										Ảnh, tiêu đề, giá
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							<h3>Sản phẩm nổi bật</h3>
+						</div>
+						<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+							<h3>Khuyến mãi</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+
+<!-- 1.6. Pagination -------------------------------------------------------------------------------------------- -->
+ <!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="boostrap/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<nav aria-label="Page navigation example">
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">Next</a></li>
+		</ul>
+	</nav>
+    <script src="boostrap/jquery.slim.min.js"></script>
+	<script src="/boostrap/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1143 @@
+<!-- 01. Float và Clear ------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Float-------------------------------------------------------------------------------------- -->
+<!--
+* Thuộc tính float là một thuộc tính được sử dụng để chuyển một phần tử sang góc trái hoặc góc bên phải của không gian bao quanh nó.
+* 
+* Float có các giá trị sau:     + float: left; // Phần tử nằm phía bên trái.
+* 
+*                               + float: right; // Phần tử nằm phía bên phải.
+* 
+*                               + float: none; // Phần tử nằm tại chính vị trí của nó (Mặc định).
+* 
+* Lưu ý: Các phần tử sử dụng float sẽ bị loại khỏi luồng bình thường của trang. 
+*
+*   + Nghĩa là Trong CSS, luồng bình thường là cách trình duyệt sắp xếp các phần tử: Khối (block-level): từ trên xuống dưới. Nội tuyến (inline): từ trái sang phải, xuống dòng khi hết chỗ.
+*
+*   + CSS sẽ loại phần tử này ra khỏi luồng bình thường và kéo nó trôi sang trái (hoặc phải), tạo cảm giác "nổi" lên, dòng chữ hoặc các phần tử khác sẽ bao quanh nó thay vì đẩy ra như khối thông thường.
+*   
+*   + Nên nếu tất cả phần tử con trong phần tử cha đều có thuộc tính float thì border của cha sẽ tự động co lại tại khi dùng float thì các thẻ con sẽ không chiếm chiều cao của phần tử cha => để giải quyết điều đó ta phải dùng thuộc tính clear
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .element-parent {
+            border: 5px solid #ff0000;
+        }
+
+        .element-child {
+            color: #fff;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .element-a {
+            height: 100px;
+            background: #b4b400;
+        }
+
+        .element-b {
+            height: 150px;
+            background: #3535f3;
+        }
+
+        .element-c {
+            height: 200px;
+            background: #00a31e;
+        }
+
+        .element-a {
+            float: left;
+        }
+
+        .element-b {
+            float:right;
+        }
+
+        .element-c {
+            float:right;
+        }
+    </style>
+    <div class="element-parent">
+        <div class="element-child element-a">Phần tử A</div>
+        <div class="element-child element-b">Phần tử B</div>
+        <div class="element-child element-c">Phần tử C</div>
+    </div>
+</body>
+</html>
+
+<!-- Clear------------------------------------------------------------------------------------- -->
+<!--
+* Thuộc tính Clear là một thuộc tính ngược lại hoàn toàn với Float.
+* 
+* Ngăn chặn phần tử B chiếm vùng không gian của phần tử A (với A là phần tử sử dụng float).
+* 
+* Thuộc tính clear có các giá trị sau:
+* 
+*       + clear: left;
+* 
+*           + Ngăn chặn phần tử B chiếm chỗ phần tử A, khi phần tử A có sử dụng float: left;
+* 
+*           + Thuộc tính clear: left; không có tác dụng khi phần tử A sử dụng float: right;
+* 
+*       + clear: right;
+* 
+*           + Ngăn chặn phần tử B chiếm chỗ phần tử A, khi phần tử A có sử dụng float: right;
+* 
+*           + Thuộc tính clear: right; không có tác dụng khi phần tử A sử dụng float: left;
+* 
+*       + clear: both;
+* 
+*           + Khi cả 2 phần tử A và phần tử B sử dụng float, chúng ta không thể sử dụng clear: left; hay clear: right; để ngăn chặn thành phần C chiếm vùng không gian còn trống, trong trường hợp này ta sử dụng thuộc tính clear: both; để ngăn chặn sự chiếm vùng của thành phần C.
+* 
+*           + Thuộc tính clear: both; có thể ngăn chặn sự chiếm vùng không gian cả khi chỉ có một phần tử sử dụng float (left hoặc right).
+* 
+*       + clear: none;
+*       
+*           + Thuộc tính clear: none; là dạng phục hồi khi Thành phần sử dụng thuộc tính clear.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .element-parent {
+            border: 5px solid #ff0000;
+        }
+
+        .element-child {
+            color: #fff;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .element-a {
+            height: 100px;
+            background: #b4b400;
+        }
+
+        .element-b {
+            height: 150px;
+            background: #3535f3;
+        }
+
+        .element-c {
+            height: 200px;
+            background: #00a31e;
+        }
+
+        .element-a {
+            float: left;
+        }
+
+        .element-b {
+            float: right;
+        }
+
+        .element-c {
+            clear: left;
+        }
+    </style>
+    <div class="element-parent">
+        <div class="element-child element-a">Phần tử A</div>
+        <div class="element-child element-b">Phần tử B</div>
+        <div class="element-child element-c">Phần tử C</div>
+    </div>
+</body>
+</html>
+
+<!-- Ví dụ cách dùng clear both -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .element-parent {
+            border: 5px solid #ff0000;
+        }
+
+        .element-child {
+            color: #fff;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .element-a {
+            height: 100px;
+            background: #b4b400;
+        }
+
+        .element-b {
+            height: 150px;
+            background: #3535f3;
+        }
+
+        .element-c {
+            height: 200px;
+            background: #00a31e;
+        }
+
+        .element-a {
+            float: left;
+        }
+
+        .element-b {
+            float: right;
+        }
+
+        .element-c {
+            float: left;
+        }
+
+        .element-d {
+            clear: both;
+        }
+    </style>
+    <div class="element-parent">
+        <div class="element-child element-a">Phần tử A</div>
+        <div class="element-child element-b">Phần tử B</div>
+        <div class="element-child element-c">Phần tử C</div>
+        <div class="element-d"></div>
+    </div>
+</body>
+</html>
+
+
+<!-- 02. Attribute selectors (Bộ chọn thuộc tính)--------------------------------------------------------------------------------------------------- -->
+
+<!-- Bộ chọn attribute được sử dụng để chọn các phần tử có thuộc tính được chỉ định. -->
+
+<!-- Một số kiểu chọn: -->
+
+<!--
+* + [attribute]:  Chọn tất cả các phần tử có thuộc tính [attribute].
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        a[target] {
+            background-color: yellow;
+        }
+    </style>
+    <a href="https://www.google.com" title="Website Google">Google</a>
+    <a href="https://www.facebook.com" title="Website Facebook" target="_blank">Facebook</a>
+    <a href="https://www.youtube.com" title="Website Youtube" target="">Youtube</a>
+</body>
+</html>
+
+<!--
+* + [attribute="value"]:  + Chọn tất cả các phần tử có thuộc tính [attribute] phải chứa giá trị value.
+* 
+*                         + Chỉ được có giá trị duy nhất là value, nếu có thêm giá trị khác thì sẽ không được chọn.
+* 
+*                         + Giá trị có thể bao gồm nhiều từ.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        a[title="Website Google"] {
+            background-color: yellow;
+        }
+    </style>
+    <a href="https://www.google.com" title="Website Google">Google</a>
+    <a href="https://www.facebook.com" title="Website Facebook" target="_blank">Facebook</a>
+    <a href="https://www.youtube.com" title="Website Youtube" target="">Youtube</a>
+</body>
+</html>
+
+<!-- 
+* + [attribute~="value"]: + Chọn tất cả các phần tử có thuộc tính [attribute] phải chứa giá trị value.
+* 
+*                               + Nhưng value đó phải đứng độc lập, không được viết liền với từ khác.
+* 
+*                               + value phải là 1 từ khóa duy nhất.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        a[title~="Google"] {
+            background-color: yellow;
+        }
+    </style>
+    <a href="https://www.google.com" title="Website Google">Google</a>
+    <a href="https://www.facebook.com" title="Website Facebook" target="_blank">Facebook</a>
+    <a href="https://www.youtube.com" title="Website Youtube" target="">Youtube</a>
+</body>
+</html>
+
+<!-- 
+* + [attribute|="value"]: + Chọn các phần tử có thuộc tính [attribute], giá trị có thể chính xác là giá trị được chỉ định hoặc giá trị được chỉ định theo sau dấu gạch nối (-).
+* 
+*                               + Lưu ý: Giá trị phải là một từ nguyên vẹn, đơn lẻ như class="top" hoặc theo sau là dấu gạch ngang ( - ), như class="top-text".
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p[class|= "top"] {
+            background-color: yellow;
+        }
+    </style>
+    <p class="top-header test">Nội dung 1</p>
+    <p class="top- header test">Nội dung 2</p>
+    <p class="topheader">Nội dung 3</p>
+    <p class="top">Nội dung 4</p>
+</body>
+</html>
+
+<!--
+* + [attribute^="value"]  + Chọn tất cả các phần tử có thuộc tính [attribute] bắt đầu bằng giá trị value
+* 
+*                               + Khác với [attribute|="value"] ở chỗ nó không có ngoại lệ và chọn tất cả các phần tử bắt đầu bằng value, được phép viết liền với các từ khác.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p[class^= "top"] {
+            background-color: yellow;
+        }
+    </style>
+    <p class="top-header test">Nội dung 1</p>
+    <p class="top- header test">Nội dung 2</p>
+    <p class="topheader">Nội dung 3</p>
+    <p class="top">Nội dung 4</p>
+</body>
+</html>
+
+<!-- 
+* + [attribute$="value"]: + Chọn tất cả các phần tử có thuộc tính [attribute] kết thúc bằng giá trị value.
+* 
+*                               + Lưu ý: Giá trị có thể được viết liền với từ khác.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p[class$= "top"] {
+            background-color: yellow;
+        }
+    </style>
+    <p class="top-header test">Nội dung 1</p>
+    <p class="top- header test">Nội dung 2</p>
+    <p class="topheader">Nội dung 3</p>
+    <p class="top">Nội dung 4</p>
+    <p class="test top">Nooij dung 5 </p>
+</body>
+</html>
+
+<!-- 
+* + [attribute*="value"]: + Chọn tất cả các phần tử có thuộc tính [attribute] chứa giá trị value.
+*
+*                               + Lưu ý: Giá trị không nhất thiết phải là một từ nguyên vẹn!
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p[class*= "top"] {
+            background-color: yellow;
+        }
+    </style>
+    <p class="top-header test">Nội dung 1</p>
+    <p class="top- header test">Nội dung 2</p>
+    <p class="topheader">Nội dung 3</p>
+    <p class="top">Nội dung 4</p>
+    <p class="test top">Nội dung 5 </p>
+</body>
+</html>
+
+<!-- 03. Units (Đơn vị)---------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Độ dài tuyệt đối ------------------------------------------------------------------------------------------------ -->
+<!--  
+* Là loại đơn vị có giá trị cố định và thể hiện chính xác chiều dài kích thước nó hiển thị, không phụ thuộc cũng như không thay đổi bởi bất kỳ tác động bên ngoài nào.
+*
+* Một số đơn vị:    + cm
+* 
+*                   + mm
+* 
+*                   + in: inches (1in = 96px = 2.54cm)
+* 
+*                   + px: pixels (1px = 1/96 in) tương ứng với một điểm ảnh trên máy tính.
+* 
+*                   + pt: points (1pt = 1/72 in)
+* 
+*                   + pc: picas (1pc = 12 pt)
+-->
+
+<!-- Độ dài tương đối-------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Là đơn vị đo lường được sử dụng trong CSS ở mức tương đối, thường phụ thuộc vào 1 thành phần nào đó thì mới xác định được giá trị của nó.
+* 
+* Một số đơn vị:    + %: giá trị tương đối so với phần tử cha.
+* 
+*                   + rem: giá trị tương đối với font-size của phần tử gốc. Phần tử gốc ở đây là thẻ html.
+* 
+*                   + em: 1em tương đương với kích cỡ của font-size của phần tử cha có định nghĩa font-size.
+* 
+*                   + vw (viewport width): 1vw tương đương với 1% của chiều rộng cửa sổ trình duyệt.
+* 
+*                   + vh (viewport height): 1vh tương đương với 1% của chiều cao cửa sổ trình duyệt.
+* 
+*                   + ex: 1ex tương đương với chiều cao (height) của một chữ x (in thường) của font hiện tại.
+* 
+*                   + ch: 1ch tương đương với chiều rộng (width) của một số 0 theo size hiện tại.
+-->
+<!-- Ví dụ 1: -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .parent {
+            background-color: rgb(0, 238, 255);
+            width: 600px;
+            height: 500px;
+        }
+
+        .child {
+            background-color: green;
+            width: 50%;
+            height: 40%;
+        }
+    </style>
+    <div class="parent">
+        <div class="child">Box child</div>
+    </div>
+</body>
+</html>
+
+<!-- Ví dụ 2: -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        .parent {
+            background-color: rgb(0, 238, 255);
+            width: 600px;
+            height: 500px;
+        }
+
+        .child {
+            background-color: green;
+            width: 20rem;
+            font-size: 2rem;
+        }
+    </style>
+    <div class="parent">
+        <div class="child">Box child</div>
+    </div>
+</body>
+</html>
+
+
+<!-- 04. Specificity (Tính đặc hiệu) và !important (Quan trọng)------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 4.1. Specificity (Tính đặc hiệu)------------------------------------------------------------------------------------------- -->
+<!--
+* Tính đặc hiệu (hay độ ưu tiên) là cách mà trình duyệt quyết định sẽ áp dụng thuộc tính css nào với một phần tử khi có nhiều quy tắc css cùng trỏ đến phần tử đó.
+* 
+* Sự phân cấp tính đặc hiệu: Mỗi selector đều có vị trí của nó trong hệ thống phân cấp. Độ đặc hiệu của selector có 4 mức:
+*
+*   Inline --- ID --- Classes, Attributes, pseudo-classes --- Element, Psseudo-elements
+*
+*   Cao ---------------------------------------------------------------------------Thấp
+-->
+
+<!-- 
+* Làm sao để tính toán tính đặc hiệu? Ta biểu diễn tương đối tính đặc hiệu của một selector như dưới đây, sau đó xem giá trị nào càng cao thì càng được ưu tiên:
+* 
+*       + 1-0-0-0: Inline styles
+* 
+*       + 0-X-0-0: Số lượng ID selector
+* 
+*       + 0-0-Y-0: Số lượng Classes, attributes và pseudo-classes
+* 
+*       + 0-0-0-Z: Số lượng Elements và pseudo-elements
+* 
+*       + Viết CSS theo kiểu Internal và External không có độ ưu tiên.
+* 
+*       + Universal selector (*) và combinators selector (+, >, ~) không làm tăng tính đặc hiệu.
+* 
+* Ví dụ: Tính toán tính đặc hiệu của các bộ chọn sau:
+* 
+*   + h2 { color: red; }
+* 
+*   + h2.title  { color: blue; }
+* 
+*   + div h2.title  { color: orange; }
+* 
+*   + .head h2.title  {color: green; }
+* 
+*   + div.head h2.title  {color: gray; }
+* 
+*   + div.head h2.title:last-child  {color: yellow; }
+* 
+*   + #main div.head h2.title  {color: pink; }
+* 
+*   + #main div#head h2.title  {color: purple; }
+* 
+*   + #main div#head h2.title::first-letter  {color: red; }
+* 
+*   + #main div#head h2::first-letter  {color: yellow; }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h2 {
+            color:red;
+        }
+        /* 0-0-0-1 -> 1 */
+        h2 .title {
+            color:blue;
+        }
+        /* 0-0-1-1 -> 11 */
+
+        div h2 .title {
+            color:orange;
+        }
+        /* 0-0-1-2 -> 12 */
+
+        head h2 .title {
+            color:green;
+        }
+        /* 0-0-2-1 -> 21 */
+
+        div.head h2.title {
+            color: gray;
+        }
+        /* 0-0-2-1 -> 22 */
+
+        div.head h2.title:last-child {
+            color: yellow;
+        }
+        /* 0-0-3-1 -> 32 */
+
+        #main div.head h2.title {
+            color: pink;
+        }
+        /* 0-1-2-2 -> 122 */
+
+        #main div#head h2.title {
+            color: purple;
+        }
+        /* 0-2-1-1 -> 212 */
+
+        #main div#head h2.title::first-letter {
+            color: red;
+        }
+        /* 0-2-1-3 -> 213 */
+
+        #main div#head h2::first-letter {
+            color: yellow;
+        }
+        /* 0-2-0-3 -> 203 */
+    </style>
+
+    <main id="main">
+    <div class="head" id="head">
+      <h2 class="title">
+        Tiêu đề 1
+      </h2>
+      <h2 class="title">
+        Tiêu đề 2
+      </h2>
+    </div>
+</main>
+</body>
+</html>
+
+
+<!-- 4.2. !important (Quan trọng)---------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--
+* Important được sử dụng để thay đổi thứ tự ưu tiên của CSS, khi một thuộc tính CSS nào đó được gán lệnh Important thì đồng nghĩa với việc nó sẽ có mức ưu tiên cao nhất. Nếu có nhiều thuộc tính cùng có !important thì lại quay về bài toán tính độ ưu tiên.
+* 
+* Ví dụ:    + h2 { color: red!important; }
+* 
+*           + h2.title  { color: blue; }
+* 
+*           + div h2.title  { color: orange; }
+* 
+*           + .head h2.title  {color: green; }
+* 
+*           + div.head h2.title  {color: gray; }
+* 
+*           + #main div.head h2.title  {color: pink; }
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h2 {
+            color: red!important;;
+        }
+        /* 0-0-0-1 -> 1 */
+        h2.title {
+            color:blue;
+        }
+        /* 0-0-1-1 -> 11 */
+
+        div h2.title {
+            color:orange;
+        }
+        /* 0-0-1-2 -> 12 */
+    </style>
+
+    <main id="main">
+    <div class="head" id="head">
+      <h2 class="title">
+        Tiêu đề 1
+      </h2>
+      <h2 class="title">
+        Tiêu đề 2
+      </h2>
+    </div>
+</main>
+</body>
+</html>
+
+
+<!-- 05. Math Functions (Hàm toán học)---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--
+* Các hàm toán học CSS cho phép các biểu thức toán học được sử dụng làm giá trị thuộc tính.
+-->
+<!--
+* Hàm calc(): Thực hiện một phép tính, kết quả sẽ lấy làm giá trị thuộc tính. Các toán tử sau có thể được sử dụng: + – * /
+* 
+* Ví dụ: width: calc(100% - 100px);
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .parent{
+            background-color:yellow;
+            width:500px;
+            height:300px;
+            position:relative;
+        }
+        .child {
+            background-color: orange;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+        }
+    </style>
+    <div class="parent">
+        <div class="child">box child</div>
+    </div>
+</body>
+</html>
+
+<!-- 
+* Hàm max(): Sử dụng giá trị lớn nhất, từ danh sách giá trị được phân tách bằng dấu phẩy, làm giá trị thuộc tính.
+* 
+* Cú pháp: max(value1, value2, …)
+* 
+* Ví dụ: width: max(50%, 300px);
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .parent{
+            background-color:yellow;
+            width: max(50%, 300px);
+            height:300px;
+            position:relative;
+        }
+        .child {
+            background-color: orange;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+    </style>
+    <div class="parent">
+        <div class="child">box child</div>
+    </div>
+</body>
+</html>
+
+<!--
+* Hàm min(): Sử dụng giá trị nhỏ nhất, từ danh sách giá trị được phân tách bằng dấu phẩy, làm giá trị thuộc tính.
+* 
+* Cú pháp: min(value1, value2, …)
+* 
+* Ví dụ: width: min(50%, 300px);
+-->
+
+
+<!-- 06. CSS function attr()-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- attr () là một hàm CSS trả về giá trị của một thuộc tính -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        [data-text]::before {
+            content: attr(data-text);
+        }
+    </style>
+    <span data-text="Xin chào ">Đặng Phương Nam</span>
+</body>
+</html>
+
+
+<!-- 07. Variables (Biến)----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--
+* Mục đích của khai báo biến là để có thể sử dụng được ở nhiều nơi.
+* 
+* Kiểu global (toàn cục): có thể sử dụng được nhiều nơi trong file css.
+* 
+* Kiểu local (cục bộ): chỉ sử dụng được ở trong phạm vi của nó, những đoạn css khác không sử dụng được.
+-->
+
+<!--
+* Cách tạo biến global: :root {
+*                           --ten-bien: giá trị;
+*                       }
+* 
+* Cách sử dụng biến: var(--ten-bien);
+-->
+
+<!--
+* Cách tạo biến local:  selector {
+*                           --ten-bien: giá trị;
+*                       }
+* 
+* Cách sử dụng biến:    selector {
+*                           --ten-bien: giá trị;
+*                           var(--ten-bien);
+*                       }
+-->
+<!-- Ví dụ biến toàn cục -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        :root {
+            --color-one: #006c10;
+            --color-two: #000000;
+        }
+        h2 {
+            color: var(--color-one);
+        }
+        p {
+            color: var(--color-two);
+        }
+    </style>
+    <h2>Nội dung thẻ h2</h2>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+<!-- Ví dụ biến cục bộ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h2 {
+            --local-color: blue;
+            color: var(--local-color);
+        }
+        p {
+            color: var(--local-color);
+        }
+
+    </style>
+    <h2>Nội dung thẻ h2</h2>
+    <p>Nội dung thẻ p</p>
+</body>
+</html>
+
+
+<!-- 08. Box Sizing (Kích thước hộp)-------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--
+* Mặc định khi ta sử dụng thuộc tính width, height thì chỉ là áp dụng cho phần content của 1 element.
+* 
+* 2 loại box-sizing:
+* 
+*   + content-box:  Mặc định. Width/height chỉ bao gồm “nội dung” của phần tử.
+* 
+*                   width, height = content
+* 
+*   + border-box::  Width/height bao gồm: content, padding, border của phần tử.
+* 
+*                   width, height = content + padding + border.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    .box {
+        background: gray;
+        width: 200px;
+        height: 100px;
+        padding: 30px;
+        border: 5px solid #000;
+        box-sizing: border-box;
+    }
+    </style>
+
+    <div class="box">
+        Nội dung của box
+    </div>
+</body>
+</html>
+
+
+<!-- 09. Khái niệm Responsive----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--
+* Responsive là để chỉ một website có thể hiển thị tương thích trên mọi thiết bị, như máy tính, máy tính bảng, điện thoại.
+* 
+* Sử dụng media query để responsive giao diện.
+* 
+* Khai báo meta viewport: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+* 
+* Trong đó: + viewport: Giúp trình duyệt hiểu thẻ meta này dùng để thiết lập khung nhìn.
+* 
+*           + width=device-width: Đặt chiều rộng bằng chiều rộng thiết bị (device-width).
+* 
+*           + initial-scale=1.0: Mức thu phóng của website. initial-scale thường được đặt bằng 1 (có thể tăng giá trị lên nhưng không được khuyến nghị).
+-->
+<!-- 10. Media Queries ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- 
+* @media CSS là một tính năng mới của CSS3.
+* 
+* Tính năng này cho phép ta tùy chỉnh CSS cho nhiều thiết bị khác nhau từ máy tính cho đến ipad, điện thoại và các thiết bị in ấn.
+* 
+* Cú pháp:  @media mediaType and (mediaFeature) {
+*            	// Code
+*            }
+* 
+* Trong đó:     + mediaType gồm các thuộc tính hay sử dụng sau:
+* 
+*                   + all: Dùng cho mọi thiết bị
+* 
+*                   + print: Dùng cho máy in
+* 
+*                   + screen: Dùng cho máy tính và các thiết bị di động
+* 
+*               + mediaFeature gồm các thuộc tính hay sử dụng sau:
+* 
+*                   + max-width: Chiều rộng tối đa của viewport
+* 
+*                   + min-width: Chiều rộng tối thiểu của viewport
+-->
+<!--
+* PC first (Responsive):
+* 
+*   + PC first là khái niệm để chỉ việc lập trình giao diện từ màn hình to đến màn hình nhỏ.
+* 
+*   + Để làm việc với mô hình này chúng ta sử dụng max-width trong media query.
+ 
+<style>
+      /*Ipad ngang(1024 x 768)*/
+      @media screen and (max-width: 1024px) {
+        /* Code */
+      }
+      /*Ipad dọc(768 x 1024)*/
+      @media screen and (max-width: 768px) {
+        /* Code */
+      }
+      /* Smart phone (480 x 640)*/
+      @media screen and (max-width: 480px) {
+        /* Code */
+      }
+      /* Smart phone nhỏ */
+      @media screen and (max-width: 320px) {
+        /* Code */
+      }
+</style>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h1 {
+            color:red;
+            font-size:80px;
+        }
+
+        /*Ipad ngang(1024 x 768)*/
+        @media screen and (max-width: 1024px) {
+            h1 {
+                color:green;
+                font-size: 70px;
+            }
+        }
+        /*Ipad dọc(768 x 1024)*/
+        @media screen and (max-width: 768px) {
+            h1 {
+                color:blue;
+                font-size: 60px;
+            }
+        }
+        /* Smart phone (480 x 640)*/
+        @media screen and (max-width: 480px) {
+            h1 {
+                color:gray;
+                font-size: 40px;
+            }
+        }
+        /* Smart phone nhỏ */
+        @media screen and (max-width: 320px) {
+            h1 {
+                color:yellow;
+                font-size: 20px;
+            }
+        }
+    </style>
+    <h1>Lorem is ncpas cnmksapwkd</h1>
+</body>
+</html>
+
+
+<!-- Ví dụ 2 -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin:0;
+        }
+        .header {
+            background-color: #92DFC8;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            background-color: #CAEFF2;
+            padding: 20px;
+            height: 600px;
+            width:70%;
+            float:left;
+            text-align: center;
+        }
+        .aside {
+            background-color: #F2D8CA;
+            padding: 20px;
+            height: 600px;
+            width:30%;
+            float:right;
+            text-align: center;
+        }
+        .section-two {
+            margin-top: 10px;
+        }
+        .box {
+            background-color: #F2F1CA;
+            padding: 20px;
+            height: 150px;
+            width:calc(25% - 7.5px);
+            float:left;
+            margin-right:10px;
+            margin-bottom:10px;
+            text-align: center;
+        }
+        .box:nth-child(4) {
+            margin-right:0;
+        }
+        .footer {
+            background-color: #EECBF3;
+            padding:20px;
+        }
+        .clear-both {
+            clear:both;
+        }
+
+        @media screen and (max-width: 768px) {
+            .content {
+                width:100%;
+            }
+            .aside {
+                width:100%;
+            }
+            .box {
+                width: 50%;
+            }
+            .box:nth-child(2) {
+                margin-right: 0px;
+            }
+        }
+    </style>
+    <header class="header">
+        Header
+    </header>
+
+    <div class="section-one">
+        <div class="content">
+            Content
+        </div>
+        <div class="aside">
+            Aside
+        </div>
+        <div class="clear-both"></div>
+    </div>
+
+    <div class="section-two">
+        <div class="box"> Box1 </div>
+        <div class="box"> Box2 </div>
+        <div class="box"> Box3 </div>
+        <div class="box"> Box4 </div> 
+        <div class="clear-both"></div>
+    </div>
+
+    <footer class="footer">
+        footer
+    </footer>
+</body>
+</html>
+<!-- 
+* Mobile first:
+* 
+*   + Mobile first là khái niệm để chỉ việc lập trình giao diện từ màn hình nhỏ đến màn hình to.
+*   
+*   + Để làm việc với mô hình này chúng ta sử dụng min-width trong media query.
+
+<style>
+      /* Smart phone nhỏ */
+      @media screen and (min-width: 320px) {
+        /* Code */
+      }
+      /* Smart phone nhỏ(480 x 640) */
+      @media screen and (min-width: 480px) {
+        /* Code */
+      }
+      /* Ipad dọc(768 x 1024) */
+      @media screen and (min-width: 768px) {
+        /* Code */
+      }
+      /* Ipad ngang(1024 x 768) */
+      @media screen and (min-width: 1024px) {
+        /* Code */
+      }
+</style>
+
+-->

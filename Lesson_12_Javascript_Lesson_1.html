@@ -1,0 +1,1563 @@
+<!-- 1. Khái niệm và giới thiệu chung----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 1.1. Khái niệm---------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Javascript (viết tắt là JS) là một ngôn ngữ lập trình kịch bản dựa vào các đối tượng có sẵn hoặc do lập trình viên tự định nghĩa. -->
+
+<!-- 1.2. Giới thiệu---------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+ * Trước đây, Javascript được sử dụng chủ yếu để nâng cao sự tương tác của người dùng với trang web. Ví dụ làm các hiệu ứng đặc biệt như sliders, popup, hoặc xác thực dữ liệu các form (form validations) trước khi gửi dữ liệu lên server (máy chủ).
+ * 
+ * Ngày nay, Javascript không chỉ giới hạn trong khuôn khổ xây dựng ứng dụng web, mà còn sử dụng rộng rãi trong phát triển ứng dụng, game trên điện thoại hay các ứng dụng dành cho server.
+ * 
+ * Web app:   + Reactjs, Vuejs, Angularjs…
+ * 
+ *            + Mobile app: React Native,...
+ * 
+ *            + Server app: Nodejs, Expressjs
+ * 
+ *            + Graphic: two.js (2D), three.js (3D)...
+ * 
+ *            + AI: brain.js…
+ * 
+ *            + Và còn nhiều lĩnh vực khác nữa mà Javascript có thể làm được.
+-->
+
+<!-- 1.3. Các cách sử dụng javascript--------------------------------------------------------------------------------------------- -->
+
+<!-- 
+ * Cách 1: Inline - viết trực tiếp trong thẻ HTML
+ * 
+ * <button onclick="alert('Hello World!')">
+ *     Click Me
+ * </button>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="alert('Hello World!')">
+        Click Me
+    </button>
+</body>
+</html>
+
+<!--  
+ * Cách 2: Internal - viết trong file HTML hiện tại
+ * <script type="text/Javascript">
+ *     var button = document.querySelector("button");
+ *     button.onclick = function() {
+ *       alert("Hello World!");
+ *     }
+ * </script>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var button = document.querySelector("button");
+        button.onclick = function() {
+            alert("Hello World!");
+        }
+    </script>
+</body>
+</html>
+
+<!--
+ * Cách 3: External - viết ra một file js khác rồi nhúng vào trang HTML
+ * <script language="javascript" src="duong_dan_file"></script>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script language="javascript" src="/Lesson_12_Javascript_Lesson_1.js"></script>
+</body>
+</html>
+
+<!-- 02. Variables (Biến) ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 2.1. Khái niệm--------------------------------------------------------------------------------------------- -->
+
+<!-- Biến (variable) là nơi để bạn có thể lưu trữ thông tin -->
+
+<!-- 2.2. Khai báo biến bằng từ khóa var (variable - biến) ---------------------------------------------------- -->
+
+<!-- Cú pháp: var tenBien = giaTri; -->
+
+<!-- 
+/*
+ * Trong đó:    tenBien: Là tên của biến các bạn muốn đặt.
+ * 
+ *              giaTri: Là giá trị của biến, có thể là số, chuỗi, mảng, object.
+ * 
+ * Ví dụ:   var a = 15;
+ * 
+ *          var b = 20;
+ * 
+ *          var c = a + b; => Kết quả c = 35.
+ * 
+ * Lưu ý: Tên biến có phân biệt chữ hoa, chữ thường.
+ * 
+ */
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 10;
+        var b = 20;
+        console.log(a);         //Lệnh này để in ra màn hình một biến
+        console.log(b);
+    </script>
+</body>
+</html>
+
+<!-- 2.3. Cách đặt tên cho biến ------------------------------------------------------------------------------ -->
+
+<!--  
+/*
+ * Quy tắc đặt tên biến:
+ * 
+ *      + Bắt đầu phải là chữ cái hoặc ký tự '_'
+ * 
+ *      + Không được bắt đầu bằng số (0 🡪 9).
+ * 
+ *      + Không được bắt đầu bằng ký tự đặc biệt (ví dụ: #, %, ^, -)
+ * 
+ * Đặt tên biến ĐÚNG:   + var tenbien = 10;
+ * 
+ *                      + var _tenbien = 10;
+ * 
+ *                      + var TenBien = 10; // PascalCase
+ * 
+ *                      + var ten_bien = 10; // snake_case
+ * 
+ *                      + var tenBien = 10; // camelCase
+ * 
+ *                      + var tenbien123 = 10;
+ * 
+ * Đặt tên biến SAI:    + var 123tenbien = 10; // Do số đứng đầu
+ * 
+ *                      + var -tenbien = 10; // Do có ký tự -
+ */
+
+
+//03. Operators (Toán tử) -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//3.1. Arithmetic (Toán tử số học)---------------------------------------------------------------------------------------------
+/* 
+ * Toán tử số học là toán tử dùng để thực hiện các phép toán số học.
+ * 
+ * Danh sách các toán tử số học:
+ * 
+ *  Toán tử                                     Mô tả
+ *     +            Phép cộng (Nếu là chuỗi thì nó sẽ thực hiện thao tác nối chuỗi)
+ *      
+ *     -            Phép trừ
+ *
+ *     *            Phép nhân
+ *     
+ *     **           Phép lũy thừa
+ *      
+ *      /           Phép chia
+ * 
+ *      %           Phép chia lấy phần dư, nghĩa là khi chia hai số với nhau và kết quả nó sẽ lấy phần dư của phép toán.
+ * 
+ *      ++          Phép tăng giá trị hiện tại lên 1 đơn vị.
+ *  
+ *      --          Phép giảm giá trị hiện tại xuống 1 đơn vị.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 10;
+    var b = 20;
+    var sum = a + b;
+    var difference = a - b;
+    var multiple = a * b;
+    var division = a / b;
+    var mod = a % b;
+
+    console.log(sum);
+    console.log(difference);
+    console.log(multiple);
+    console.log(division);
+    console.log(mod);
+
+    // Lưu ý:
+    var a = 10;
+    var d = "10";
+    console.log(a + d);
+  </script>
+</body>
+</html>
+
+<!--
+ * Toán tử ++
+ * 
+ *      + Phép tăng giá trị hiện tại lên 1 đơn vị
+ * 
+ *      + Hai cách sử dụng:     + Đặt trước biến (prefix - tiền tố): nó sẽ tăng trước khi lấy giá trị
+ * 
+ *                              + Đặt sau biến (postfix - hậu tố): nó sẽ lấy giá trị rồi mới tăng lên
+ * 
+ * Toán tử --
+ * 
+ *      + Phép giảm giá trị hiện tại xuống 1 đơn vị
+ * 
+ *      + Hai cách sử dụng:     + Đặt trước biến (prefix - tiền tố): nó sẽ giảm trước khi lấy giá trị
+ * 
+ *                              + Đặt sau biến (postfix - hậu tố): nó sẽ lấy giá trị rồi mới giảm xuống
+ */
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 20;
+    var b = a++;
+
+    var c = 20;
+    var d = ++c;
+
+    console.log(b);
+    console.log(d);
+  </script>
+</body>
+</html>
+
+<!-- 3.2. Assignment (Toán tử gán)--------------------------------------------------------------------------------------------- -->
+
+<!--
+ * Toán tử gán dùng để gán giá trị cho một biến.
+ *
+ * Danh sách các toán tử gán:
+ *  
+ * Toán tử          Ví dụ                       Mô tả
+ *    =             a = b           Gán giá trị của biến a bằng giá trị của biến b
+ * 
+ *    +=            a += b          Tương đương với a = a + b
+ * 
+ *    -=            a -= b          Tương đương với a = a - b
+ * 
+ *    *=            a *= b          Tương đương với a = a * b
+ * 
+ *    /=            a /= b          Tương đương với a = a / b
+ * 
+ *    %=            a %= b          Tương đương với x = x % y
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 20;
+    var b = 19;
+
+    b = a;
+    console.log(b);
+
+    var a = 30;
+    var b = 10;
+
+    a += b
+    console.log(b);
+
+    var a = 30;
+    var b = 10;
+
+    a -= b
+    console.log(b);
+
+    var a = 30;
+    var b = 10;
+
+    a *= b
+    console.log(b);
+  </script>
+</body>
+</html>
+
+<!-- // 3.3. Comparison (Toán tử so sánh)--------------------------------------------------------------------------------------------- -->
+
+<!-- 
+ * Toán tử so sánh là toán tử hai ngôi dùng để so sánh giá trị của hai toán hạng với nhau.
+ * 
+ * Danh sách các toán tử so sánh:
+ *
+ *   Toán tử         Ví dụ                       Mô tả 
+ *      >            a > b              Trả về true nếu a lớn hơn b.
+ *                                      Trả về  false nếu b lớn hơn hoặc bằng a.
+ *      
+ *      <            a < b              Trả về true nếu a nhỏ hơn b.
+ *                                      Trả về  false nếu b nhỏ hơn hoặc bằng a.
+ * 
+ *      >=           a >= b             Trả về true nếu a lớn hơn hoặc bằng b.
+ *                                      Trả về false nếu a nhỏ hơn b.
+ * 
+ *      <=           a <= b             Trả về true nếu a nhỏ hơn hoặc bằng b.
+ *                                      Trả về false nếu a lớn hơn b.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 20;
+    var b = 19;
+
+    console.log(a > b);
+    console.log(a < b);
+  </script>
+</body>
+</html>
+
+
+<!--
+ *      ==           a == b             Trả về true nếu a bằng b.
+ *                                      Trả về  false nếu a khác b.
+ *                                      Không nghiêm ngặt.
+ * 
+ *      ===         a === b             Trả về true nếu giá trị của a bằng giá trị của b.
+ *                                      Với a, b phải cùng kiểu dữ liệu.
+ *                                      Nghiêm ngặt.
+ * 
+ *      !=           a != b             Trả về true nếu a khác b.
+ *                                      Trả về false nếu a bằng b.
+ *                                      Không nghiêm ngặt.
+ * 
+ *      !==         a !== b             Trả về true nếu giá trị của a khác giá trị của b
+ *                                      Với a, b phải khác kiểu dữ liệu.
+ *                                      Nghiêm ngặt.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 20;
+    var b = 19;
+
+    console.log(a == b);
+
+    var a = 20;
+    var b = "20";
+    console.log(a == b);
+    console.log(a === b);
+
+    var a = 20;
+    var b = 19;
+
+    console.log(a != b);
+
+    var a = 20;
+    var b = "20";
+    console.log(a != b);
+    console.log(a !== b);
+  </script>
+</body>
+</html>
+
+<!--
+/*
+ * Toán tử logic là toán tử kết nối hai hay nhiều biểu thức, dùng để kiểm tra mối quan hệ logic giữa các biểu thức. Kết quả cuối cùng phụ thuộc vào giá trị của từng biểu thức và loại toán tử logic.
+ * 
+ * Danh sách các toán tử logic:
+ * 
+ *      Toán tử               Mô tả
+ *        &&            AND: trả về kết quả là true khi cả hai toán hạng đều true.
+ * 
+ *        ||            OR: trả về kết quả là true khi cả hai hoặc một trong hai toán hạng là true.
+ * 
+ *        !             NOT: Chuyển đổi giá trị của toán hạng từ true sang false hoặc từ false sang true.
+ */
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 20;
+    var b = 19;
+    var c = 20;
+
+    console.log(a == b || a == c);
+    console.log(a == b && a == c);
+    console.log (!(a == b));
+  </script>
+</body>
+</html>
+
+<!--04. Data Types (Kiểu dữ liệu)------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 4.1. Kiểu dữ liệu nguyên thủy (Primitive Data)------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+ * Khái niệm: Kiểu dữ liệu nguyên thủy là kiểu dữ liệu mà giá trị không thể thay đổi được.
+ * 
+ * Có 6 kiểu: Number, String, Boolean, Undefined, Null, Symbol
+ -->
+
+<!--  
+ * Kiểu Number
+ * 
+ *      + Kiểu dữ liệu number là kiểu dữ liệu dạng số (tương tự trong toán học).
+ * 
+ *      + JavaScript có hai loại số là: số nguyên và số thực.
+ * 
+ *      + Ngoài những loại số trên, JavaScript còn có 3 số đặc biệt là:
+ * 
+ *              + Infinity: là số dương vô cùng.
+ * 
+ *              + -Infinity: là số âm vô cùng.
+ * 
+ *              + NaN: là viết tắt của Not a Number, được sử dụng để đại diện cho những trường hợp tính toán sai hoặc kết quả của một phép tính không xác định.
+ * 
+ *      + Ví dụ:    + var a = 10; // Số nguyên
+ * 
+ *                  + var b = 10.5; // Số thực
+ * 
+ *                  + var c = Infinity; // Số dương vô cùng
+ * 
+ *                  + var d = -Infinity; // Số âm vô cùng
+ * 
+ *                  + var e = 10/"a"; // NaN
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 20;
+    var b = 19;
+
+    console.log(typeof a);          //Lệnh này để in ra màn hình kiểu dữ liệu 
+    console.log(typeof b);
+
+    var c = 10/"a";
+    console.log(typeof c);
+
+    var d = Infinity;
+    var e = -Infinity;
+    console.log(typeof d);
+    console.log(typeof e);
+    
+  </script>
+</body>
+</html>
+
+<!-- 
+ * Kiểu String
+ * 
+ *      + String là kiểu dữ liệu dùng để biểu diễn chữ, văn bản, đoạn văn bản,...
+ * 
+ *      + Có 3 cách để biểu diễn string trong JavaScript:
+ * 
+ *          + Dùng dấu nháy đơn: '
+ * 
+ *          + Dùng dấu nháy kép: "
+ * 
+ *          + Dùng dấu "backtick“:  `
+ * 
+ *      + Ví dụ:
+ * 
+ *          + const msg1 = 'Đây là string dùng dấu nháy đơn';
+ * 
+ *          + const msg2 = "Đây là string dùng dấu nháy kép";
+ * 
+ *          + const msg3 = `Đây là string dùng dấu backtick`; // template string trong ES6
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = "test1";
+    var b = 'test2';
+    var c = `test3`;
+
+    console.log(typeof a);
+    console.log(typeof b);
+    console.log(typeof c);
+
+  </script>
+</body>
+</html>
+
+<!-- 
+ * Kiểu Boolean
+ * 
+ *      + Boolean là kiểu dữ liệu logic chỉ bao gồm 2 giá trị là true (đúng, chính xác) và false (sai, không chính xác)
+ * 
+ *      + Ví dụ:        var isDarkMode = true; // Chế độ dark mode
+ * 
+ *                      var isDarkMode = false; // Chế độ light mode
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = true;
+    var b = false;
+
+    console.log(typeof a);
+    console.log(typeof b);
+
+  </script>
+</body>
+</html>
+
+<!--
+ * Kiểu Undefined
+ * 
+ *      + Undefined là một kiểu dữ liệu mà khi khai báo ra một biến và không gán giá trị thì kết quả trả về là undefined.
+ *  
+ *      + Ví dụ:        var a;
+ *                      console.log(a) // undefined
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a;
+    console.log(typeof a);
+
+  </script>
+</body>
+</html>
+
+<!--
+ * Kiểu Null
+ * 
+ *      + Kiểu dữ liệu null là một kiểu dữ liệu đặc biệt, chỉ bao gồm một giá trị là null (không biết giá trị, không có giá trị).
+ * 
+ *      + Ví dụ:        var a = null;
+ *                      console.log(a) //  null
+ * 
+ * Khác nhau cơ bản giữa undefined và null
+ * 
+ * Kiểu dữ liệu null là kiểu dữ liệu được gán cho biến, thường được hiểu là không biết (không có).
+ * 
+ * Kiểu dữ liệu undefined là giá trị mặc định của biến sau khi khai báo mà không gán giá trị cho biến.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = null;
+    console.log(typeof a);
+
+  </script>
+</body>
+</html>
+
+<!--
+ * Kiểu Symbol
+ * 
+ *      + Symbol là một kiểu dữ liệu nguyên thủy dùng để tạo ra các giá trị duy nhất (unique value) và bất biến (immutable).
+ * 
+ *      + Symbol thường được dùng làm key cho kiểu dữ liệu object.
+ * 
+ *      + Ví dụ: Tự nghiên cứu thêm
+-->
+
+
+<!-- 4.2. Dữ liệu phức tạp (Complex Data) ------------------------------------------------------------------------------------- -->
+
+<!-- 
+ * Kiểu Object
+ * 
+ * Object là kiểu dữ liệu tham chiếu. Có thể hiểu object là một tập hợp gồm các cặp key - value (khóa - giá trị).
+ * 
+ * Kiểu dữ liệu của key có thể là string hoặc symbol.
+ * 
+ * Value ứng với key có thể là bất kỳ kiểu dữ liệu nào.
+ * 
+ * Có 2 loại là Object và Array.
+-->
+
+<!-- Object -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var infoUser = {
+	    name: "Le Van A",
+	    age: 18,
+	    email: "levana@gmail.com",
+	    phone: "0987654321",
+	}
+	console.log(infoUser.age);
+    console.log(infoUser.name);
+
+  </script>
+</body>
+</html>
+
+<!-- Array -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var listUser = [
+	   "Le Van A",
+	   "Nguyen Thi B",
+	   "Do Van C"
+	]
+	console.log(listUser);
+	//console.log(listUser[0]);
+
+    listUser.age = 20;
+  </script>
+</body>
+</html>
+
+
+<!-- 05. Một số hàm------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 5.1. Khái niệm ----------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+ *
+ * Function (hàm) trong JavaScript là một chương trình con giúp thực thi một công việc cụ thể.
+ * 
+ * Cú pháp: function tenHam(thamSo1, thamSo2,…) {
+ * 	            // Code
+ * 	        } 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sum(a, b) {
+        console.log(a + b);
+    }
+
+    sum(10, 20);
+
+  </script>
+</body>
+</html>
+
+
+<!-- Vi du 1 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var infoUser = {
+	     name: "Le Van A",
+	     age: 18,
+	     email: "levana@gmail.com",
+	     phone: "0987654321",
+         sum: function(a, b) {
+            console.log(a + b);
+         },
+	}
+	console.log(infoUser.age);
+    console.log(infoUser.name);
+    infoUser.sum(10, 20);
+
+  </script>
+</body>
+</html>
+
+<!-- Vi du 2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var listUser = [
+	   "Le Van A",
+	   "Nguyen Thi B",
+	   "Do Van C"
+	]
+	console.log(listUser);
+	//console.log(listUser[0]);
+
+    listUser.sum = function(a, b) {
+        console.log(a + b);
+    }
+
+    listUser.age = 20;
+  </script>
+</body>
+</html>
+
+
+
+<!-- 5.2. Một số hàm built-in ------------------------------------------------------------------------------------------- -->
+
+<!-- Hàm built-in là những hàm được javascript định nghĩa sẵn, chúng ta chỉ việc sử dụng -->
+
+<!-- 
+* Hàm alert()
+*
+*       + Hàm alert() có nhiệm vụ in một thông báo popup
+*
+*       + Nó có một tham số truyền vào và tham số này chính là nội dung ta muốn thông báo với người dùng.
+*
+*       + Cú pháp: alert(message);
+*
+*       + Ví dụ: alert("Xin chào!");
+* -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    alert("hello world");
+  </script>
+</body>
+</html>
+
+<!-- 
+* Hàm confirm()
+*
+*   Hàm confirm() cũng sẽ xuất hiện một thông báo popup nhưng nó có thêm hai sự lựa chọn là Yes và No.
+*
+*   Nếu người dùng chọn Yes thì nó trả về TRUE và ngược lại nếu chọn NO thì nó sẽ trả về FALSE.
+*
+*   Nó cũng có một tham số truyền vào và tham số này chính là nội dung thông báo.
+*
+* Cú pháp: confirm(message);
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var result = confirm("Bạn đã trên 18 tuổi?");
+	console.log(result);
+  </script>
+</body>
+</html>
+
+
+<!-- 
+* Hàm prompt()
+* 
+* Hàm prompt() dùng để lấy thông tin từ người dùng
+* 
+* Gồm có hai tham số truyền vào là nội dung thông báo và giá trị ban đầu.
+* 
+* Cú pháp: prompt(title, defaultValue);
+* 
+* Trong đó:     + title: nội dung chữ hiển thị tới người dùng.
+* 
+*               + defaultValue: giá trị mặc định cho ô nhập và đây là giá trị không bắt buộc.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var result = prompt("Input your name", "John Wick");
+	console.log(result);
+  </script>
+</body>
+</html>
+
+<!-- 
+* Hàm console
+* 
+* Dùng để in ra nội dung ở tab console trên dev tools.
+* 
+* Có 3 hàm hay sử dụng là:      + console.log(): in ra thông báo
+* 
+* console.warn(): in ra cảnh báo
+* 
+* console.error(): in ra lỗi
+* 
+* Nghiên cứu thêm tại: https://developer.mozilla.org/en-US/docs/Web/API/console 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 10;
+    console.log(a);
+    console.warn(a);
+    console.error(a);
+  </script>
+</body>
+</html>
+
+<!-- 
+* Hàm setTimeout
+* 
+* Code sẽ chạy 1 lần duy nhất sau một khoảng thời gian.
+* 
+* Cú pháp:
+* 	setTimeout(function() {
+* 	    // Code
+* 	}, time)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    setTimeout(function() {
+        console.log(10);
+    }, 5000);
+  </script>
+</body>
+</html>
+
+<!-- 
+* Hàm setInterval
+* 
+* Code sẽ chạy lặp lại sau một khoảng thời gian.
+* 
+* Cú pháp:
+* 	setInterval(function() {
+* 	    // Code
+* 	}, time)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    setInterval(function() {
+        console.log(10);
+    }, 500);
+  </script>
+</body>
+</html>
+
+
+<!-- 06. Typeof-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Các toán tử typeof cho phép trả về kiểu của một biến.
+* 
+* Nó hữu ích khi chúng ta muốn xử lý các giá trị của các kiểu khác nhau hoặc chỉ muốn kiểm tra nhanh.
+* 
+* Cú pháp: typeof x (với x là một biến hoặc biểu thức) 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 10;
+   	var b = "Nội dung...";
+    var c;
+   	var d = null;
+    var e = true;
+
+    console.log(typeof a); // number
+    console.log(typeof b); // string
+    console.log(typeof (a + b)); // string
+    console.log(typeof c); // undefined
+    console.log(typeof d); // object
+    console.log(typeof e); // boolean
+    console.log(typeof a == "number"); // true
+    
+  </script>
+</body>
+</html>
+
+
+<!-- 07. Làm việc với String-------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 7.1. Length------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Length trả về độ dài của chuỗi -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = "Nội dung...";
+
+    console.log(a.length);
+    
+  </script>
+</body>
+</html>
+
+<!-- 7.2. indexOf() --------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Tìm vị trí đầu tiên của một chuỗi nằm trong một chuỗi.
+* 
+* Nếu không tìm thấy sẽ trả về -1.
+* 
+* Có phân biệt chữ hoa, chữ thường.
+* 
+* Cú pháp: string.indexOf(searchvalue, start)
+* 
+* Trong đó:     + searchvalue: Giá trị cần tìm kiếm (bắt buộc).
+* 
+*               + start: Vị trí bắt đầu tìm kiếm (tính từ trái qua phải) và sẽ tìm kiếm xuôi tiếp (mặc định bắt đầu từ 0). 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var myString = `Xin chào! Tôi tên Nam. Tôi năm nay 18 tuổi.`;
+	console.log(myString.indexOf("Tôi")); // Trả về 10
+	console.log(myString.indexOf("Hải")); // Trả về -1
+	console.log(myString.indexOf("Nam")); // Trả về 18
+	console.log(myString.indexOf("nam")); // Trả về -1
+	console.log(myString.indexOf("Tôi", 11)); // Trả về 23
+    
+  </script>
+</body>
+</html>
+
+
+<!-- 7.3. lastIndexOf()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Tìm vị trí cuối cùng của một chuỗi nằm trong một chuỗi.
+* 
+* Nếu không tìm thấy sẽ trả về -1.
+* 
+* Có phân biệt chữ hoa, chữ thường.
+* 
+* Cú pháp: string.lastIndexOf(searchvalue, start)
+* 
+* Trong đó:     + searchvalue: Giá trị cần tìm kiếm (bắt buộc).
+* 
+*               + start: Vị trí bắt đầu tìm kiếm (tính từ trái qua phải) và sẽ tìm kiếm ngược lại (mặc định bắt đầu từ 0). 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var myString = `Xin chào! Tôi tên Nam. Tôi năm nay 18 tuổi.`;
+	console.log(myString.lastIndexOf("Tôi", 24)); // Trả về 23
+	console.log(myString.lastIndexOf("Tôi", 22)); // Trả về 10
+	console.log(myString.lastIndexOf("Tôi", 10)); // Trả về 10
+	console.log(myString.lastIndexOf("Tôi", 9)); // Trả về -1
+    
+  </script>
+</body>
+</html>
+
+
+<!-- 7.4. slice()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Dùng để cắt một chuỗi và trả về một chuỗi mới.
+* 
+* Chuỗi ban đầu không thay đổi.
+* 
+* Cú pháp: string.slice(start, end)
+* 
+* Trong đó:     + start: Vị trí bắt đầu cắt (bắt buộc).
+* 
+*               + end: Vị trí kết thúc cắt (không bắt buộc). 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var myString = `Xin chào! Tôi tên Nam. Tôi năm nay 18 tuổi.`;
+	console.log(myString.slice(10, 21)); // Tôi tên Nam
+	console.log(myString.slice(0)); // Lấy toàn bộ chuỗi
+	console.log(myString.slice(0, 1)); // X (Lấy ký tự đầu tiên của chuỗi)
+	console.log(myString.slice(-1)); // . (Lấy ký tự cuối cùng của chuỗi)
+	console.log(myString); // Vẫn giữ nguyên chuỗi gốc
+    
+  </script>
+</body>
+</html>
+
+
+<!-- 7.5. replace()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Dùng để thay thế 1 chuỗi thành 1 chuỗi mới.
+* 
+* Nhưng chỉ thay thế chuỗi đầu tiên mà nó tìm thấy.
+* 
+* Muốn thay thế được tất cả các từ tìm thấy thì phải dùng Regular Expression (Biểu thức chính quy).
+* 
+* Cú pháp: string.replace(searchValue, newValue)
+* 
+* Trong đó:     + searchValue: Từ khóa cần thay thế (bắt buộc).
+* 
+*               + newValue: Từ khóa mới để thay thế (bắt buộc). 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var myString = `Xin chào! Tôi tên Nam. Tôi năm nay 18 tuổi.`;
+	console.log(myString.replace("Tôi", "Mình"));
+	console.log(myString.replace(/Tôi/g, "Mình"));
+    
+  </script>
+</body>
+</html>
+
+
+<!-- 7.6. toUpperCase() và toLowerCase()------------------------------------------------------------------------------------------------------------ -->
+
+<!-- 
+* toUpperCase() dùng để viết hoa tất cả các chữ cái.
+* 
+* toLowerCase() dùng để viết thường tất cả các chữ cái. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var myString = `Xin chào! Tôi tên Nam. Tôi năm nay 18 tuổi.`;
+	console.log(myString.toUpperCase());
+	console.log(myString.toLowerCase());
+    
+  </script>
+</body>
+</html>
+
+
+<!-- 7.7. trim()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Dùng để bỏ đi khoảng trắng ở 2 đầu, các khoảng trắng giữa các ký tự không bị loại bỏ. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var myString = `  Xin chào! Tôi tên Nam.  Tôi năm   nay 18 tuổi.  `;
+	console.log(myString);
+	console.log(myString.trim());
+    
+  </script>
+</body>
+</html>
+
+	
+<!-- 7.8. charAt()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Dùng để lấy ký tự thông qua index (với index là vị trí của ký tự cần lấy).
+* 
+* Cú pháp: string.charAt(index) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var myString = `Đặng Phương Nam`;
+	console.log(myString.charAt()); // Lấy ký tự đầu tiên
+	console.log(myString.charAt(0)); // Lấy ký tự đầu tiên
+	console.log(myString.charAt(1)); // Lấy ký tự thứ 2
+	console.log(myString.charAt(myString.length - 1)); // Lấy ký tự cuối cùng	
+    
+  </script>
+</body>
+</html>
+
+	
+<!-- 7.9. split()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Chuyển một chuỗi thành một array, nhưng cần tìm ra điểm chung của chuỗi đó. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var myString = `HTML5, CSS3, Javascript`;
+	console.log(myString.split()); // Cả string là 1 phần tử
+	console.log(myString.split("")); // Mỗi ký tự là 1 phần tử
+	console.log(myString.split(", ")); // Mỗi từ là 1 phần tử
+	console.log(myString.split(", ", 2)); // Mỗi từ là 1 phần tử, lấy tối đa 2 phần tử	
+    
+  </script>
+</body>
+</html>
+
+
+<!-- 08. Làm việc với Number------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- 8.1. isNaN()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Dùng để kiểm tra một biến có phải là NaN không.
+* 
+* (NaN: là viết tắt của Not a Number, được sử dụng để đại diện cho những trường hợp tính toán sai hoặc kết quả của một phép tính không xác định)
+* 
+* Cú pháp: isNaN(tenBien) 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = 10;
+	var b = "Test";
+	var result = a / b;
+
+	console.log(result); // Trả về NaN
+	console.log(isNaN(result)); //  Trả về true		
+
+  </script>
+</body>
+</html>
+	
+
+<!-- 8.2. toString()-------------------------------------------------------------------------------------------------------------------------------  -->
+
+<!-- 
+* Chuyển kiểu số thành kiểu string.
+* 
+* Cú pháp: tenBien.toString() 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = 10;
+	var b = a.toString();
+	var c = (10).toString();
+	console.log(a); // Trả về số 10
+	console.log(typeof a); // Trả về kiểu number
+	console.log(b); // Trả về chuỗi 10
+	console.log(typeof b); // Trả về kiểu string
+	console.log(c); // Trả về chuỗi 10
+	console.log(typeof c); // Trả về kiểu string	
+  </script>
+</body>
+</html>
+	
+<!-- 8.3. toFixed()-------------------------------------------------------------------------------------------------------------------------------  -->
+
+<!-- 
+* Dùng để làm tròn số thập phân.
+* 
+* Nếu số ngay sau số cần làm tròn mà >= 5 thì sẽ làm tròn lên, nếu < 5 sẽ làm tròn xuống.
+* 
+* Cú pháp: toFixed(digits)
+* 
+* Trong đó: digits là số chữ số sau dấu thập phân (0 <= digits <= 100). Không điền mặc định là 0. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = 12.3456;
+	console.log(a.toFixed()); // Trả về 12
+	console.log(a.toFixed(0)); // Trả về 12
+	console.log(a.toFixed(1)); // Trả về 12.3
+	console.log(a.toFixed(2)); // Trả về 12.35
+	console.log(a.toFixed(3)); // Trả về 12.346
+  </script>
+</body>
+</html>
+	
+
+<!-- 09. Làm việc với Array---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 9.1. toString()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Chuyển array thành string. Tự động thêm dấu phẩy ngăn cách.
+* 
+* Cú pháp: array.toString() 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var list = ["HTML5", "CSS3", "Javascript"];
+	console.log(list.toString()); // Trả về: "HTML5,CSS3,Javascript"
+  </script>
+</body>
+</html>
+
+<!-- 9.2. join()------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Chuyển array thành string. Thêm dấu bất kỳ để ngăn cách giữa các phần tử.
+* 
+* Cú pháp: array.join(separator)
+* 
+* Trong đó: separator (dải phân cách) là dấu ngăn cách để thêm vào string. Mặc định là dấu phẩy. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var list = ["HTML5", "CSS3", "Javascript"];
+	console.log(list.join()); // Trả về: "HTML5,CSS3,Javascript"
+	console.log(list.join(",")); // Trả về: "HTML5,CSS3,Javascript"
+	console.log(list.join("")); // Trả về: "HTML5CSS3Javascript"
+	console.log(list.join(", ")); // Trả về: "HTML5, CSS3, Javascript"
+	console.log(list.join(" - ")); // Trả về: "HTML5 - CSS3 - Javascript"
+  </script>
+</body>
+</html>
+
+<!-- 9.3. pop()------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Dùng để xóa phần từ cuối mảng và trả về phần tử cuối mảng đó.
+* 
+* Cú pháp: array.pop() 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var list = ["HTML5", "CSS3", "Javascript"];
+	console.log(list.pop()); // Trả về: "Javascript"
+	console.log(list); // Trả về: ["HTML5", "CSS3"]
+  </script>
+</body>
+</html>
+
+<!-- 9.4. push()------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Thêm một hoặc nhiều phần tử vào cuối mảng. Trả về độ dài mới của mảng.
+* 
+* Cú pháp: array.push(item1, item2, ..., itemX) 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var list = ["HTML5", "CSS3", "Javascript"];
+	console.log(list.push("Bootstrap 4", "ReactJS")); // Trả về: 5
+	console.log(list);
+	// Trả về: ["HTML5", "CSS3", "Javascript", "Bootstrap 4", "ReactJS"]
+  </script>
+</body>
+</html>
+
+
+<!-- 9.5. shift()------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Dùng để xóa phần tử đầu mảng và trả về phần tử ở đầu mảng đó.
+* 
+* Cú pháp: array.shift() 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var list = ["HTML5", "CSS3", "Javascript"];
+	console.log(list.shift()); // Trả về: "HTML5"
+	console.log(list); // Trả về: ["CSS3", "Javascript"]
+  </script>
+</body>
+</html>
+
+<!-- 9.6. unshift()------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Thêm một hoặc nhiều phần tử vào đầu mảng. Trả về độ dài mới của mảng.
+* 
+* Cú pháp: array. unshift(item1, item2, ..., itemX) 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var list = ["HTML5", "CSS3", "Javascript"];
+	console.log(list.unshift("Bootstrap 4", "ReactJS")); // Trả về: 5
+	console.log(list);
+	// Trả về: ["Bootstrap 4", "ReactJS", "HTML5", "CSS3", "Javascript"]
+  </script>
+</body>
+</html>
+
+<!-- 9.7. splice()------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Xóa hoặc chèn phần tử mới vào mảng. Trả về mảng bị xóa.
+* 
+* Cú pháp: array.splice(index, howmany, item1, ....., itemX)
+* 
+* Trong đó:     + index: Vị trí thêm/xóa phần tử (bắt buộc).
+* 
+*               + howmany: Số phần tử cần xóa (không bắt buộc).
+* 
+*               + item1, ..., itemX: Các phần tử mới được thêm vào (không bắt buộc). 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+	var list = ["HTML5", "CSS3", "Javascript"];
+	console.log(list.splice(2, 0, "Bootstrap 4", "ReactJS")); // Trả về: []
+	console.log(list);
+	// Trả về: ["HTML5", "CSS3", "Bootstrap 4", "ReactJS", "Javascript"]
+  </script>
+</body>
+</html>
+
+<!-- 9.8. concat()------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Dùng để nối 2 array. Không làm ảnh hưởng đến mảng ban đầu.
+* 
+* Cú pháp: array1.concat(array2, array3, ..., arrayX) 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var list = ["HTML5", "CSS3", "Javascript"];
+	var list2 = ["Bootstrap 4", "ReactJS"];
+	console.log(list.concat(list2));
+	// Trả về: ["HTML5", "CSS3", "Javascript", "Bootstrap 4", "ReactJS"]
+	console.log(list);
+	// Trả về: ["HTML5", "CSS3", "Javascript"]
+  </script>
+</body>
+</html>
+
+<!-- 9.9. slice()------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Dùng để cắt các phần tử. Không làm ảnh hưởng đến mảng ban đầu.
+* 
+* Cú pháp: array.slice(start, end)
+* 
+* Trong đó:     + start: Vị trí bắt đầu. Mặc định là 0. (không bắt buộc).
+* 
+*               + end: Vị trí kết thúc. Mặc định là phần tử cuối cùng. (không bắt buộc). 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var list = ["HTML5", "CSS3", "Javascript", "Bootstrap 4", "ReactJS"];
+	console.log(list.slice(3)); // Trả về: ["Bootstrap 4", "ReactJS"]
+	console.log(list.slice(1, 3)); // Trả về: ["CSS3", "Javascript"]
+	console.log(list.slice(-3, -1)); // Trả về: ["Javascript", "Bootstrap 4"]
+	console.log(list);
+	// Trả về: ["HTML5", "CSS3", "Javascript", "Bootstrap 4", "ReactJS"]
+  </script>
+</body>
+</html>

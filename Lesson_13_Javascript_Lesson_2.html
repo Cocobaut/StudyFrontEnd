@@ -1,0 +1,589 @@
+<!-- 01. Câu lệnh rẽ nhánh If Else--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 1.1. Câu lệnh if------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- 
+* Câu lệnh if(...) sẽ kiểm tra điều kiện biểu thức bên trong cặp dấu ngoặc đơn (). Nếu kết quả là true thì một khối code sẽ được thực thi.
+* 
+* Cú pháp:  if (condition) {
+*               //nếu điều kiện đúng thì thực hiện
+*           }
+* 
+* Trong đó condition (điều kiện) là mệnh đề điều kiện và luôn luôn phải có một trong hai giá trị là true/false hoặc giá trị tương đương như:
+* 
+*   + NULL => false
+* 
+*   + Rỗng "" => false
+* 
+*   + Số khác 0 => true
+* 
+*   + Số 0 => false
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = 12.3456;
+	if (a > 10) {
+		console.log("a lớn hơn 5");
+	}
+
+	var b = null;
+	if (b) {
+		console.log("b lớn hơn 5");
+	}
+
+    var c = 0;
+	if (c) {
+		console.log("c lớn hơn 5");
+	}
+
+    if (undefined) {
+		console.log("d lớn hơn 5");
+	}
+  </script>
+</body>
+</html>
+
+<!-- 1.2. Lệnh if else------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- 
+* Lệnh else sẽ được thực thi nếu lệnh if không được thực hiện, tức là điều kiện ở condition sẽ có giá trị là false.
+* 
+* Lưu ý: khi dùng lệnh else thì bắt buộc phải có một lệnh if đứng trước nó.
+* 
+* Cú pháp:  if (condition) {
+*               // Code cho lệnh if
+*           }
+*           else {
+*               // Code cho lệnh else
+*           }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = 12.3456;
+	if (a > 10) {
+		console.log("a lớn hơn 5");
+	}
+	else {
+		console.log("a nhỏ hon 5");
+	}
+  </script>
+</body>
+</html>
+
+<!-- 1.3. Kết hợp nhiều lệnh if else--------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Ta có thể kết hợp nhiều câu lệnh if để xử lý bài toán, bằng cách thêm nhiều lệnh else if phía sau.
+* 
+* Cú pháp:  if (condition1) {
+*               // Code cho lệnh if 1
+*           }
+*           else if (condition2) {
+*               // Code cho lệnh if 2
+*           }
+*           else {
+*               // Code cho lệnh else
+*           }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = 5;
+	if (a >= 8) {
+		console.log("Học sinh giỏi");
+	}
+    else if (a >= 5) {
+        console.log("Học sinh khá");
+    }
+	else {
+		console.log("Học sinh yếu");
+	}
+  </script>
+</body>
+</html>
+
+<!-- 1.4. Lệnh if else lồng nhau------------------------------------------------------------------------------------------------------ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a;
+        var b;
+        if (a != undefined && b != undefined) {
+            if (a == b) {
+                console.log("a bằng b");
+            } 
+            else {
+                console.log("a khác b");
+            }
+        } 
+        else {
+            console.log("a hoặc b chưa được gán giá trị.");
+        }
+    </script>
+</body>
+</html>
+
+<!-- 1.5. Câu lệnh if else rút gọn (Toán tử 3 ngôi - Ternary operator) -------------------------------------------------------------- -->
+
+<!-- 
+* Chúng ta cũng có thể rút gọn câu lệnh if else bằng cách dùng toán tử rẽ nhánh ? (hoặc có thể gọi là toán tử dấu hỏi).
+* 
+* Cú pháp:	var result = condition ? value1 : value2;
+* 
+* Đây là toán tử ba ngôi với ba thành phần:
+* 
+*       + condition: điều kiện cần kiểm tra
+* 
+*       + value1: trả về giá trị value1 nếu điều kiện condition là true.
+* 
+*       + value2: trả về giá trị value2 nếu điều kiện condition là false.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var age = 10;
+	var result = age >= 18 ? "Đủ 18 tuổi" : "Chưa đủ 18 tuổi";
+	console.log(result);
+  </script>
+</body>
+</html>
+
+
+<!-- 02. Switch Case--------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Lệnh switch case có công dụng giống như lệnh if else đó là đều dùng để rẽ nhánh chương trình.
+* 
+* Ứng với mỗi nhánh sẽ có một điều kiện cụ thể và điều kiện đó phải sử dụng toán tử so sánh bằng.
+* 
+* Còn đối với lệnh if else thì bạn có thể truyền vào một mệnh đề bất kì và sử dụng nhiều toán tử khác nhau.
+* 
+* Cú pháp:      switch (variable) {
+*                   case value_1:
+*                       // do some thing
+*                       break;
+*                   case value_2:
+*                       // do some thing
+*                       break;
+*                   default:
+*                       // do something
+*                       break;
+*               }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = 10;
+	switch (a) {
+		case 1:
+			console.log("Đây là giá trị 1");
+			break;
+		case 2:
+			console.log("Đây là giá trị 2");
+			break;
+		default:
+			console.log("Không xác định");
+			break;
+	}
+  </script>
+</body>
+</html>
+
+<!-- 
+* Trường hợp bỏ break đi thì câu lệnh sẽ chạy tiếp xuống case tiếp theo, đến case nào có break thì dừng lại.
+* 
+* Trường hợp không có default thì nếu rơi vào trường hợp này sẽ không in ra gì.
+* 
+* Ta cũng có thể gom nhóm case lại.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var a = 2;
+	switch (a) {
+		case 1:
+		case 2:
+		case 3:
+			console.log("Đây là giá trị 3");
+			break;
+		default:
+			console.log("Không xác định");
+			break;
+	}
+  </script>
+</body>
+</html>
+
+
+<!-- 03. Vòng lặp For-------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Vòng lặp for dùng để lặp lại việc thực thi một đoạn mã nào đó một số lần.
+* 
+* Cú pháp:      for (bienkhoitao; dieukienthucthi; buocnhay) { 
+*                   // code...
+*               }
+* 
+* Trong đó:     + bienkhoitao: là giá trị khởi tạo ban đầu của vòng lặp.
+* 
+*               + dieukienthucthi: là điều kiện mà vòng lặp được phép chạy (chú ý: Nếu bạn bỏ trống sẽ bị lặp vô tận).
+* 
+*               + buocnhay: là khoảng đệm nhảy của mỗi vòng lặp.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	for (var i = 0; i < 10; i++) {
+		console.log("OK");
+	}
+  </script>
+</body>
+</html>
+
+
+<!-- 04. Vòng lặp For In------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Vòng lặp for in dùng để lấy ra key của một object (cũng có thể áp dụng cho array, string).
+* 
+* Cú pháp:      for (key in object) {
+*                   // Viết code ở đây
+*               }
+* 
+* Trong đó:     + key: là tên biến (đặt tên là gì cũng được).
+* 
+*               + object: là một object, mỗi key sẽ tương ứng với key ở trong object.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var infoUser = {
+		fullname: "Nguyễn Hồ Quang Khải",
+		age: 20,
+		email: "khai.nguyentinor1823@hcmut.edu.vn" 
+	}
+	console.log(infoUser.email);
+
+	for (key in infoUser) {
+		console.log(key, infoUser[key]);
+	}
+  </script>
+</body>
+</html>
+
+
+<!-- 05. Vòng lặp For Of------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--
+* Vòng lặp for of dùng để lấy ra phần tử của một array, string (không áp dụng được với object).
+* 
+* Cú pháp:      for (variable of iterable) {
+*                   // Viết code ở đây
+*               }
+* 
+* Trong đó:     + variable: là tên biến, lấy ra các giá trị trong mảng.
+* 
+*               + iterable: là một mảng hoặc string, mỗi variable sẽ tương ứng với từng giá trị ở trong mảng hoặc string.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var listUser = ["ABC", "CDB", "DBD"];
+	for (item of listUser) {
+		console.log(item);
+	}
+  </script>
+</body>
+</html>
+
+
+<!-- 06. Vòng lặp While------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 6.1. Vòng lặp while---------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Vòng lặp while luôn luôn kiểm tra điều kiện trước, nếu điều kiện thỏa mãn thì mới chạy vào trong vòng lặp.
+* 
+* Cú pháp:      while (condition) {
+*                   // code
+*               }
+* 
+* Trong đó:     + condition: là điều kiện thực hiện vòng lặp.
+* 
+*               + Khi condition có giá trị true thì code được thực thi. Ngược lại, khi condition là false thì vòng lặp kết thúc.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var i = 0;
+	while (i < 10) {
+		console.log("OK");
+		i++;
+	} 
+  </script>
+</body>
+</html>
+
+
+<!-- 6.2. Vòng lặp do…while------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Khác với vòng lặp while, vòng lặp do...while luôn thực hiện ít nhất một lượt lặp. Sau đó mới kiểm tra điều kiện lặp.
+* 
+* Cú pháp:  do {
+*               // code
+*           } while (condition);
+* 
+* Trong đó:     + condition: là điều kiện thực hiện vòng lặp.
+* 
+*               + Khi condition có giá trị true thì code được thực thi. Ngược lại, khi condition là false thì vòng lặp kết thúc.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	var i = 0;
+	do {
+		console.log("OK");
+		i++;
+	} while (i < 0);
+  </script>
+</body>
+</html>
+
+
+<!-- 07. Break---------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Lệnh break có tác dụng dừng vòng lặp cho dù điều kiện của vòng lặp vẫn đang đúng. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	for (var i = 0; i < 10; i++) {
+		console.log(i);
+		if (i == 5) {
+			break;
+		}
+	}
+  </script>
+</body>
+</html>
+
+
+<!-- 08. Continue--------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Lệnh continue có tác dụng bỏ qua một bước lặp nào đó.
+* 
+* Nghĩa là lúc gặp lệnh continue thì tất cả những đoạn code nằm bên dưới sẽ không được thực hiện mà nó sẽ nhảy sang vòng lặp mới luôn.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	for (var i = 0; i < 10; i++) {
+		if (i == 5) {
+			continue;
+		}
+		console.log(i);
+	}
+  </script>
+</body>
+</html>
+
+
+<!-- 09. Variables (Biến)---------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 9.1. Khái niệm--------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Biến (variable) là nơi để bạn có thể lưu trữ thông tin. -->
+
+<!-- 9.2. Cách đặt tên cho biến--------------------------------------------------------------------------------------------------- -->
+<!-- 
+* Tên biến phải được đặt theo quy tắc sau đây:
+* 
+* Tên biến bắt đầu phải là chữ cái hoặc ký tự '_'
+* 
+* Tên biến không được bắt đầu bằng số.
+* 
+* Tên biến không được bắt đầu bằng ký tự đặc biệt.
+* 
+* Đặt tên biến ĐÚNG:    var tenbien = 10;
+*                       var _tenbien = 10;
+*                       var TenBien; = 10;
+*                       var ten_bien = 10; // snake_case
+*                       var tenBien = 10; // camelCase
+*                       var tenbien123 = 10;
+* 
+* Đặt tên biến SAI:     var 123tenbien = 10; // Do số đứng đầu
+*                       var -tenbien = 10; // Do có ký tự -
+-->
+
+<!-- 9.3. Các cách khai báo biến-------------------------------------------------------------------------------------------------  -->
+<!-- 
+* Khai báo biến bằng từ khóa var (variable - biến)
+* 
+* Cú pháp: var tenBien = giaTri;
+* 
+* Trong đó:     + tenBien: Là tên của biến các bạn muốn đặt.
+* 
+*               + giaTri: Là giá trị của biến, có thể là số, chuỗi, mảng, object.
+* 
+* Lưu ý: Tên biến có phân biệt chữ hoa, chữ thường.
+-->
+
+<!-- 
+* Khai báo biến bằng từ khóa let
+* 
+* Cú pháp: let tenBien = giaTri;
+* 
+* Biến let chỉ có phạm vi trong khối khai báo mà thôi.
+* 
+* Vì vậy nó sẽ tối ưu trong trường hợp bạn cần khai báo một biến chỉ sử dụng tạm thời trong một phạm vi nhất định. Phạm vi này ta hay gọi là block scope.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	if (true) {
+		let a = 10;
+		console.log(a);
+	}
+	console.log(a);
+  </script>
+</body>
+</html>
+
+<!-- 
+* Khai báo biến bằng từ khóa const
+* 
+* Cú pháp: const tenBien = giaTri;
+* 
+* const là một hằng số, vì vậy khi khai báo biến const thì bạn phải gán giá trị cho nó luôn, sau này cũng không thể thay đổi giá trị cho biến.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	if (true) {
+		const a = 10;
+		//a = 20;
+		console.log(a);
+	}
+	console.log(a);
+  </script>
+</body>
+</html>
+
+<!-- 
+* Khai báo biến không cần dùng từ khóa
+* 
+* Cú pháp: tenBien = giaTri;
+* 
+* Chỉ nên sử dụng cách này khi ta muốn gán lại giá trị của một biến.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   	a = 20;
+	console.log(a);
+  </script>
+</body>
+</html>

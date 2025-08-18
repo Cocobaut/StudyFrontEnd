@@ -1,0 +1,27 @@
+/* Có nhiều dự án sẽ có một vài block style giống nhau, file base sẽ chứa các css đó */
+* {
+    box-sizing: border-box;
+}
+/* Bước 1 */
+:root {
+    --color-one: #103178;
+    --color-two: #FFC800;
+    --color-three: #5B6C8F;
+}
+
+/* Bước 2 */
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Bước 3.2: container */
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin-left: auto;              /* Tự động canh trái */
+    margin-right: auto;             /* Tự động canh phải */
+}
+
+/* Bước 3.2: Code thẻ a */
+a {
+    text-decoration: none;
+}
+

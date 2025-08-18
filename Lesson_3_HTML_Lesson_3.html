@@ -1,0 +1,433 @@
+<!-- Nhúng Iframe -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Thẻ <iframe></iframe> được sử dụng để hiển thị một trang web trong một trang web.
+* 
+* Cú pháp: <iframe src="url" title="description" height="200" width="300"></iframe>
+* 
+* Ví dụ:        <iframe src="https://daca.vn/" title="Website Daca" width="1200" height="600"></iframe>
+* 
+*               <iframe src="https://khoahoc.28tech.com.vn/" title="Website 28Tech" width="1200" height="600"></iframe>
+* 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe src="https://truyenggvn.com/truyen-tranh/shuumatsu-no-valkyrie-6399" height="200" width="300"></iframe>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15679.983709210092!2d106.7122688!3d10.7347968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f86629fe9a7%3A0x679653286cdbff3e!2zQ2jhu6MgVMOibiBN4bu5!5e0!3m2!1svi!2s!4v1751627946176!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</body>
+</html>
+
+<!-- 
+* Lưu ý:    + Mục tiêu cho một liên kết: Thuộc tính target của liên kết phải tham chiếu đến thuộc tính name của iframe
+* 
+*           Ví dụ: <iframe src="https://www.bing.com/" name="web_bing" width="1000" height="600"></iframe>
+* 
+*                   <p><a href="https://coccoc.com/search" target="web_bing">Tìm kiếm trên Cốc Cốc</a></p>
+* 
+*           + Một số trang như google.com không cho phép nhúng iframe, nên sẽ thấy thông báo từ chối kết nối, chỉ những trang nào cho phép nhúng vào thì ta mới nhúng được
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe src="https://www.bing.com/" name="web_bing" width="1000" height="600"></iframe>
+    
+    <p><a href="https://coccoc.com/search" target="web_bing">Tìm kiếm trên Cốc Cốc</a></p>
+</body>
+</html>
+
+<!-- Một số thẻ Semantic ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Trong những bản HTML đầu tiên, các thẻ đều có tên là div nhưng khi code vậy, trang google không phân biệt được thẻ nào sẽ nằm vị trí nào nên thay vì dùng thẻ div thì google sẽ dùng các thẻ Semetic -->
+
+<!-- Ví dụ: <div id="header"> được thay bằng <header> -->
+<!-- 
+* Semantic: Dịch ra là ngữ nghĩa. Là những thẻ có nội dung bên trong có ý nghĩa tương ứng với tên thẻ đó
+* 
+* Một số thẻ Semantic:  + <article>: Xác định nội dung độc lập, khép kín
+* 
+*                       + <aside>: Xác định nội dung ngoài nội dung trang
+* 
+*                       + <details>: Xác định các chi tiết bổ sung mà người dùng có thể xem hoặc ẩn
+* 
+*                       + <summary>: Xác định tiêu đề hiển thị cho phần tử <details>
+* 
+*                       + <figcaption>: Xác định chú thích cho phần tử <figure>
+* 
+*                       + <figure>: Chỉ định nội dung độc lập, như hình minh họa, sơ đồ, ảnh, danh sách mã, v.v
+* 
+*                       + <header>: Chỉ định tiêu đề cho một tài liệu hoặc section
+* 
+*                       + <footer>: Xác định chân trang cho tài liệu hoặc section
+* 
+*                       + <main>: Chỉ định nội dung chính của một tài liệu
+* 
+*                       + <mark>: Xác định văn bản được đánh dấu / nhấn mạnh
+* 
+*                       + <nav> (navigation - dẫn đường): Xác định các liên kết điều hướng
+* 
+*                       + <section>: Xác định một phần trong tài liệu
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Code không cần senmatic</h1>
+    <div id="header">
+        Header
+    </div>
+    <div id="sidebar">
+        Sidebar
+    </div>
+    <div class="content">
+        <div class="post">
+            Post
+        </div>
+        <div class="post">
+            Post
+        </div>
+        <div class="post">
+            Post
+        </div>
+    </div>
+    <div id="footer">
+        footer
+    </div>
+
+    <h1>Code cần semantic</h1>
+    <header>
+        Header
+    </header>
+    <nav>
+        Sidebar
+    </nav>
+    <main>
+        <article>
+            Post
+        </article>
+        <article>
+            Post
+        </article>
+        <article>
+            Post
+        </article>
+    </main>
+    <footer>
+        footer
+    </footer>
+</body>
+</html>
+
+
+<!-- Forms --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Định nghĩa --------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Form là một biểu mẫu HTML được sử dụng để thu thập thông tin đầu vào của người dùng. Đầu vào của người dùng thường được gửi đến máy chủ để xử lý -->
+
+
+<!-- Form attributes (thuộc tính của form) ------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- action: Thuộc tính action xác định hành động sẽ được thực hiện khi biểu mẫu được gửi. Giá trị là một đường dẫn. Thông thường, dữ liệu biểu mẫu được gửi đến tệp trên máy chủ khi người dùng nhấp vào nút gửi. -->
+
+<!-- target: Thuộc tính target chỉ định nơi hiển thị phản hồi nhận được sau khi gửi biểu mẫu. -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form đơn giản</title>
+</head>
+<body>
+    <h2>Form liên hệ</h2>
+    <form action="/submit">
+
+        <input type="text" id="name" name="name"><br><br>
+
+        <input type="email" id="email" name="email"><br><br>
+
+        <input type="submit" value="Gửi">
+    </form>
+</body>
+</html>
+
+
+<!--
+* method: Thuộc tính method chỉ định giao thức HTTP sẽ được sử dụng khi gửi dữ liệu biểu mẫu. Có 2 phương thức là GET và POST.
+*
+*   + Phương thức GET:  + Nối dữ liệu biểu mẫu vào URL, theo cặp name/value
+*
+*                       + KHÔNG BAO GIỜ sử dụng GET để gửi dữ liệu bảo mật. Như tài khoản, mật khẩu.
+*
+*                       + Độ dài của URL bị giới hạn (2048 ký tự)
+*
+*   + Phương thức POST: + Dữ liệu biểu mẫu đã gửi không được hiển thị trong URL
+*   
+*                       + POST không có giới hạn về kích thước và có thể được sử dụng để gửi một lượng lớn dữ liệu
+-->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form đơn giản</title>
+</head>
+<body>
+    <h2>Form liên hệ</h2>
+    <form method="get">
+
+        <input type="text" id="name" name="name"><br><br>
+
+        <input type="email" id="email" name="email"><br><br>
+
+        <input type="submit" value="Gửi">
+    </form>
+</body>
+</html>
+
+<!-- 
+* autocomplete: Khi bật tính năng tự động điền, trình duyệt sẽ tự động gợi ý các giá trị dựa trên các giá trị mà người dùng đã nhập trước đó.
+* 
+* novalidate: Thuộc tính này đặc tả dữ liệu form không cần phải kiểm tra tính chính xác dữ liệu khi gửi đi. Ví dụ email không cần nhập đúng định dạng vẫn gửi được.
+ -->
+
+
+<!-- Form elements ------------------------------------------------------------------------------------------------------------------------ -->
+<!-- 
+*   + <input>:  + Có thể được hiển thị theo nhiều cách, tùy thuộc vào thuộc tính type
+*
+*               + Mặc định type=”text”
+*
+*   + <label>   + Phần tử <label> xác định nhãn cho một số element trong biểu mẫu. Để người dùng hiểu hơn về element đó
+*
+*               + Thuộc tính for của thẻ <label> phải bằng thuộc tính id của phần tử <input> để liên kết chúng lại với nhau. Khi đó, click vào <label> thì con trỏ sẽ tự động focus vào ô input đó (Mở rộng ra có thể áp dụng cho một số kiểu element khác, không chỉ áp dụng cho input)
+*
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form đơn giản</title>
+</head>
+<body>
+    <h2>Form liên hệ</h2>
+    <form action="/submit">
+        <label for="name">Họ và tên:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <input type="submit" value="Gửi">
+    </form>
+</body>
+</html>
+
+<!--
+*   + <select>  + Hiển thị dạng danh sách thả xuống (dropdown)
+*
+*               + Các thẻ <option> xác định một tùy chọn có thể được chọn. Theo mặc định, mục đầu tiên trong danh sách thả xuống sẽ được chọn. Để thay đổi mặc định lựa chọn thì thêm thuộc tính “selected” vào <option> muốn chọn mặc định
+*               
+*               + Sử dụng thuộc tính size để chỉ định số lượng giá trị hiển thị
+*
+*               + Sử dụng thuộc tính “multiple” để cho phép người dùng chọn nhiều giá trị
+ -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form đơn giản</title>
+</head>
+<body>
+    <h2>Form liên hệ</h2>
+    <form action="/submit">
+        <label for="color">Màu sắc:</label>
+        <select id="color">
+            <option value="Yellow">Màu vàng</option>
+            <option value="Green" selected>Màu xanh</option>
+            <option value="Purple">Màu tím</option>
+        </select>
+    </form>
+</body>
+</html>
+
+<!-- 
+*   + <textarea>    + Thẻ <textarea> xác định trường nhập liệu nhiều dòng.
+*
+*                   + Thuộc tính rows chỉ định số dòng hiển thị trong một vùng văn bản.
+*
+*                   + Thuộc tính cols chỉ định chiều rộng hiển thị của vùng văn bản.
+*
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <textarea name="note"></textarea>
+
+        <input type="submit" value="gửi">
+    </form>
+</body>
+</html>
+
+<!--
+*   + <button>      + Thẻ <button> xác định nút có thể nhấp.
+-->
+
+
+<!-- Input Types ------------------------------------------------------------------------------------------------------------------------ -->
+<!-- 
+*   + <input type="text">: Dùng để nhập text.
+*
+*   + <input type="email">: Dùng để nhập email.
+*
+*   + <input type="password">: Dùng để nhập mật khẩu.
+*
+*   + <input type="number">: Dùng để nhập số, không nhập được chữ cái.
+*
+*   + <input type="date">: Dùng để chọn: năm, tháng, ngày.
+*
+*   + <input type="time">: Dùng để chọn: giờ, phút, giây.
+*
+*   + <input type="datetime-local">: Dùng để chọn: năm, tháng, ngày, giờ, phút, giây.
+* 
+*   + <input type="file">: Dùng để tải file lên.
+*
+*   + <input type="checkbox">: Các hộp kiểm cho phép người dùng chọn KHÔNG hoặc NHIỀU tùy chọn trong số các lựa chọn hạn chế.
+*
+*   + <input type="radio">: Các nút radio cho phép người dùng CHỈ chọn MỘT trong số các lựa chọn.
+*
+*   + <input type="range">: Tạo thanh trượt giá trị. Phạm vi mặc định là từ 0 đến 100. Step mặc định là 1.
+*
+*   + <input type="color">: Dùng để chọn màu sắc.
+-->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo các loại Input (Không dùng label)</title>
+</head>
+<body>
+
+  <h1>Các loại input trong HTML5 (Không dùng label)</h1>
+  
+  <form>
+
+    <p>Text</p>
+    <input type="text" name="text">
+
+    <p>Password</p>
+    <input type="password" name="password">
+
+    <p>Email</p>
+    <input type="email" name="email">
+
+    <p>Search</p>
+    <input type="search" name="search">
+
+    <p>Tel (Số điện thoại)</p>
+    <input type="tel" name="tel">
+
+    <p>URL (Địa chỉ liên kết)</p>
+    <input type="url" name="url">
+
+    <p>Number</p>
+    <input type="number" name="number">
+
+    <p>Range (Thanh trượt từ 0 đến 100)</p>
+    <input type="range" name="range" min="0" max="100">
+
+    <p>Date (Ngày)</p>
+    <input type="date" name="date">
+
+    <p>Month (Tháng)</p>
+    <input type="month" name="month">
+
+    <p>Week (Tuần)</p>
+    <input type="week" name="week">
+
+    <p>Time (Thời gian)</p>
+    <input type="time" name="time">
+
+    <p>Datetime-local (Ngày & Giờ)</p>
+    <input type="datetime-local" name="datetime">
+
+    <p>Checkbox</p>
+    <input type="checkbox" name="checkbox1" value="1"> Checkbox 1
+    <br>
+    <input type="checkbox" name="checkbox2" value="2"> Checkbox 2
+
+    <p>Radio</p>
+    <input type="radio" name="radio" value="1"> Radio 1
+    <br>
+    <input type="radio" name="radio" value="2"> Radio 2
+
+    <p>File (Chọn tệp)</p>
+    <input type="file" name="file">
+
+    <p>Hidden (Trường ẩn)</p>
+    <input type="hidden" name="hidden" value="Giá trị ẩn">
+
+    <p>Color (Chọn màu)</p>
+    <input type="color" name="color">
+
+    <p>Submit (Gửi biểu mẫu)</p>
+    <input type="submit" value="Gửi đi">
+
+    <p>Reset (Đặt lại biểu mẫu)</p>
+    <input type="reset" value="Làm lại">
+
+    <p>Button (Nút thường)</p>
+    <input type="button" value="Bấm tôi" onclick="alert('Bạn đã bấm!')">
+
+  </form>
+
+</body>
+</html>
+
+
+<!-- Input Attributes (Các thuộc tính của thẻ input) ------------------------------------------------------------------------------------------------------------------------ -->
+<!-- 
+*   + value: Thuộc tính value chỉ định giá trị ban đầu cho trường đầu vào
+*
+*   + readonly:     + Thuộc tính readonly xác định rằng trường đầu vào là chỉ đọc
+*
+*                   + Giá trị của trường readonly sẽ được gửi khi gửi biểu mẫu.
+*
+*   + disabled:     + Thuộc tính disabled chỉ định rằng một trường đầu vào sẽ bị vô hiệu hóa
+*
+*                   + Giá trị của trường disabled sẽ không được gửi khi gửi biểu mẫu
+*
+*   + maxlength:Thuộc tính maxlength chỉ định số lượng ký tự tối đa được phép trong một trường đầu vào
+*
+*   + min và max: chỉ định các giá trị tối thiểu và tối đa cho một trường đầu vàoy.
+*
+*   + multiple: xác định rằng người dùng được phép nhập nhiều hơn một giá trị vào trường đầu vào. Áp dụng cho kiểu email, file.
+*
+*   + placeholder: chỉ định một gợi ý ngắn để mô tả giá trị dự kiến ​​của trường đầu vào.
+*
+*   + required: xác định rằng trường đầu vào phải được điền trước khi gửi biểu mẫu.
+-->

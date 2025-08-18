@@ -1,0 +1,43 @@
+.color-red{
+    color:red
+}
+
+.color-green{
+    color:green
+}
+
+.background-1{
+    color:green;
+    background-color: green;
+    height: 100px;
+    width: 200px;
+}
+
+.background-2{
+    background-image: url('images/image1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 400px;
+}
+
+.box-model-1{
+    text-align: center;
+    background-color: green;
+    border: 5px solid #000;
+    margin-bottom: 20px;
+}
+
+.box-model-2{
+    text-align: right;
+    background-color: red;
+    border: 5px dashed #808080;
+    margin-bottom: 20px;
+    background-clip: content-box;
+}
+
+.font{
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    text-transform: uppercase;
+    font-weight: 200px;
+    font-size: 20px;
+}

@@ -1,0 +1,585 @@
+<!-- 01. Giới thiệu và hướng dẫn tích hợp vào web --------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 1.1 Giới thiệu--------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Bootstrap là một framework của css và javascript. Hay nói cách khác, nó là những đoạn code viết sẵn.
+* 
+* Định nghĩa sẵn các class trong css và các hàm trong javascript. Chúng ta chỉ việc sử dụng các class này để tùy chỉnh thêm.
+* 
+* Giảm thiểu bớt việc viết code, đóng vai trò như bộ khung nền, giúp phát triển web nhanh hơn.
+* 
+* Hỗ trợ đa dạng, có sẵn nhiều component (thành phần).
+* 
+* Link website: https://getbootstrap.com/
+-->
+
+
+<!-- 1.2. Hướng dẫn tích hợp vào web---------------------------------------------------------------------------------- -->
+<!-- 
+*  Cách 1: Nhúng link CDN (Link trực tuyến trên server). Xem cách nhúng trên trang getbootstrap.com
+* 
+* Cách 2: Tải về và dùng trực tiếp ở local. Tải mã nguồn tại getbootstrap.com
+* 
+*   + Nhúng file css vào trong thẻ head:    <link rel="stylesheet" href="css/bootstrap.min.css" />
+* 
+*   + Nhúng 2 file js vào cuối thẻ body:    <script src="js/jquery-3.5.1.slim.min.js"></script>
+* 	                                        <script src="js/bootstrap.bundle.min.js"></script>
+-->
+
+<!-- Cách 1 -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+
+<!-- 02. Dựng layout và sử dụng Grid---------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 2.1. Giới thiệu class .container----------------------------------------------------------------------------------- -->
+<!-- 
+* .container: Giúp element căn đều 2 lề và có độ rộng tối đa là 1140px.
+* 
+* Có padding-left và padding-right là 15px.
+* 
+* Các kích thước của .container ở các màn hình có kích thước khác nhau:
+* 
+* 
+* Ví dụ: Thêm thẻ div sau vào trang html và test thử các màn hình.
+* 
+*   <div class="container" style="background: orange;">Box Container</div>
+
+* Class               Extra small <576px              Small ≥576px            Medium ≥768px           Large ≥992px            Extra large ≥1200px
+* .container                 100%                         540px                  720px                   960px                    1140px
+* 
+* .container-sm              100%                         540px                  720px                   960px                    1140px
+* 
+* .container-md              100%                         100%                   720px                   960px                    1140px
+* 
+* .container-lg              100%                         100%                   100%                    960px                    1140px
+* 
+* .container-xl              100%                         100%                   100%                    100%                     1140px
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container" style="background-color: orange;">
+        Content...
+    </div>    
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+<!-- 2.2. Giới thiệu class .container-fluid------------------------------------------------------------------------------ -->
+<!-- 
+* Dùng class này sẽ đảm bảo background chiếm full màn hình và các nội dung bên trong class sẽ luôn có padding-left và padding-right là 15px
+*
+* .container-fluid: Có độ rộng full màn hình (kéo dài từ trái sang phải)
+* 
+* Có padding-left và padding-right là 15px.
+* 
+* Các kích thước của .container-fluid ở các màn hình có kích thước khác nhau:
+* 
+* Ví dụ: Thêm thẻ div sau vào trang html và xem kết quả.
+* 
+*   <div class="container-fluid" style="background: orange;">Box Container</div>
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container-fluid" style="background-color: orange;">
+        Content...
+    </div>    
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+<!-- 2.3. Giới thiệu media query của Bootstrap cho PC First----------------------------------------------------------------- -->
+<!-- 
+/* Kích thước nhỏ hơn 1200px */
+@media (max-width: 1199.98px) {
+  /* Code… */
+}
+
+/* Kích thước nhỏ hơn 992px */
+@media (max-width: 991.98px) {
+  /* Code… */
+}
+
+/* Kích thước nhỏ hơn 768px */
+@media (max-width: 767.98px) {
+  /* Code… */
+}
+
+/* Kích thước nhỏ hơn 576px */
+@media (max-width: 575.98px) {
+  /* Code… */
+}
+-->
+
+<!-- 2.4. Grid (Lưới)------------------------------------------------------------------------------------------------------ -->
+
+<!-- Định nghĩa-------------------------------------------------------------------------------- -->
+
+<!-- 
+* Grid System (hệ thống lưới) trong Bootstrap được xây dựng với flexbox.
+* 
+* Cho phép tạo tới 12 cột trên một trang.
+* 
+* Nếu bạn không muốn sử dụng tất cả 12 cột riêng biệt thì có thể nhóm chúng lại với nhau để tạo ra những cột rộng hơn.
+* 
+* Hệ thống lưới này có thể responsive, có nghĩa là các cột có thể tự động sắp xếp lại để phù hợp với kích thước của màn hình.
+* 
+* Ví dụ: Dựng lại một số box trong layout sau sử dụng container, container-fluid, grid và responsive giao diện.
+* 
+* Link demo: https://bootstrapmade.com/demo/templates/Green/
+*
+-->
+
+<!-- Cách tạo ----------------------------------------------------------------------------------- -->
+
+<!-- Để tạo 1 grid bằng boostrap, ta sẽ sử dụng thẻ class="row" và trong đó sẽ chứa các thẻ class="col-" -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="section-one">
+        <div class="container"> 
+            <div class="row">
+                <div class="col-1">
+                    1
+                </div>
+                <div class="col-2">
+                    2
+                </div>
+                <div class="col-1">
+                    3
+                </div>
+                <div class="col-1">
+                    4
+                </div>
+                <div class="col-1">
+                    5
+                </div>
+                <div class="col-1">
+                    6
+                </div>
+                <div class="col-1">
+                    7
+                </div>
+                <div class="col-1">
+                    8
+                </div>
+                <div class="col-1">
+                    9
+                </div>
+                <div class="col-1">
+                    10
+                </div>
+                <div class="col-1">
+                    11
+                </div>
+                <div class="col-1">
+                    12
+                </div>
+                <div class="col-1">
+                    13
+                </div>
+                <div class="col-1">
+                    14
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+<!-- Grid còn hỗ trợ code theo kiểu pc first ------------------------------------------------------------------------- -->
+<!-- 
+* Extra                       small <576px            Small ≥576px            Medium ≥768px           Large ≥992px            Extra large ≥1200px
+*
+* Max container width         None (auto)                 540px                   720px                   960px                   1140px
+*
+* Class prefix                  .col-                   .col-sm-                 .col-md-               .col-lg-                  .col-xl-
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="section-two">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4">
+                    <div class="inner-box">
+                        Lorem ipsum dolor, sit amet consectetur adipiscing elit. Fussce facilisli diam at libero aliquam, sed vestibulum elit feugiat
+                    </div>
+                </div>
+                <div class="col-xl-3">
+                    <div class="inner-box">
+                        Lorem ipsum dolor, sit amet consectetur adipiscing elit. Fussce facilisli diam at libero aliquam, sed vestibulum elit feugiat
+                    </div>
+                </div>
+                <div class="col-xl-3">
+                    <div class="inner-box">
+                        Lorem ipsum dolor, sit amet consectetur adipiscing elit. Fussce facilisli diam at libero aliquam, sed vestibulum elit feugiat
+                    </div>
+                </div>
+                <div class="col-xl-3">
+                    <div class="inner-box">
+                        Lorem ipsum dolor, sit amet consectetur adipiscing elit. Fussce facilisli diam at libero aliquam, sed vestibulum elit feugiat
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+<!-- Ví dụ 1 -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <style>
+        .section-one {
+            background: #F7FBF8;
+            padding: 60px 0;
+        }
+
+        .section-one .inner-box .inner-title {
+            font-size: 14px;
+        }
+    </style>
+    <div class="section-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="inner-class">
+                        <i class="fa-solid fa-cloud"></i>
+                        <h3 class="inner-title">Lorem Ipsum</h3>
+                        <p class="inner-desc">Voluptatum deleniti atque corupti quó dolores et quá molestias excepturi sint occaecati cupidiate non provident</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="inner-class">
+                        <i class="fa-solid fa-cloud"></i>
+                        <h3 class="inner-title">Lorem Ipsum</h3>
+                        <p class="inner-desc">Voluptatum deleniti atque corupti quó dolores et quá molestias excepturi sint occaecati cupidiate non provident</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="inner-class">
+                        <i class="fa-solid fa-cloud"></i>
+                        <h3 class="inner-title">Lorem Ipsum</h3>
+                        <p class="inner-desc">Voluptatum deleniti atque corupti quó dolores et quá molestias excepturi sint occaecati cupidiate non provident</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+<!-- Ví dụ 2 -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <style>
+        .section-two .inner-image img {
+            width:100%;
+            height: auto;
+        }
+        @media (max-witdh: 991.98px) {
+            .section-two .inner-left {
+                order:1;
+            }
+        }
+    </style>
+    <div class="section-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="inner-head">
+                        <h2 class="inner-title">
+                           ABOUT US 
+                        </h2>
+                        <p class="inner-sec">
+                            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-12 inner-left">
+                <div class="inner-image">
+                    <img src="https://bootstrapmade.com/content/demo/Green/assets/img/about.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="inner-content">
+                    Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit.
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+<!-- 03. Components (ít sử dụng) -------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+<!-- 3.1. Alerts--------------------------------------------------------------------------------------------------------- -->
+
+<!-- Dùng để hiển thị cảnh báo, thông báo. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+    </div>
+    <div class="alert alert-secondary" role="alert">
+        A simple secondary alert—check it out!
+    </div>
+    <div class="alert alert-success" role="alert">
+        A simple success alert—check it out!
+    </div>
+    <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+    </div>
+    <div class="alert alert-warning" role="alert">
+        A simple warning alert—check it out!
+    </div>
+    <div class="alert alert-info" role="alert">
+        A simple info alert—check it out!
+    </div>
+    <div class="alert alert-light" role="alert">
+        A simple light alert—check it out!
+    </div>
+    <div class="alert alert-dark" role="alert">
+        A simple dark alert—check it out!
+    </div>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+<!-- 3.2. Badges--------------------------------------------------------------------------------------------------------- -->
+<!-- Dùng để hiển thị biểu hiệu. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Example heading <span class="badge badge-secondary">New</span></h1>
+    <h2>Example heading <span class="badge badge-secondary">New</span></h2>
+    <h3>Example heading <span class="badge badge-secondary">New</span></h3>
+    <h4>Example heading <span class="badge badge-secondary">New</span></h4>
+    <h5>Example heading <span class="badge badge-secondary">New</span></h5>
+    <h6>Example heading <span class="badge badge-secondary">New</span></h6>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+<!-- 3.3. Breadcrumb----------------------------------------------------------------------------------------------------- -->
+<!-- Breadcrumb là một tập hợp những liên kết giúp người dùng xác định vị trí hiện tại của mình trong cấu trúc website. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+    </nav>
+
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Library</li>
+    </ol>
+    </nav>
+
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+<!-- 3.4. Buttons-------------------------------------------------------------------------------------------------------- -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+
+    <button type="button" class="btn btn-link">Link</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+<!-- 3.5. Carousel------------------------------------------------------------------------------------------------------- -->
+
+<!-- Carousel (Băng chuyền) là một slider. -->

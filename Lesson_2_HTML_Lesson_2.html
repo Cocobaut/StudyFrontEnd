@@ -1,0 +1,516 @@
+<!-- 1. Thẻ <a>  (Chèn link) ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!--  
+* Thẻ <a></a> (anchor - mỏ neo) là thẻ để khi click vào thẻ đó sẽ chuyển hướng đến trang khác.
+* 
+* Cú pháp: <a href="url">Text</a>
+* 
+* Thuộc tính:     + href  (Hypertext Reference - tài liệu tham khảo dạng siêu văn bản): thuộc tính xác định địa chỉ liên kết.
+* 
+*                 + target: thuộc tính xác định nơi mà tài liệu được mở.
+* 
+*                     _self: Mặc định. Mở tài liệu ở tab hiện tại.
+* 
+*                     _blank: Mở tài liệu trong tab mới.
+* 
+*                 + title: Thông tin bổ sung về một element.
+-->
+ 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p>Xem tài liệu: <a href="https://www.google.com/" target ="_blank" title="Đây là link sang google.com">Tại đây</a></p>
+    </body>
+</html>
+
+
+<!-- 2. Thẻ <img> (Chèn ảnh) ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!--  
+* Thẻ <img /> là thẻ để nhúng ảnh vào trang web, thẻ img là thẻ trống, chỉ chứa các thuộc tính và không có thẻ đóng
+* 
+* Cú pháp:  <img src=“duong-dan-hinh-anh.jpg" alt=“Mô tả hình ảnh">
+* 
+* Thuộc tính:     + src (source - nguồn): Chèn đường dẫn ảnh
+* 
+*                 + alt (alternate - thay thế): Văn bản thay thế cho hình ảnh, hiển thị khi đường dẫn ảnh bị lỗi.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <img src="https://toigingiuvedep.vn/wp-content/uploads/2021/05/anh-avatar-sieu-hai-huoc.jpg", alt="Ảnh bị lỗi">
+    </body>
+</html>
+
+<!-- 
+* Lưu ý: đường dẫn của ảnh sẽ có 2 loại:
+* 
+*       + Absolute File Paths (Đường dẫn tệp tuyệt đối): Đường dẫn tệp tuyệt đối là URL đầy đủ của tệp.     
+*
+*            Vd: <img src="https://28tech.com.vn/assets/img/logo.png" alt=“Logo 28tech">
+* 
+*       + Relative File Paths (Đường dẫn tệp tương đối): Đường dẫn tệp tương đối trỏ đến một tệp liên quan đến trang hiện tại.
+* 
+*            Vd1: <img src="logo.png" alt="Logo">: File "logo.png" nằm cùng thư mục với trang hiện tại.
+* 
+*            Vd2: <img src="images/logo.png">: File " logo.png" nằm trong thư mục images trong thư mục hiện tại.
+* 
+*            Vd3: <img src=“/images/logo.png">: File " logo.png" nằm trong thư mục images ở thư mục gốc của trang web hiện tại
+* 
+*            Vd4: <img src="../logo.png">: File " logo.png" nằm trong thư mục tăng một cấp so với thư mục hiện tại.
+*
+-->
+
+<!-- Kết hợp giữa <a></a> và thẻ <img> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo 28tech</title>
+</head>
+<body>
+    <a href="https://28tech.com.vn/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-main.28tech.com.vn/media/core/logo-28tech.svg" alt="Logo 28tech">
+    </a>
+</body>
+</html>
+
+
+<!-- 3. Thẻ <video> (Chèn video) ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* + Thẻ <video></video> là thẻ để nhúng video vào trang web. Trong thẻ video có thẻ <source> để chứa đường dẫn file video và kiểu video.
+* 
+* + Cú pháp:        <video width="320" height="240" controls>
+* 	                    <source src=“link-video.mp4" type="video/mp4">
+*                   </video>
+*   
+*
+* + Thuộc tính:     + width/height: Chiều rộng và chiều cao của video. Nếu không để width/height thì web có thể bị nhấp nháy trong khi tải video.
+*
+*                   + controls: Thuộc tính điều khiển, như là bật, tạm dừng, âm lượng
+* 
+*                   + loop: Lặp lại video
+*
+*                   + src: Đường dẫn video
+*
+*                   + type: Kiểu video (mp4, ogg, webm)
+*
+*                   + autoplay: Tự động phát video
+*
+*                   + muted: Tắt tiếng
+*
+* + Lưu ý:          + Đoạn văn bản ở trong thẻ video sẽ chỉ hiển thị khi trình duyệt không hỗ trợ thẻ video
+*
+*                   + Trên trình duyệt Chrome không cho phép tự động phát video. Nếu muốn tự động phát được video thì phải thêm thuộc tính muted
+-->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo 28tech</title>
+</head>
+<body>
+    <video width="320" height="240" controls autoplay loop muted>
+ 	    <source src="link-video.mp4" type="video/mp4">
+    </video>
+</body>
+</html>
+
+
+<!-- 4. Thẻ <audio> (Chèn audio) ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- 
+* + Thẻ <audio></audio> là thẻ dùng để nhúng audio vào trang web. Trong thẻ audio có thẻ <source> để chứa đường dẫn file audio và kiểu audio.
+* 
+* + Cú pháp:        <audio controls>
+* 	                    <source src=“link-audio.mp3" type="audio/mpeg">
+*                   </audio>
+*   
+*
+* + Thuộc tính:     + controls: Thuộc tính điều khiển, như là bật, tạm dừng, âm lượng
+* 
+*                   + loop: Lặp lại audio
+*
+*                   + src: Đường dẫn audio
+*
+*                   + type: Kiểu video (Ví dụ: mpeg - là mp3, ogg, webm, wav)
+*
+*                   + autoplay: Tự động phát audio
+*
+*                   + muted: Tắt tiếng
+*
+* + Lưu ý:          + Đoạn văn bản ở trong thẻ audio sẽ chỉ hiển thị khi trình duyệt không hỗ trợ thẻ audio
+*
+*                   + Trên trình duyệt Chrome không cho phép tự động phát audio. Nếu muốn tự động phát được audio thì phải thêm thuộc tính muted.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo 28tech</title>
+</head>
+<body>
+    <audio controls loop autoplay>
+        <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
+
+
+<!-- 5. Thẻ <table> (Chèn bảng) --------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">     
+    <title>TITLE</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Phone number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>0942180805</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Marry</td>
+                <td>0943180805</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+<!-- 
+* Ý nghĩa các thẻ:      + <table></table>: Xác định một bảng
+* 
+*                       + <thead></thead>: Phần đầu của bảng
+* 
+*                       + <tbody></tbody>: Phần thân của bảng
+* 
+*                       + <tr></tr> (table row):  Xác định một hàng của bảng
+* 
+*                       + <th></th> (table header): Xác định tiêu đề của bảng
+* 
+*                       + <td></td> (table data): Xác định dữ liệu ô của bảng
+* 
+* Thuộc tính:           + colspan: tạo ô mở rộng trên nhiều cột
+* 
+*                       + rowspan: tạo ô kéo dài trên nhiều hàng
+-->
+
+<!-- Ví dụ 2 -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">     
+    <title>TITLE</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> Hàng 0 cột 1 </th>
+                <th> Hàng 0 cột 2 </th>
+                <th> Hàng 0 cột 3 </th>
+                <th> Hàng 0 cột 4 </th>
+                <th> Hàng 0 cột 5 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="6"> Hàng 1 cột 1 </td>
+                <td rowspan="4"> Hàng 1 cột 2 </td>
+                <td rowspan ="3"> Hàng 1 cột 3 </td>
+                <td> Hàng 1 cột 4 </td>
+                <td> Hàng 1 cột 5 </td>
+            </tr>
+            <tr>
+                <td> Hàng 2 cột 4 </td>
+                <td> Hàng 2 cột 5 </td>
+            </tr>
+            <tr>
+                <td> Hàng 3 cột 4 </td>
+                <td> Hàng 3 cột 5 </td>
+            </tr>
+            <tr>
+                <td> Hàng 4 cột 3 </td>
+                <td> Hàng 4 cột 4 </td>
+                <td> Hàng 4 cột 5 </td>
+            </tr>
+            <tr>
+                <td rowspan="2">Hàng 5 cột 2</td>
+                <td rowspan="2"> Hàng 5 cột 3 </td>
+                <td> Hàng 5 cột 4 </td>
+                <td> Hàng 5 cột 5 </td>
+            </tr>
+            <tr>
+                <td> Hàng 6 cột 4 </td>
+                <td> Hàng 6 cột 5 </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+<!-- 6. Thẻ <ul>, <ol> (Chèn danh sách)------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+*   Kiểu ul: Kiểu <ul></ul> (Unordered List - Sắp xếp): Các mục con của nó được sắp xếp theo thứ tự bằng số hoặc chữ cái.
+*
+*   Cú pháp:    <ul>
+*                   <li>Mục 1</li>
+*                   <li> Mục 2</li>
+*                   <li> Mục 3</li>
+*               </ul>
+*
+*   Ý nghĩa các thẻ:    + <ul></ul> (Unordered List): Danh sách hiển thị kiểu không được đánh số.
+*
+*                       + <li></li> (List Item): Một mục trong danh sách.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Mục 1</li>
+        <li>Mục 2</li>
+        <li>Mục 3</li>
+    </ul>
+</body>
+</html>
+
+
+<!-- 
+*   Kiểu pl: Kiểu <ol></ol> (Ordered List - Sắp xếp): Các mục con của nó được sắp xếp theo thứ tự bằng số hoặc chữ cái.
+*
+*   Cú pháp:    <ol>
+*                   <li>Mục 1</li>
+*                   <li> Mục 2</li>
+*                   <li> Mục 3</li>
+*               </ol>
+*
+*   Ý nghĩa các thẻ:    + <ol></ol> (Ordered List): Danh sách hiển thị kiểu được đánh số hoặc chữ cái.
+*
+*                       + <li></li> (List Item): Một mục trong danh sách.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>Mục 1</li>
+        <li>Mục 2</li>
+        <li>Mục 3</li>
+    </ol>
+</body>
+</html>
+
+
+<!-- 
+* Lưu ý: Kiểu ol: Thuộc tính dành riêng cho thẻ <ol></ol>:
+* 
+*           + type="1": Mặc định. Các mục trong danh sách sẽ được đánh dưới dạng số
+*
+*           + type= "A": Các mục trong danh sách sẽ được đánh dưới dạng chữ hoa
+*
+*           + type="a": Các mục trong danh sách sẽ được đánh dưới dạng chữ thường
+*
+*           + type="I": Các mục trong danh sách sẽ được đánh dưới dạng số La Mã viết hoa
+*
+*           + type="i": Các mục trong danh sách sẽ được đánh dưới dạng số La Mã viết thường
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol type="I">
+        <li>Mục 1</li>
+        <ol type="A">
+            <li>Mục 1.1</li>
+            <li>Mục 1.2</li>
+        </ol>
+        <li>Mục 2</li>
+        <ol type="A">
+            <li>Mục 1.1</li>
+            <li>Mục 1.2</li>
+            <li>Mục 1.3</li>
+            <li>Mục 1.4</li>
+            <ol type="i">
+                <li>Mục 1.4.1</li>
+                <li>Mục 1.4.2</li>
+                <li>Mục 1.4.3</li>
+                <li>Mục 1.4.4</li>
+            </ol>
+            <li>Mục 1.5</li>
+            <ol type="i">
+                <ol>
+                <li>Mục 1.5.1</li>
+                <li>Mục 1.5.2</li>
+            </ol>
+            </ol>
+            <li>Mục 1.6</li>
+        </ol>
+        <li>Mục 3</li>
+    </ol>
+</body>
+</html>
+
+<!-- 7. Phân biệt kiểu hiển thị của element: block và inline------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- 
+* Kiểu block (khối): 
+* 
+*       + Luôn luôn bắt đầu trên một dòng mới, và trình duyệt sẽ tự động thêm khoảng trống trước và sau element.
+* 
+*       + Luôn luôn chiếm toàn bộ chiều rộng có sẵn.
+* 
+*       + Một số thẻ dạng block: <address>, <article>, <aside>, <blockquote>, <canvas>, <dd>, <div>, <dl>, <dt>, <fieldset>, <figcaption>, <figure>, <footer>, <form>, <h1> - <h6>, <header>, <hr>, <li>, <main>, <nav>, <noscript>, <ol>, <p>, <pre>, <section>, <table>, <tfoot>, <ul>.
+-->
+
+<!-- 
+* Kiểu inline (nội tuyến - trong hàng):
+* 
+*       + Không bắt đầu trên một dòng mới, chiều rộng bằng với chiều rộng của element đó.
+* 
+*       + Một số thẻ dạng inline: <a>, <abbr>, <acronym>, <b>, <bdo>, <big>, <br>, <button>, <cite>, <code>, <em>, <i>, <img>, <input>, <kbd>, <label>, <map>, <object>, <output>, <q>, <samp>, <script>, <select>, <small>, <span>, <strong>, <sub>, <sup>, <textarea>, <time>, <tt>, <var>.
+
+-->
+
+
+<!-- 
+* Lưu ý: Khi sử dụng cần nhớ quy tắc đảm bảo mô hình nội dung của HTML:
+* 
+*           + Phần tử cấp độ inline không được chứa phần tử cấp độ block
+* 
+*           + Inline chỉ chứa dữ liệu hoặc các phần tử inline khác.
+* 
+*           + Phần tử block thì được chứa các phần tử block, inline, dữ liệu.
+*           
+*           + Có trường hợp ngoại lệ là thẻ <a> (kiểu inline) nhưng có thể chứa phần tử kiểu block.
+-->
+
+<!-- 08. Class và Id---------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
+
+<!--  
+* Class:      + Thuộc tính class dùng để xác định một hoặc nhiều tên lớp cho phần tử HTML. Tên lớp có thể dùng trong CSS hoặc JavaScript để thực hiện một số tác vụ nhất định cho phần tử có tên lớp đó.
+* 
+*             + Một class có thể áp dụng cho được nhiều element, và các element này không nhất thiết phải cùng loại thẻ.
+* 
+*             + Một element có thể thêm được nhiều class.
+* 
+*             + Thuộc tính class có thể được sử dụng trên bất kỳ phần tử HTML nào.
+* 
+*             + Tên lớp có phân biệt chữ hoa chữ thường.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ví dụ về class trong HTML</title>
+  <style>
+    .highlight {
+      color: white;
+      background-color: orange;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .note {
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="highlight">Chào mừng bạn đến với website!</h1>
+  <p class="note">Đây là một đoạn văn bản có class là "note".</p>
+  <p class="highlight">Đây là một đoạn văn bản được làm nổi bật.</p>
+
+</body>
+</html>
+
+<!-- 
+* Id:       + Thuộc tính id dùng để xác định một id duy nhất cho một element.
+* 
+*           + Trong một trang các element không được phép trùng tên của id.
+* 
+*           + Tên id có thể dùng trong CSS hoặc JavaScript để thực hiện một số tác vụ nhất định cho phần tử có tên id đó.
+* 
+*           + Tên id có phân biệt chữ hoa chữ thường.
+* 
+*           + Lưu ý: Tên id phải chứa ít nhất một ký tự, không được bắt đầu bằng số và không được chứa khoảng trắng (dấu cách, tab,...).
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ví dụ về id không dùng div</title>
+  <style>
+    #header {
+      background-color: #2196F3;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <h1 id="header">Xin chào bạn!</h1>
+
+</body>
+</html>
+
+<!-- 
+* Lưu ý: điểm khác nhau giữa thuộc tính id và thuộc tính class:
+* 
+*           +  Thuộc tính id:       + Một phần tử chỉ nhận một id.
+*   
+*                                   + Một tên id chỉ có thể dùng để đặt cho một phần tử duy nhất.
+*  
+*                                   + Khi muốn chọn một phần tử dựa theo id thì ta dùng cú pháp #ten-id
+*  
+*           + Thuộc tính class:     + Một phần tử có thể nhận một hoặc nhiều class.
+* 
+*                                   + Một tên class có thể dùng để đặt cho nhiều phần tử khác nhau
+* 
+*                                   + Khi muốn chọn một phần tử dựa theo class thì ta dùng cú pháp .ten-class
+-->
