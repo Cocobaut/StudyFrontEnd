@@ -11,6 +11,62 @@ const $btnWS       = document.getElementById('btn-ws');
 const $btnDemo     = document.getElementById('btn-demo');
 const $hint        = document.getElementById('hint');
 const $toggleCam   = document.getElementById('toggleCamBtn');
+const $uploadDot   = document.getElementById('upload-dot');
+
+
+//Nút setting----------------------------------------------------------------------------------------------------------------
+// Nút điều khiển menu Setting
+const $toggleSetting = document.getElementById('toggle-setting');
+const $settingOptions = document.getElementById('setting-options');
+
+// Các tùy chọn trong menu Setting
+const $optionUploadVideo = document.getElementById('option-upload-video');
+const $optionShowKeypoints = document.getElementById('option-show-keypoints');
+
+// Phần Upload Video và Display Keypoints
+const $videoUploadSection = document.getElementById('video-upload-section');
+const $keypointsDisplay = document.getElementById('keypoints-display');
+
+// Toggle hiển thị menu Setting
+$toggleSetting.addEventListener('click', () => {
+    $settingOptions.classList.toggle('hidden'); // Hiện/ẩn menu tùy chọn
+});
+
+
+$optionUploadVideo.addEventListener('click', () => {
+    // Toggle hidden
+    $videoUploadSection.classList.toggle('hidden');
+
+    // Kiểm tra đang bật hay không để áp dụng màu dot
+    const isOn = !$videoUploadSection.classList.contains('hidden');
+
+    if (isOn) {
+        $uploadDot.classList.add('on');   // Màu đỏ
+    } 
+    else {
+        $uploadDot.classList.remove('on'); // Màu xanh
+    }
+
+    // Sau khi chọn xong, tự động ẩn menu
+    $settingOptions.classList.add('hidden');
+});
+
+// Trạng thái: bật/tắt hiển thị keypoints
+let isKeypointsOn = false;
+
+// Xử lý khi chọn "Show Keypoints"
+$optionShowKeypoints.addEventListener('click', () => {
+    isKeypointsOn = !isKeypointsOn; // Đảo trạng thái bật/tắt
+
+    if (isKeypointsOn) {
+        $optionShowKeypoints.textContent = 'Show Keypoints (On)';
+        canvasElement.style.display = 'block'; // Hiện canvas
+    } 
+    else {
+        $optionShowKeypoints.textContent = 'Show Keypoints (Off)';
+        canvasElement.style.display = 'none'; // Ẩn canvas
+    }
+});
 
 
 //Nút điều khiển camera----------------------------------------------------------------------------------------------------------------------
@@ -24,30 +80,78 @@ $video.addEventListener('loadedmetadata', () => {
     }
 });
 
+let hands;   // Tạo biến lưu instance của Mediapipe
+let ctx;     // Canvas Context để vẽ hình
+let latestHandLandmarks = null;
+
+async function initializeMediapipe() {
+    hands = new Hands({
+        locateFile: (file) => {
+            return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+        }
+    });
+
+    hands.setOptions({
+        maxNumHands: 2,                   // Số lượng bàn tay tối đa nhận diện
+        modelComplexity: 1,               // Độ phức tạp của model (Default: 1)
+        minDetectionConfidence: 0.7,      // Độ tin cậy tối thiểu của việc phát hiện bàn tay
+        minTrackingConfidence: 0.5,       // Độ tin cậy tối thiểu của việc tracking keypoint
+    });
+
+    // Khi có kết quả từ model Mediapipe
+    hands.onResults((results) => {
+        if (!$canvas) return;
+
+        // Xóa canvas trước khi vẽ lại
+        ctx.clearRect(0, 0, $canvas.width, $canvas.height);
+        // Vẽ khung video + keypoints
+        ctx.drawImage(results.image, 0, 0, $canvas.width, $canvas.height);
+
+        // Vẽ keypoints (dùng drawing_utils từ Mediapipe)
+        if (results.multiHandLandmarks && isKeypointsOn) {
+            latestHandLandmarks = results.multiHandLandmarks;
+
+            for (const landmarks of results.multiHandLandmarks) {
+                drawConnectors(ctx, landmarks, HAND_CONNECTIONS, {
+                    color: '#00FF00',
+                    lineWidth: 2,
+                });
+                drawLandmarks(ctx, landmarks, {
+                    color: '#FF0000',
+                    lineWidth: 1,
+                    radius: 5,
+                });
+            }
+        }
+        else {
+            latestHandLandmarks = null;
+        }
+    });
+}
+
 async function startCam() {
+    // Khởi tạo Mediapipe nếu chưa có
+    if (!hands) {
+        await initializeMediapipe();
+    }
+
+    // Mở camera
     camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
     $video.srcObject = camStream;
+    ctx = $canvas.getContext('2d'); // Khởi tạo context cho canvas
     await $video.play();
 
-    const draw = () => {
-    if ($video.readyState >= 2 && USE_CANVAS && $canvas && $canvas.width && $canvas.height) {
-        const ctx = $canvas.getContext('2d');
-        ctx.drawImage($video, 0, 0, $canvas.width, $canvas.height);
-        // overlay grid (optional)
-        ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,0.25)';
-        const tx = $canvas.width/3, ty = $canvas.height/3;
-        ctx.beginPath();
-        ctx.moveTo(tx,0); ctx.lineTo(tx,$canvas.height);
-        ctx.moveTo(2*tx,0); ctx.lineTo(2*tx,$canvas.height);
-        ctx.moveTo(0,ty); ctx.lineTo($canvas.width,ty);
-        ctx.moveTo(0,2*ty); ctx.lineTo($canvas.width,2*ty);
-        ctx.stroke();
-    }
-    rafId = requestAnimationFrame(draw);
+    // Chạy Mediapipe nhận diện bàn tay
+    const updateHands = async () => {
+        if ($video.readyState >= 2 && $canvas && $canvas.width && $canvas.height) {
+            await hands.send({ image: $video });
+        }
+        rafId = requestAnimationFrame(updateHands); // Lặp lại
     };
-    rafId = requestAnimationFrame(draw);
+    rafId = requestAnimationFrame(updateHands);
 
-    videoActive = true; updateVideoBadge();
+    videoActive = true; 
+    updateVideoBadge();
     $toggleCam.textContent = 'Turn off camera';
 }
 
@@ -82,11 +186,13 @@ function updateVideoBadge() {
     if (videoActive && isSendingFrames) {
         $badgeVideo.textContent = 'Playing';
         $badgeVideo.classList.add('ok');
-    } else if (videoActive) {
+    } 
+    else if (videoActive) {
         $badgeVideo.textContent = 'Not playing';
         $badgeVideo.classList.remove('ok');
         $videoDot.style.background = '#22c55e'; 
-    } else {
+    } 
+    else {
         $badgeVideo.textContent = 'Not playing';
         $badgeVideo.classList.remove('ok');
         $videoDot.style.background = '#ef4444';
@@ -94,49 +200,64 @@ function updateVideoBadge() {
 }
 
 
-//Nút bắt đầu gửi ảnh từ camera để cho thủ ngữ có thể nhận diện---------------------------------------------------------------------------------
+//Nút bắt đầu gửi keypoint từ camera để cho thủ ngữ có thể nhận diện---------------------------------------------------------------------------------
 let isSendingFrames = false;
 let sendInterval = null;
 
 const $btnSendFrame = document.getElementById('btn-send-frame');
 
 // Hàm gửi khung hình lên backend qua HTTP
-async function sendFrameToBackend(frameBase64) {
+async function sendKeypointsToBackend(keypoints) {
     try {
-        const response = await fetch('/upload-frame', { 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ frame: frameBase64 }), 
-        });
+        const response = await fetch('/upload-keypoints', { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({keypoints}), 
+            });
 
         if (response.ok) {
-        console.log('Khung hình đã được gửi thành công.');
-        } else {
-        console.error('Không thể gửi khung hình tới backend.');
+            console.log('keypoints đã được gửi thành công.');
+        } 
+        else {
+            console.error('keypoints không thể gửi khung hình tới backend.');
         }
-    } catch (error) {
-        console.error('Lỗi khi gửi khung hình:', error);
+    } 
+    catch (error) {
+        console.error('Lỗi khi gửi keypoints:', error);
     }
 }
 
-// Hàm bắt đầu gửi khung hình
-function startSendingFrames() {
+// Hàm bắt đầu gửi keypoint
+function startSendingKeyPoint() {
     if (!videoActive) {
         alert("Camera chưa mở! Vui lòng mở camera trước.");
         return;
     }
 
     sendInterval = setInterval(() => {
-        if (!USE_CANVAS || !$canvas) return;                        // Kiểm tra Canvas
-        const frameBase64 = $canvas.toDataURL('image/jpeg');        // Lấy khung hình dạng Base64
-        sendFrameToBackend(frameBase64);                            // Gửi frame lên backend
-    }, 300); 
+        // Kiểm tra nếu không có kết quả nhận diện bảng tay
+        if (!latestHandLandmarks) {
+            console.warn("Không tìm thấy keypoints nào để gửi.");
+            return;
+        }
+
+        // Xử lý keypoints từ bàn tay được nhận diện
+        const keypoints = latestHandLandmarks.map((landmarks, handIndex) =>
+            landmarks.map((point) => ({
+                x: point.x, // Tọa độ X (0-1)
+                y: point.y, // Tọa độ Y (0-1)
+                z: point.z, // Tọa độ Z (chiều sâu)
+            }))
+        );
+
+        sendKeypointsToBackend(keypoints); // Gửi lên backend
+    }, 300); // Gửi mỗi 300ms
 }
 
-// Hàm dừng gửi khung hình
-function stopSendingFrames() {
+// Hàm dừng gửi keypoint
+function stopSendingKeyPoint() {
     if (sendInterval) {
         clearInterval(sendInterval);
         sendInterval = null;
@@ -146,67 +267,70 @@ function stopSendingFrames() {
 // Sự kiện cho nút "Bắt đầu gửi" hoặc "Ngừng gửi"
 $btnSendFrame.addEventListener('click', () => {
     if (!isSendingFrames) {
-        startSendingFrames();
+        startSendingKeyPoint();
         isSendingFrames = true;
-        $btnSendFrame.textContent = 'Ngừng gửi';
-    } else {
-        stopSendingFrames();
+        $btnSendFrame.textContent = 'Stop send keypoint';
+    } 
+    else {
+        stopSendingKeyPoint();
         isSendingFrames = false;
-        $btnSendFrame.textContent = 'Bắt đầu gửi';
+        $btnSendFrame.textContent = 'Send keypoint';
     }
     updateVideoBadge();
 });
 
 
 //Gửi video lên backend--------------------------------------------------------------------------------------------------------------------------
-const $fileInput = document.getElementById('video-file'); // Đầu vào để chọn file
-const $btnUploadVideo = document.getElementById('btn-upload-video'); // Nút upload video
-const $uploadStatus = document.getElementById('upload-status'); // Thông báo trạng thái tải
+const $fileInput = document.getElementById('video-file');               // Đầu vào để chọn file
+const $btnUploadVideo = document.getElementById('btn-upload-video');    // Nút upload video
+const $uploadStatus = document.getElementById('upload-status');         // Thông báo trạng thái tải
 
 // Hàm gửi video lên backend
 async function uploadVideo(file) {
-  try {
-    $uploadStatus.textContent = 'Đang tải video lên...'; // Hiển thị trạng thái
+    try {
+        $uploadStatus.textContent = 'Đang tải video lên...';            // Hiển thị trạng thái
 
-    // Tạo một FormData object để gửi tệp dưới dạng dạng "multipart/form-data"
-    const formData = new FormData();
-    formData.append('video', file); // Thêm file vào form
+        // Tạo một FormData object để gửi tệp dưới dạng dạng "multipart/form-data"
+        const formData = new FormData();
+        formData.append('video', file); // Thêm file vào form
 
-    // Gửi tệp tới backend qua API POST
-    const response = await fetch('/upload-video', {
-      method: 'POST',
-      body: formData,
-    });
+        // Gửi tệp tới backend qua API POST
+        const response = await fetch('/upload-video', {
+        method: 'POST',
+        body: formData,
+        });
 
-    if (response.ok) {
-      const result = await response.json();
-      console.log('Kết quả từ backend:', result);
-      $uploadStatus.textContent = 'Tải video lên thành công!';
-    } else {
-      console.error('Lỗi khi tải video:', response.statusText);
-      $uploadStatus.textContent = 'Tải video thất bại. Hãy thử lại.';
+        if (response.ok) {
+            const result = await response.json();
+            console.log('Kết quả từ backend:', result);
+            $uploadStatus.textContent = 'Tải video lên thành công!';
+        } 
+        else {
+            console.error('Lỗi khi tải video:', response.statusText);
+            $uploadStatus.textContent = 'Tải video thất bại. Hãy thử lại.';
+        }
+    } 
+    catch (error) {
+        console.error('Lỗi khi gửi video:', error);
+        $uploadStatus.textContent = 'Tải lên thất bại. Hãy thử lại.';
     }
-  } catch (error) {
-    console.error('Lỗi khi gửi video:', error);
-    $uploadStatus.textContent = 'Tải lên thất bại. Hãy thử lại.';
-  }
 }
 
 // Gắn sự kiện vào nút khi được nhấn
 $btnUploadVideo.addEventListener('click', () => {
-  const file = $fileInput.files[0]; // Lấy file đầu vào
-  if (!file) {
-    alert('Vui lòng chọn một tệp video!');
-    return;
-  }
+    const file = $fileInput.files[0]; // Lấy file đầu vào
+    if (!file) {
+        alert('Vui lòng chọn một tệp video!');
+        return;
+    }
 
-  // Chỉ gửi nếu file đúng định dạng
-  if (!file.type.startsWith('video/')) {
-    alert('Chỉ hỗ trợ tệp video!');
-    return;
-  }
+    // Chỉ gửi nếu file đúng định dạng
+    if (!file.type.startsWith('video/')) {
+        alert('Chỉ hỗ trợ tệp video!');
+        return;
+    }
 
-  uploadVideo(file); // Gọi hàm tải video lên backend
+    uploadVideo(file); // Gọi hàm tải video lên backend
 });
 
 

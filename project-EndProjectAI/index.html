@@ -5,10 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bright Of Sign</title>
     <link rel="stylesheet" href="/project-EndProjectAI/assets/style.css">
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body> 
+    <!-- Nút Setting -->
+    <div class="menu-setting">
+    <button class="btn" id="toggle-setting"><i class="fa-solid fa-gear"></i></button>
+
+    <!-- Danh sách các lựa chọn trong menu Setting -->
+    <div class="dropdown hidden" id="setting-options">
+        <button class="btn" id="option-upload-video">
+            <span class="btnUploadVideo">Upload Video</span>
+            <span class="status-dot" id="upload-dot"></span> 
+        </button>
+        <button class="btn" id="option-show-keypoints">Show Keypoints (Off)</button>
+    </div>
+    </div>
+
+    <!-- Section Show Keypoints (ẩn mặc định) -->
+    <section class="keypoints-container hidden" id="keypoints-display">
+
+</section>
     <div class="shell">
         <!-- Left: video -->
         <div class="container">
@@ -24,7 +42,7 @@
                 </div>
             </section>
         
-            <section class="file-container video-card">
+            <section class="file-container video-card hidden" id="video-upload-section">
                 <div class="actions-file">
                     <label for="video-file">Choose File</label>
                     <input type="file" id="video-file" accept="video/*" />
@@ -49,6 +67,12 @@
         <div class="hint" id="hint">Đang chờ AI…</div>
         </main>
     </div>
+    
+    <!-- Thư viện MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils"></script>
+
     <script src="script.js"></script>
     </body>
 </html>

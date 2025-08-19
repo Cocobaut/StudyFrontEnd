@@ -31,6 +31,59 @@ body{
 
 @media (max-width: 960px){ .shell{ grid-template-columns: 1fr; } }
 
+/* Setting */
+/* Định dạng menu Setting */
+.menu-setting {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: absolute;
+    top: 100%; /* Xuất hiện ngay dưới nút Setting */
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Đảm bảo menu ở phía trên */
+    width: 180px; /* Độ rộng của menu */
+}
+
+.dropdown.hidden {
+    display: none; /* Ẩn menu khi không cần hiển thị */
+}
+
+.dropdown .btn {
+    display: block; /* Các nút mỗi dòng một lựa chọn */
+    text-align: left;
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size:14px;
+}
+
+/* Ẩn section upload video và keypoints mặc định */
+.hidden {
+    display: none;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background-color: green; /* mặc định là xanh */
+    vertical-align: middle;
+}
+
+.status-dot.on {
+    background-color: red; /* màu đỏ khi bật */
+}
+
 /* Video panel */
 .video-card{
     background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),var(--panel); 
