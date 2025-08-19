@@ -16,79 +16,269 @@
         //       Dòng 4: in ra các số lẻ nhỏ hơn hoặc bằng n
 
         //       Dòng 5: in ra các bội số của 4 nhỏ hơn n
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        for (var i = 0; i < n; i++) {
+            console.log(i);
+        }
 
+        for (var i = n; i >= 0; i--) {
+            console.log(i);
+        }
 
+        for (var i = 0; i <= n; i++) {
+            if (i % 2 == 0) {
+                console.log(i);
+            }
+        }
+
+        for (var i = 0; i <= n; i++) {
+            if (i % 2 != 0) {
+                console.log(i);
+            }
+        }
+
+        for (var i = 0; i < n; i++) {
+            if (i % 4 == 0) {
+                console.log(i);
+            }
+        }
 
 
         //Bài 2: Tính tổng từ 1 đến n
-
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            sum = sum + i;
+        }
+        console.log(sum);
 
 
         //Bài 3: Tính tổng bình phương S(n) = 1^2 + 2^2 + 3^2 + ... + n^2
-
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            sum = sum + i ** 2;
+        }
+        console.log(sum);
 
 
         //Bài 4: Tính tổng các số nguyên dương không vượt quá n và chia hết cho 3
-
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            if (i % 3 == 0) {
+                sum = sum + i;
+            }
+        }
+        console.log(sum);
 
 
         //Bài 5: Tính tổng S = 1 + 1/2 + 1/3 + 1/4 + ... + 1/n
-
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var sum = 0.0;
+        for (var i = 1; i < n; i++) {
+            sum = sum + 1 / i;
+        }
+        console.log(sum);
 
 
         //Bài 6: Tính tổng S = 1/2 + 1/4 + 1/6 + 1/8 + ... + 1/2n
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var sum = 0.0;
+        for (var i = 1; i < n; i++) {
+            sum = sum + 1 / (2 * i);
+        }
+        console.log(sum);
 
 
         //Bài 7: Tính tổng ước của các số nguyên dương n
-
-
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var sum = 0;
+        for (var i = 1; i <= n; i++) {
+            if (n % i == 0) {
+                sum = sum + i;
+            }
+        }
+        console.log(sum);
 
         //Bài 8: Liệt kê ước: đếm sso lượng và liệt kê các ước theo thứ tự tăng dần của số nguyên dương N
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var count = 0;
+        for (var i = 1; i<= n; i++) {
+            if (n % i == 0) {
+                count++;
+            }
+        }
+        console.log(count);
 
+        for (var i = 1; i<= n; i++) {
+            if (n % i == 0) {
+                console.log(i);
+            }
+        }
 
-
+        
         //Bài 9: Liệt kê các số chính phương không vượt quá n
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        for (var i = 1; i < n; i++) {
+            tmp = parseInt(Math.sqrt(i));
+            if (tmp ** 2 == i) {
+                console.log(i);
+            }
+        }
 
 
         //Bài 10: Tính tổng S = -1 + 2 - 3 + 4 - 5 + ... + (-1)^n * n
-
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var sum = 0;
+        for (var i = 1; i<= n; i++) {
+            if (i % 2 == 0) {
+                sum = sum + i;
+            }
+            else {
+                sum = sum + (-1) * i;
+            }
+        }
+        console.log(sum);
 
 
         //Bài 11: Tính tổng S = 2 + 4 + 6 + .. + 2 * n
-
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var count = 0;
+        for (var i = 1; i<= n; i++) {
+            sum = sum + 2 * i;
+        }
+        console.log(sum);
 
 
         //Bài 12: Tính giai thừa
-
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var factorial = 1;
+        for (var i = 1; i <= n; i++) {
+            factorial = factorial * i;
+        }
+        console.log(factorial);
 
 
         //Bài 13: Đếm số lượng chữ số n
-
+        var tmpInput = prompt("Input the value of string: ");
+        var count = 0;
+        for (item of tmpInput) {
+            count++;
+        }
+        console.log(count);
 
 
         //Bài 13: Đếm số lượng chữ số n mà các chữ số đó phải là số nguyên tố
+        var tmpInput = prompt("Input the value of string: ");
+        var count = 0;
+
+        for (item of tmpInput) {
+            var tmp = parseInt(item);
+            if (tmp == 2 || tmp == 3 || tmp == 5 || tmp == 7) {
+                count++;
+            }
+        }
+        console.log(count);
 
 
         //Bài 14: Mua bia, mỗi chai bia có giá 28 xu, có N xu thì mua được nhiêu chai bia biết cứ 3 vỏ chai bia sẽ đổi được một chai bia mới
+        var tmpInput = prompt("Input the value of string: ");
+        var n = parseInt(tmpInput);
 
+        var initalBottle = parseInt(n / 28);
+
+        var totalBottle = initalBottle;
+        while (initalBottle >= 3) {
+            var tmp = parseInt(initalBottle / 3);
+            totalBottle += tmp;
+            var newBottle = tmp + parseInt(initalBottle % 3);
+            initalBottle = newBottle;
+        }
+        console.log(totalBottle);
 
 
         //Bài 15: Cho 1 số nguyên dương n, hãy biểu diễn n dưới dạng tổng các số nguyên tố sao cho lượng số hạng trong tổng là lớn nhất có thể
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var result = [];
+        while (n > 2) {
+            result.push(2);
+            n = n - 2;
+        }
+
+        if (n === 1) {
+            result.pop();
+            result.push(3);
+        }
+
+        for (item of result) {
+            console.log(item);
+        }
 
 
         //Bài 16: S = 1/0! + 1/1! + 1/2! + ... + 1/n!
-
+        function factorial(n) {
+            if (n == 0) {
+                return 1;
+            }
+            var res = 0;
+            for (var i = 1; i <= n; i++) {
+                res = res * i;
+            }
+            return res;
+        }
+        var tmpInput = prompt("Input the value of string: ");
+        var n = parseInt(tmpInput);
+        var ans = 0.0;
+        for (var i = 0; i <= n; i++) {
+            ans = ans + 1/factorial(i);
+        }
+        console.log(ans);
 
 
         //Bài 17: Cho số nguyên dương không âm N. ở mỗi thao tác bạn thực hiện tính tổng các chữ số của N sau đó gán lại cho N. Thao tác này được thực hiện khi N còn 1 chữ số. Ví dụ N = 278 -> 17 -> 8
-
-
+        var tmpInput = prompt("Input the value of n: ")
+        while (tmpInput.length() > 1) {
+            var sum = 0;
+            for (item of tmpInput) {
+                sum = sum + parseInt(item);
+            }
+            tmpInput = Number.toString(sum);
+        }
+        console.log(tmpInput);
+        
 
         //Bài 18: Tìm tổng giai thừa S = 1 + 1.2 + 1.2.3 + 1.2.3.4 + ... + 1.2.3.4.5...n
-
-
-
-        //Bài 19: Kiểm tra số nhập vào là chẵn hay lẻ.
+        function factorial(n) {
+            if (n == 0) {
+                return 1;
+            }
+            var res = 0;
+            for (var i = 1; i <= n; i++) {
+                res = res * i;
+            }
+            return res;
+        }
+        var tmpInput = prompt("Input the value of string: ");
+        var n = parseInt(tmpInput);
+        var ans = 0;
+        for (var i = 1; i <= n; i++) {
+            ans = ans + factorial(i);
+        }
+        console.log(ans);
 
     </script>
 </body>

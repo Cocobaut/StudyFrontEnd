@@ -42,83 +42,668 @@
         */
         
         //Bài 2: Kiểm tra xem 1 số là số nguyên tố không
-       
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var check = (n) => {
+            if (n <= 1) {
+                return false;
+            }
+            else {
+                for (var i = 2; i <= Math.sqrt(n); i++) {
+                    if (n % i == 0) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        };
+
+        console.log(check(n));
+
+
         //Bài 3: Số Sphenic (là số chỉ được phân tích thành 3 thừa số nguyên tố khác nhau)
-        
+        var check = (n) => {
+            var count = 0;
+            for (var i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    let power = 0;
+                    while (n % i == 0) {
+                        power = power + 1;
+                        n = n / i;
+                    }
+                    if (power >= 2) {
+                        return false;
+                    }
+                    count = count + 1;
+                }
+            }
+            if (n > 1) {
+                count++;
+            }
+            return count == 3;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 4: Phân tích thừa số nguyên tố
-       
+        var check = (n) => {
+                var result=[];
+                for (var i = 2; i <= Math.sqrt(n); i++) {
+                    if (n % i == 0) {
+                        while (n % i == 0) {
+                            result.push(i);
+                            n = n / i;
+                        }
+                    }
+                }
+                if (n > 1) {
+                    result.push(n);
+                }
+                return result;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        var tmp = check(n);
+        for (item of tmp) {
+            console.log(item);
+        }
+
+
         //Bài 5: Tìm ước số nguyên tố lớn nhất của n
-       
+        var check = (n) => {
+            var max = 0;
+            for (var i = 1; i < n; i++) {
+                if (n % i == 0 && i > max) {
+                    max = i;
+                }
+            }
+            return max;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 6: Số smith (là số không phải số nguyên tố và có tổng các chữ số của nó bằng tổng các chữ số của các thừa số nguyên tố trong phân tích của nó)
-       
+        var checkPrime = (n) => {
+            if (n < 2) {
+                return false;
+            }
+            for (var i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        var sumDigit = (n) => {
+            var sum = 0;
+            while (n != 0) {
+                sum = sum + n % 10;
+                n = n / 10;
+            }
+            return sum;
+        };
+
+        var sumPrimeFactor = (n) => {
+            var sum = 0;
+            for (var i = 2; i <= n; i++) {
+                if (n % i == 0) {
+                    while (n % i == 0) {
+                        sum = sum + i;
+                        n = n / i;
+                    }
+                }
+            }
+            if (n > 1) {
+                sum = sum + n;
+            }
+            return sum;
+        };
+
+        var check = (n) => {
+            var sumdigit = sumDigit(n);
+            var sumprimefactor = sumPrimeFactor(n);
+            if (sumdigit == sumprimefactor && checkPrime(n) == false) {
+                return true;
+            }
+            return false;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 7: Tổng ước số
-       
+        var check = (n) => {
+            var sum = 0;
+            for (var i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    sum = sum + i;
+                }
+            }
+            return sum;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 8: Số chính phương
-       
+        var check = (n) => {
+            var tmp = parseInt(Math.sqrt(n));
+            return tmp ** 2 == n;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
+
         //Bài 9: Số chính phương trong đoạn
-       
+        var check = (n) => {
+            var tmp = parseInt(Math.sqrt(n));
+            return tmp ** 2 == n;
+        };
+
+        var tmpInput = prompt("Input the value of a b: ");
+        var tmp = tmpInput.split(" ");
+        var a = tmp[0];
+        var b = tmp[1];
+        for (var i = a; i <= b; i++) {
+            if (check(i)) {
+                console.log(i);
+            }
+        }
+
 
         //Bài 10: In ra số có ước số lẻ
-        
+        var check = (n) => {
+            var count = 0;
+            for (var i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    count++;
+                }
+            }
+            return count % 2 != 0;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 11: Số thuần nguyên tố (là số nguyên tố và tổng các chữ số của nó cũng là 1 số nguyên tố)
-        
+        var checkPrime = (n) => {
+            if (n < 2) {
+                return false;
+            }
+            for (var i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        var sumDigit = (n) => {
+            var sum = 0;
+            while (n != 0) {
+                sum = sum + n % 10;
+                n = n / 10;
+            }
+            return sum;
+        };
+
+        var check = (n) => {
+            if (checkPrime(n) == true && checkPrime(sumDigit(n)) == true) {
+                return true;
+            }
+            return false;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 12: Tìm số thuận nghịch và có ít nhất 3 ước số nguyên tố khác nhau trên 1 đoạn cho trước
-       
+        var checkRevese = (n) => {
+            var tmp = n;
+            var res = 0;
+            while (n != 0) {
+                res = res * 10 + n % 10;
+                n = n / 10;
+            }
+            return res == tmp;
+        };
+
+        var checkPrimeFactor = (n) => {
+            var count = 0;
+            for (var i = 2; i < n; i++) {
+                if (n % i == 0) {
+                    while (n % i == 0) {
+                        count++;
+                        n = n / i;
+                    }
+                }
+            }
+            return count >= 3;
+        };
+
+        var check = (n) => {
+            return checkRevese(n) && checkPrimeFactor(n);
+        };
+
+        var tmpInput = prompt("Input the value of a b: ");
+        var tmp = tmpInput.split(" ");
+        var a = tmp[0];
+        var b = tmp[1];
+        for (var i = a; i <= b; i++) {
+            if (check(i)) {
+                console.log(i);
+            }
+        }
 
         //Bài 13: Số lộc phát (là số chỉ chứa các chữ số là 0 6 8)
-       
+        var check = (n) => {
+            while (n != 0) {
+                var tmp = n % 10;
+                if (tmp != 6 && tmp != 8 && tmp != 0) {
+                    return false;
+                }
+                n = n / 10;
+            }
+            return true;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 14: Kiểm tra 1 số là số thuận nghịch, chứa ít nhất 1 chữ số 6 và tổng các chữ số của nó có chữ số cuối cùng là 8
-       
+        var checkRevese = (n) => {
+            var tmp = n;
+            var res = 0;
+            while (n != 0) {
+                res = res * 10 + n % 10;
+                n = n / 10;
+            }
+            return res == tmp;
+        };
+
+        var checkTmp = (n) => {
+            var sum = 0;
+            var count = 0;
+            while (n != 0) {
+                var tmp = n % 10;
+                if (tmp == 6) {
+                    count++;
+                }
+                sum = sum + tmp;
+                n = n / 10;
+            }
+            var res = sum % 10;
+            return count >= 1 && res == 8;
+        };
+
+        var check = (n) => {
+            return checkRevese(n) && checkTmp(n);
+        };
+    
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 15: Kiểm tra tất cả số nguyên tố nhỏ hơn n và có chữ số cuối cùng lớn nhất
-        
+        var checkPrime = (n) => {
+            if (n < 2) {
+                return false;
+            }
+            for (var i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        var checkTmp = (n) => {
+            var tmp = n % 10;
+            n = parseInt(n / 10);
+            while (n != 0) {
+                var temp = n % 10;
+                if (temp > tmp) {
+                    return false;
+                }
+                n = n / 10;
+            }
+            return true;
+        };
+
+        var check = (n) => {
+            return checkTmp(n) && checkPrime(n);
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 16: Kiểm tra 1 số mà chữ số cuối gấp đôi chữ số đầu và các chữ số từ vị trí thứ 2 đến cuối là số thuận nghịch
-        
+        var checkRevese = (n) => {
+            var tmp = n;
+            var res = 0;
+            while (n != 0) {
+                res = res * 10 + n % 10;
+                n = n / 10;
+            }
+            return res == tmp;
+        };
+
+        var check = (n) => {
+            var tmp = n % 10;
+            n = parseInt(n / 10);
+            middle = 0;
+            while (n >= 10) {
+                middle = middle * 10 + n % 10;
+                n = parseInt(n / 10);
+            }
+            var first = n;
+            return checkRevese(middle) && (first == n ** 2 || n == first ** 2);
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 17: Tìm ước chung lớn nhất và bội chung nhỏ nhất
-       
+        var gcd = (a, b) => {
+            while (b != 0) {
+                let tmp = b;
+                a = b;
+                b = a % tmp;
+            }
+            return a;
+        };
+
+        var lcm = (a, b) => {
+            let tmp = parseInt(a * b / gcd(a, b));
+            return tmp;
+        };
+
+        var tmpInput = prompt("Input the value of a and b: ");
+        var tmp = tmpInput.split(" ");
+        var a = parseInt(tmp[0]);
+        var b = parseInt(tmp[1]);
+
+        console.log(gcd(a, b));
+        console.log(lcm(a, b));
+
 
         //Bài 18: Kiểm tra xem số x có thể được biểu diễn bằng tổng các số 11, 111, 1111, 11111, ....
-        
+        var check = (n) => {
+            for(var i = 0; i < n / 111; i++) {
+                if ((n - i * 111) % 11 == 0) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 19: Số hoàn hảo (số có tổng các ước thực sự bằng chính số đó)
-       
+        var check = (n) => {
+            var sum = 0;
+            for (var i = 0; i < n; i++) {
+                if (n % i == 0) {
+                    sum = sum + i;
+                }
+            }
+            return sum == n;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 20: Đưa ra số nguyên tố thứ k trong phân tích thừa số nguyên tố của 1 số nguyên tố dương, Ví dụ n = 28. k = 3 thì kết quả là 7 bởi vì 28 = 2 x 2 x 7
-        
+        var check = (n, k) => {
+            var count = 0;
+            for (var i = 1; i < n; i++) {
+                if (n % i == 0) {
+                    while (n % i == 0) {
+                        count++;
+                        n = n / i;
+                        if (count == k) {
+                            return true;
+                        }
+                    }
+                }
+                if (count == k) {
+                    return true;
+                }
+            }
+            if (n > 1) {
+                count++;
+            }
+            return count == k;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
 
 
         //Bài 21: Kiểm tra 1 số có chia hết cho 1 số nguyên tố và chia hết cho bình phương của số nguyên tố 
-        
+        var check = (n) => {
+            var count = 0;
+            for (var i = 2; i <= n; i++) {
+                if (n % i == 0) {
+                    while (n % i == 0) {
+                        count++;
+                        n = parseInt(n / i);
+                    }
+                    if (count > 1) {
+                        return true;
+                    }
+                    count = 0;
+                }
+            }
+            return false;
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
 
 
         //Bài 22: Theo goldbach conjecture, 1 số nguyên dương chẵn >= 4 đều có thể biểu diễn dưới dạng tổng của 2 số nguyên tố. Cho số nguyên dương chẵn N >= 4. Hãy liệt kê cặp số nguyên tố p, q có tổng đúng bằng N
-        
+        var checkPrime = (n) => {
+            if (n < 2) {
+                return false;
+            }
+            for (var i = 2; i < Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        var check = (n) => {
+            for (var i = 2; i < n / 2 + 1; i++) {
+                if (checkPrime(i) && checkPrime(n - i)) {
+                    console.log(i, n - i);
+                }
+            }
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        check(n);
+
 
         //Bài 23: Tìm số nguyên dương nhỏ nhất có n chỉ số chia hết cho x, y, z
-        
+        var gcd = (a, b) => {
+            while (b != 0) {
+                let tmp = b;
+                a = b;
+                b = a % tmp;
+            }
+            return a;
+        };
+
+        var lcm = (a, b) => {
+            let tmp = parseInt(a * b / gcd(a, b));
+            return tmp;
+        };
+
+        var tmpInput = prompt("Input the value of x, y, z and n: ");
+        var tmp = tmpInput.split(" ");
+        var x = parseInt(tmp[0]);
+        var y = parseInt(tmp[1]);
+        var z = parseInt(tmp[2]);
+        var n = parseInt(tmp[3]);
+
+        var tmp = lcm(x, lcm(y, z));
+        var temp = 10 ** (n - 1);
+        var res = parseInt((temp + tmp - 1) / tmp) * tmp;
+        console.log(res);
 
 
         //Bài 24: Tìm cặp số nguyên tố cùng nhau
-       
+        var gcd = (a, b) => {
+            while (b != 0) {
+                let tmp = b;
+                a = b;
+                b = a % tmp;
+            }
+            return a;
+        };
+
+        var tmpInput = prompt("Input the value of a and b: ");
+        var tmp = tmpInput.split(" ");
+        var a = parseInt(tmp[0]);
+        var b = parseInt(tmp[1]);
+
+        for (var i = a; i < b; i++) {
+            for (var j = i; j < b + 1; j++) {
+                if (gcd(i, j) == 1) {
+                    console.log(i, j);
+                }
+            }
+        }
+
 
         //Bài 25: In ra n số fibonanci
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
         
+        if (n == 0) {
+            console.log(1);
+        }
+        else if (n == 1) {
+            console.log(1, 1);
+        }
+        else {
+            console.log(1, 1);
+            let fn1 = 1;
+            let fn2 = 1;
+            for (var i = 2; i <= n; i++) {
+                let fn = fn1 + fn2;
+                console.log(fn);
+                fn1 = fn2;
+                fn2 = fn;
+            }
+        }
 
 
         //Bài 26: Kiểm tra số vừa nhập phải fibonannci không
-        
+        var check = (n) => {
+            if (n == 0 || n == 1) {
+                return true;
+            }
+
+            var fn1 = 1;
+            var fn2 = 2;
+            for (var i = 3; i < 72; i++) {
+                let fn = fn1 + fn2;
+                if (fn == n) {
+                    return true;
+                }
+                fn1 = fn2;
+                fn2 = fn;
+            }
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
+
 
         //Bài 27: Liệt kê những số nguyên tố nhỏ hơn n và có tổng chữ số là một số trong dãy fibonancci
-        
+        var checkPrime = (n) => {
+            if (n < 2) {
+                return false;
+            }
+            for (var i = 0; i < Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        var checkFibo = (n) => {
+            if (n == 0 || n == 1) {
+                return true;
+            }
+
+            var fn1 = 1;
+            var fn2 = 2;
+            for (var i = 3; i < 72; i++) {
+                let fn = fn1 + fn2;
+                if (fn == n) {
+                    return true;
+                }
+                fn1 = fn2;
+                fn2 = fn;
+            }
+        };
+
+        var sumDigit = (n) => {
+            var res = 0;
+            while (n != 0) {
+                res = res + n % 10;
+                n = parseInt(n / 10);
+            }
+            return res;
+        };
+
+        var check = (n) => {
+            return checkPrime(n) && checkFibo(sumDigit(n));
+        };
+
+        var tmpInput = prompt("Input the value of n: ");
+        var n = parseInt(tmpInput);
+        console.log(check(n));
 
     </script>
 </body>

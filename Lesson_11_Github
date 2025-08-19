@@ -106,6 +106,8 @@ git commit -m "Nội dung…"
 
         Tức là từ Repository về lại Working directory. Trong đó commit_id là mã của nhánh mà ta muốn quay lại.
 
+    git reset --hard: Lệnh này sẽ xóa tất cả thay đổi cục bộ chưa được commit.
+
 Lưu ý: khi up 1 code lên github ta up nhiều git commit và dùng lệnh git reset —soft commit_id lên commit bất kì thì nó tự động sửa code thành code mà trước khi up git commit đó
 
 1.4.4 Các lệnh liên quan đến "nhánh"

@@ -8,110 +8,397 @@
 <body>
     <script>
         //Bài 1: Cho biểu thức P(x) = x^3 + 3x^2 + x + 1. Với giá trị của x được nhập từ bàn phím, tính và in ra giá trị của biểu thức trên  
-
+        var x = parseInt(("Input the value of x: "));
+        console.log(x ** 3 + 3 * (x ** 2) + x + 1);
 
 
         //Bài 2: cho 3 số nguyên a, b, c, hãy tính S = a*(b + c) + b*(a + c)
-
+        var input = prompt("Input the value of a b c: ")
+        var tmpInput = input.split(" ");
+        var a = parseFloat(tmpInput[0]);
+        var b = parseFloat(tmpInput[1]);
+        var c = parseFloat(tmpInput[2]);
+        console.log(a, b, c);
+        console.log(a * (b + c) + b * (a + c));
 
 
         //Bài 3: Đổi nhiệt độ (từ độ C sang F bằng cách F = (C * 9/5) + 32) đáp án làm tròn 2 số sau thập phân
-
+        var C = prompt("Input the value of C degree: ");
+        var F = parseFloat(C);
+        console.log(F * 9/5 + 32);
 
 
         //Bài 4: Cho bán kính R của hình tròn. Tính chu vi và diện tích hình tròn (almf tròn 4 số sau thập phân)
-
+        var R = prompt("Input the value of Radius: ")
+        var tmpR = parseFloat(R);
+        console.log("Chu vi của hình tròn là: ", tmpR * 2 * 3.14);
+        console.log("Diện tích của hình tròn là: ", tmpR * tmpR * 3.14);
 
         //Bài 5: tính khoảng cách giữa 2 điểm 
+        var tmpInput = prompt("Input the value x1, y1, x2, y2: ")
+        var tmp = tmpInput.split(" ");
+        var x1 = parseFloat(tmp[0]);
+        var y1 = parseFloat(tmp[1]);
+        var x2 = parseFloat(tmp[2]);
+        var y2 = parseFloat(tmp[3]);
+
+        console.log(Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2));
 
 
         //Bài 6: Cho 2 số nguyên a và b. Bạn hãy tìm 2 số sau, số thứ 1 là số lớn nhất <= a và chia hết cho b, số thứ 2 là số nhỏ nhất >= a mà chia hết cho b
+        var tmpInput = prompt("Input the value of a, b: ")
+        var tmp = tmpInput.split(" ");
+
+        var a = parseFloat(tmp[0]);
+        var b = parseFloat(tmp[1]);
+        
+        console.log(Math.floor(a / b) * b);
+        console.log(Math.ceil(a / b) * b);
 
 
         //Bài 7: Nhập vào 2 số nguyên, in ra tổng hiệu tích thương (trường hợp số chia = 0 thì in ra invalid)
+        var tmpInput = prompt("Input the value of a, b: ");
+        var tmp = tmpInput.split(" ");
+        var a = parseFloat(tmp[0]);
+        var b = parseFloat(tmp[1]);
+
+        console.log("Sum is: ", a + b);
+        console.log("Difference is: ", a - b);
+        console.log("Multiplication is: ", a * b);
+        if (b == 0) {
+            console.log("Invalid");
+        }
+        else {
+            console.log("Division is: ", a / b);
+        }
 
 
         //Bài 8: Kiểm tra năm nhuận (năm nhuận là năm chia hết cho 400 hoặc (chia hết cho 4 và không chia hết cho 100))
+        var tmpInput = prompt("Input the value of year: ");
+        var year = parseFloat(tmpInput);
+        if (year % 400 == 0 || (year % 4 == 0 && year & 100 != 0)) {
+            console.log("Năm nhuận");
+        }
+        else {
+            console.log("Năm không nhuận");
+        }
 
 
         //Bài 9: Kiểm tra tam giác hợp lệ
+        var tmpInput = prompt("Input the value of a, b, c: ");
+        var tmp = tmpInput.split(" ");
+        
+        var a = parseFloat(tmp[0]);
+        var b = parseFloat(tmp[1]);
+        var c = parseFloat(tmp[2]);
+
+        if ((a < b + c) && (b < a + c) && (c < a + b)) {
+            console.log("Valid");
+        }
+        else {
+            console.log("Invalid");
+        }
 
 
         //Bài 10: Kiểm tra tam giác
+        var tmpInput = prompt("Input the value of a, b, c: ");
+        var tmp = tmpInput.split(" ");
+        
+        var a = parseFloat(tmp[0]);
+        var b = parseFloat(tmp[1]);
+        var c = parseFloat(tmp[2]);
+
+        if ((a < b + c) && (b < a + c) && (c < a + b)) {
+            if (a == b || a == c || b == c) {
+                if (a == b && a == c) {
+                    console.log("Tam giác đều");
+                }
+                else {
+                    console.log("Tam giác cân");
+                }
+            }
+            else if (a ** 2 == b ** 2 + c ** 2 || c ** 2 == a ** 2 + b ** 2 || b ** 2 == a ** 2 + c ** 2) {
+                console.log("Tam giác vuông")
+            }
+            else {
+                console.log("Tam giác thường");
+            }
+        }
+        else {
+            console.log("Invalid");
+        }
 
 
-        //Bài 11: Cho biết tháng, năm, in ra số ngày tương ứng tháng đó (năm nhuận thì có 29 ngày)
+        //Bài 11: Cho biết tháng, năm, in ra số ngày tương ứng tháng đó (năm nhuận thì có 29 ngày) (input có dạng mm/yyyy)
+        var tmpInput = prompt("Input the year and month: ")
+        var tmp = tmpInput.split("/");
+
+        var month = parseFloat(tmp[0]);
+        var year = parseFloat(tmp[1]);
+
+        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+            console.log(31);
+        }
+        else if (month == 4 || month == 6 || month == 9 || month == 1) {
+            console.log(30);
+        }
+        else if (month == 2) {
+            if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+                console.log(29);
+            }
+            else {
+                console.log(28);
+            }
+        }
+        else {
+            console.log("Invalid");
+        }
 
 
         //Bài 12: Đổi ngày sang năm, tuần, ngày dư
+        var tmp = prompt("Input the number of days: ");
+        var days = parseInt(tmp);
+
+        var year = parseInt(days / 365);
+        var Tmp = parseInt(days % 365);
+        var week = parseInt(Tmp / 7);
+        var day = parseInt(Tmp % 7);
+
+        console.log(year, "/", week, "/", day);
+
 
         //Bài 13: Cho biết điểm kiểm tra tin học của 1 em học sinh (2 con điểm hệ số 1, 1 con điểm hệ số 2, 1 con điểm hệ số 3). In ra kết quả môn tin và nếu >= 8 thì giỏi, < 8 và >= 6.5 thì khá. <6.5 và >= 5 thì trung bình và <5 đạt kết quả yếu
+        var tmpInput = prompt("Input the value of point: ");
+        var tmp = tmpInput.split(" ");
+        var point11 = parseFloat(tmpInput[0]);
+        var point12 = parseFloat(tmpInput[1]);
+        var point2 = parseFloat(tmpInput[2]);
+        var point3 = parseFloat(tmpInput[3]);
+        var point = (point11 + point12 + point2 * 2 + point3 * 3) / 7;
+        if (point >= 8) {
+            console.log("Giỏi");
+        }
+        else if (point >= 6.5) {
+            console.log("Khá");
+        }
+        else if (point >= 5) {
+            console.log("Trung bình");
+        }
+        else {
+            console.log("Yếu");
+        }
 
 
         //Bài 14: Mua nước: muốn mua chính xác n lít nước để làm súp. Có 2 loại chai: chai 1 lít và 2 lít. Chai 1 lít giá a đô, chai 2 lít giá b đô. Người mua muốn chi ít tiền càng tốt. Nhiệm vụ là tìm ra số tiền tối thiểu để mua chính xác n lít với 2 loại chai đó
+        var tmpInput = prompt("Input the value of n a b: ");
+        var tmp = tmpInput.split(" ");
 
+        var n = parseInt(tmp[0]);
+        var a = parseInt(tmp[1]);
+        var b = parseInt(tmp[2]);
+
+        if (a <= b / 2) {
+            console.log(n * a);
+        }
+        else {
+            if (n % 2 == 0) {
+                console.log(n / 2 * b);
+            }
+            else {
+                console.log((n - 1) / 2 * b);
+            }
+        }
 
                 
         //Bài 15: Kí tự kế tiếp: cho chữ cái in hoa hay thường, in ra kí tự kế tiếp sau nó trong bảng chữ cái ở dạng in thường. Coi kí tự kế tiếp chữ Z là A
+        var tmpInput = prompt("Input the char: ");
+        var lowerChar = tmpInput.toLowerCase();
 
-        //Lưu ý: cách in thứ tự của kí tự trong bảng ASCII: print(ord(a))
-
-        //Lưu ý: cách in ra kí tự của thứ tự trong bảng ASCII: print(chr(tmp))
-
+        if (lowerChar == "z") {
+            console.log("a");
+        }
+        else {
+            console.log(String.fromCharCode(lowerChar.charCodeAt(0) + 1));
+        }
 
 
         //Bài 16: Cho 1 kí tự kiểm tra xem kí tự là in hoa, in thường hay chữ số hay đặc biệt (đặc biệt là kí tự không phải in hoa thường và chữ số)
-
+        var tmpInput = prompt("Input the char: ");
+        if (tmpInput >= "A" && tmpInput <= "Z") {
+            console.log("In hoa");
+        }
+        else if (tmpInput >= "a" && tmpInput <= "z") {
+            console.log("In thường");
+        }
+        else if (tmpInput >= "1" && tmpInput <= "9") {
+            console.log("Chữ số");
+        }
+        else {
+            console.log("special");
+        }
 
 
         //Bài 17: Chuyển đổi in hoa thành in thường và in thường thành in hoa, nếu không phải chữ thì không thay đổi
+        var tmpInput = prompt("Input the char: ");
+        if (tmpInput >= "A" && tmpInput <= "Z") {
+            console.log(String.toLowerCase(tmpInput));
+        }
+        else if (tmpInput >= "a" && tmpInput <= "z") {
+            console.log(String.toUpperCase(tmpInput));
+        }
+        else {
+            console.log("special");
+        }
 
 
         //Bài 18: Domino: cho 1 ma trận kích thước n x m và domino có kích thước 2 x 1 => tìm số domino tối đa để đặt vào ma trận đó
+        var tmpInput = prompt("Input the value of n and m: ");
+        var tmp = tmpInput.split(" ");
+        
+        var n = parseInt(tmp[0]);
+        var m = parseInt(tmp[1]);
 
+        if (n % 2 == 0) {
+            console.log(n / 2 * m);
+        }
+        else {
+            console.log((n - 1) / 2 * m + m / 2);
+        }
 
 
         //Bài 19: Lát đấ quảng trường: quãng trường có kich thước n x m và đá có kích thước a x a => tìm số đá để lát che kín quảng trường
+        var tmpInput = prompt("Input the value of n, m and a: ");
+        var tmp = tmpInput.split(" ");
+        
+        var n = parseInt(tmp[0]);
+        var m = parseInt(tmp[1]);
+        var a = parseInt(tmp[2]);
 
+        var x = 0;
+        var y = 0;
+
+        if (n % a == 0) {
+            x = n / a;
+        }
+        else {
+            x = n / a + 1;
+        }
+
+        if (m % a == 0) {
+            y = m / a;
+        }
+        else {
+            y = m / a + 1;
+        }
+        console.log(x * y);
 
 
         //Bài 20: Frog: con ếch tại trục tọa độ, bước 1 nó nhảy a bc về bên phải, bước 2 nó nhảy b bước về bên trái, bước 3 nó nhảy a bước về bên phải,... hỏi sau k bước thì ếch đang đứng vị trí nào
+        var tmpInput = prompt("Input the value of k, a, b: ");
+        var tmp = tmpInput.split(" ");
+        var k = parseInt(tmp[0]);
+        var a = parseInt(tmp[1]);
+        var b = parseInt(tmp[2]);
 
+        if (k % 2 == 0) {
+            console.log(k / 2 * a - k / 2 * b);
+        }
+        else {
+            console.log((k + 1) / 2 * a - (k - 1) / 2 * b);
+        }
 
 
         //Bài 21: Đồng xu: bạn có không giới hạn đồng xu có giá trị từ 1 tới n. Bạn muốn chọn một số bộ tiền có tổng S. Nó được phép có nhiều đồng tiền có cùng giá trị tập hợp. Số lượng đồng xu cần thiết để có tổng là S là
+        var tmpInput = prompt("Input the value of s and n: ");
+        var tmp = tmpInput.split(" ");
 
+        var s = parseInt(tmp[0]);
+        var n = parseInt(tmp[1]);
+        
+        if (n % s == 0) {
+            console.log(s / n);
+        }
+        else {
+            var temp = parseInt(s / n);
+            console.log(temp + n % s);
+        }
 
 
         //Bài 22: Doreamon leo cầu thang: doreamon muốn leo lên cầu thang gồm n bước. Anh ta có thể leo 1 hoặc 2 bước mỗi lần di chuyển. Doreamon muốn số lần di chuyển là bội số của một số nguyên m. Số lượng di chuyển tối thiểu làm cho anh ta leo lên đỉnh cầu thang, nếu ko có thì in -1
+        var tmpInput = prompt("Input the value of n and m: ");
+        var tmp = tmpInput.split(" ");
+        
+        var n = parseInt(tmp[0]);
+        var m = parseInt(tmp[1]);
 
+        var min = 0;
+        var max = n;
+
+        if (n % 2 == 0) {
+            min = n / 2;
+        }
+        else {
+            min = (n - 1) / 2 + 1;
+        }
+
+        console.log (parseInt((min + m - 1) / m) * m);
 
 
         //Bài 23: Đường đi ngắn nhất: nhà 1 người cách cửa hàng 1 k/c d1 mét, cách cửa hàng 2 k/c d2 mét và 2 cửa hàng cách nhau d3 mét. Tính quãng đường ngắn nhất để người nay ghé 2 cửa hàng và trở về nhà
+        var tmpInput = prompt("Input the value of d1, d2, d3: ");
+        var tmp = tmpInput.split(" ");
 
+        var d1 = parseInt(tmp[0]);
+        var d2 = parseInt(tmp[1]);
+        var d3 = parseInt(tmp[2]);
 
+        var max = 0;
+        if (d1 + d2 + d3 > max) {
+            max = d1+ d2 + d3;
+        }
+        if (d1 * 2 + d2 * 2 > max) {
+            max = d1 * 2 + d2 * 2;
+        }
+        if (d1 * 2 + d3 * 2 > max) {
+            max = d1 * 2 + d3 * 2;
+        }
+        if (d2 * 2 + d3 * 2 > max) {
+            max = d2 * 2 + d3 * 2;
+        }
+        console.log(max);
 
         //Bài 24: Một người có n đô la trong ngân hàng. Có mệnh giá cho tờ đô la là 1, 5, 10, 20, 100. Số tờ tiền tối thiểu mà người đó có thể nhận được
+        var tmpInput = prompt("Input the value of d1, d2, d3: ");
+        var n = parseInt(tmpInput);
 
+        var ans = parseInt(n / 100);
+        n = n % 100;
+        ans = ans + parseInt(n / 20);
+        n = n % 20;
+        ans = ans + parseInt(n / 10);
+        n = n % 10;
+        ans = ans + parseInt(n / 5);
+        n = n % 5;
+        ans = ans + parseInt(n);
+
+        console.log(n);
 
 
         //Bài 25: Cấp số nhân: cho 4 số a b c d. Hãy kiểm tra xem 4 số này có tạo thành 1 cấp số nhân với công bội nguyên theo đúng thứ tự a b c d hay không
+        var tmpInput = prompt("Input the value of a b c d");
+        var tmp = tmpInput.split(" ");
 
+        var a = parseInt(tmp[0]);
+        var b = parseInt(tmp[1]);
+        var c = parseInt(tmp[2]);
+        var d = parseInt(tmp[3]);
 
-
-        //Bài 26: Bizon the champion: 1 có người a1 a2 a3 cái cúp và b1 b2 b3 huy chương, người đó n cái kệ. Đặt sao cho không có 1 kệ vừa chứa hc và cúp, và 1 kệ không nhiều hơn năm cúp và mười huy chương
-
-
-
-        //Bài 27: Ghép số: Anton có k2 chữ số 2, k3 chữ số 3 và k5 chữ số 5 và k6 chữ số 6. Anton muốn ghép thành 32 và 256 từ chữ số đã cho làm sao cho số được ghép ra có tổng lớn nhất
-
-
-
-        //Bài 28: Chia tiền: 3 chị em A, B, C có a, b, c đồng xu, mẹ 3 chị em mang n đồng xu về, hỏi có thể chia để 3 chị em sau khi chia nhận số tiền bằng nhau
-
-
-        //Bài 34: Sự hào phong
-
+        if (b / a == c / b && d / c == c / b) {
+            console.log("Yes");
+        }
+        else {
+            console.log("No");
+        }
 
     </script>
 </body>
