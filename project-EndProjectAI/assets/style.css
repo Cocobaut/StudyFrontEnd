@@ -100,11 +100,7 @@ video{
 }
 
 .file-container {
-  padding: 10px;
-  border: 2px dashed #4299e1; /* Border dạng nét đứt */
-  border-radius: 8px; /* Bo tròn góc */
-  background-color: #f9fafb; /* Màu nền nhạt */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    margin-bottom: 0px;
 }
 
 /* Style cho thẻ input và button */
