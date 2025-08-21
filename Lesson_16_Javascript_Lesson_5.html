@@ -1,0 +1,422 @@
+<!-- 01. DOM là gì?------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 1.1. DOM là gì?------------------------------------------------------------------------------------------------------------------------------------------------  -->
+
+<!-- 
+* DOM là viết tắt của chữ Document Object Model, dịch ra là mô hình các đối tượng trong tài liệu HTML.
+* 
+* Thông qua mô hình DOM ta có thể truy xuất đến các thẻ HTML một cách dễ dàng.
+* 
+* DOM gồm 3 thành phần: Element, Attribute, Text 
+-->
+
+<!-- Ví dụ -->
+<!DOCTYPE html>
+<html lang="en">				<!--Đây gồm 3 DOM: Element(html), Attribute(lang), Text(Nội dung trong thẻ html)-->
+<head>
+	<meta charset="UTF-8">		<!--Đây gồm 2 DOM: Element(meta), Attribute(charset), Text()-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+
+
+<!-- 1.2. Nhiệm vụ của DOM Javascript là gì?------------------------------------------------------------------------------------------------------------------------  -->
+
+<!-- 
+* Cho phép truy xuất đến các thẻ html
+* 
+* Thay đổi các thuộc tính của thẻ html
+* 
+* Thay đổi css của các thẻ html
+* 
+* Tạo, xóa, thêm các thẻ html -->
+
+<!-- 1.3. Các loại DOM trong Javascript ----------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* DOM document: có nhiệm vụ lưu trữ toàn bộ các thành phần trong tài liệu của website (Ví dụ bên trên)
+* 
+* DOM element: có nhiệm vụ truy xuất tới thẻ HTML nào đó thông qua các thuộc tính như tên class, id, name của thẻ HTML
+* 
+* DOM HTML: có nhiệm vụ thay đổi giá trị nội dung và giá trị thuộc tính của các thẻ HTML
+* 
+* DOM CSS: có nhiệm vụ thay đổi các định dạng CSS của thẻ HTML
+* 
+* DOM Event: có nhiệm vụ gán các sự kiện như onclick(), onload() vào các thẻ HTML
+* 
+* DOM Listener: có nhiệm vụ lắng nghe các sự kiện tác động lên thẻ HTML đó
+* 
+* DOM Navigation: dùng để quản lý, thao tác với các thẻ HTML, thể hiện mối quan hệ cha - con của các thẻ HTML
+* 
+* DOM Nodes: có nhiệm vụ thao tác với HTML thông qua đối tượng (Object) 
+-->
+
+
+<!-- 02. DOM Element------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 2.1. Sử dụng getElementById để tìm theo ID---------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Để truy xuất tới một thẻ HTML theo ID ta sử dụng cú pháp sau:
+* 	
+* 			var element = document.getElementById('idName');
+* Ví dụ:
+* 	var element = document.getElementById("idTest");
+* 	element.classList.add("class-test"); 					
+-->
+
+<!-- Lưu ý: Lệnh element.classList.add("class-test"): dùng để add một class-test vào trong thẻ có id là idName -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.light {
+			background : lightblue;
+		}
+
+		.dark {
+			background: darkblue;
+		}
+	</style>
+	
+    <div class="light" id="box1"> Nội dung thẻ div 1 </div> 		<!-- Lưu ý: chỉ add class dark cho thẻ đầu tiên thôi-->
+	<div class="light" id="box1"> Nội dung thẻ div 1 </div>
+	<div class="light" id="box1"> Nội dung thẻ div 1 </div>
+	<div class="light" id="box1"> Nội dung thẻ div 1 </div>
+
+    <script>
+        const box = document.getElementById("box1");
+        box.classList.add("dark");
+        console.log(box);
+    </script>
+</body>
+</html>
+
+
+<!-- 2.2. Sử dụng getElementsByTagName để tìm theo tên thẻ html--------------------------------------------------------------------------------------------------  -->
+<!-- 
+* Tên thẻ HTML chính là tên các thẻ như p, a, div, ... Và ta sẽ truy xuất tới nó bằng cú pháp sau:
+* 
+* 			var element = document.getElementsByTagName('tagName');
+* 
+* Kết quả sẽ trả về 1 mảng các object.
+* 
+* Ví dụ:
+* 	var element = document.getElementsByTagName("p");
+* 	element[0].classList.add("class-test"); 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+    <style>
+        .light {
+            background-color: aquamarine;
+        }
+    </style>
+
+	<h2>Thẻ 2 01</h2>
+	<h2>Thẻ 2 02</h2>
+	<h2>Thẻ 2 03</h2>
+	<h2>Thẻ 2 04</h2>
+	<h2>Thẻ 2 05</h2>
+	<h2>Thẻ 2 06</h2>
+	<h2>Thẻ 2 07</h2>
+
+	<script>
+		const listH2 = document.getElementsByTagName("h2");
+		console.log(listH2);
+        console.log(listH2[3]);
+        listH2[3].classList.add("light");
+	</script>
+</body>
+</html>
+
+
+
+<!-- 2.3. Sử dụng getElementsByClassName để tìm theo tên class------------------------------------------------------------------------------------------------------  -->
+<!-- 
+* Để tìm các thẻ HTML có class nào đó thì ta dùng cú pháp sau:
+* 
+* 			var element = document.getElementsByClassName('className');
+* 
+* Ví dụ:
+* 	var element = document.getElementsByClassName("p");
+* 	element[0].classList.add("class-test"); 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.test-02 {
+			background-color: blue;
+		}
+	</style>
+	<div class="test">Thẻ 01</div>
+	<div class="test">Thẻ 02</div>
+	<div class="test">Thẻ 03</div>
+	<div class="test">Thẻ 04</div>
+	<div class="test">Thẻ 05</div>
+	<div class="test">Thẻ 06</div>
+	<div class="test">Thẻ 07</div>
+
+	<script>
+		const listTest = document.getElementsByClassName("test");
+		console.log(listTest);
+
+		console.log(...listTest);
+		console.log([...listTest]);			//Lệnh này dùng để ép kiểu từ object về array
+		
+		[...listTest].forEach((item, index, array) => {
+            item.classList.add("test-02");
+        });
+	</script>
+</body>
+</html>
+
+
+<!-- 2.4. Sử dụng querySelector để tìm theo CSS selector-----------------------------------------------------------------------------------------------------------  -->
+
+<!-- 
+* Để tìm một thẻ HTML theo bộ chọn CSS thì ta dùng cú pháp sau:
+* 	
+* 			var element = document.querySelector('selector');
+* 
+* Ví dụ:
+* 	var element = document.querySelector('ul li a');
+* 	element.classList.add("class-test"); 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style> 
+		.box-1 .box-2 h2 a.link {
+			background-color: yellow;
+		}
+
+		.active {
+			background-color: orange !important; 
+		}
+	</style>
+
+	<div class="box-1">
+		<div class="box-2">
+			<h2>
+				<a href="#" class="link">Nội dung thẻ a1</a>
+				<a href="#" class="link">Nội dung thẻ a2</a>
+				<a href="#" class="link">Nội dung thẻ a3</a>
+				<a href="#" class="link">Nội dung thẻ a4</a>
+				<a href="#" class="link">Nội dung thẻ a5</a>
+			</h2>
+		</div>
+	</div>	
+
+	<script>
+		const element = document.querySelector(".box-1 .box-2 h2 a.link");
+        element.classList.add("active");
+		console.log(element);
+	</script>
+</body>
+</html>
+
+
+<!-- 2.5. Sử dụng querySelectorAll để tìm theo CSS selector--------------------------------------------------------------------------------------------------------  -->
+<!-- 
+* Để tìm các thẻ HTML theo bộ chọn CSS thì ta dùng cú pháp sau:
+* 
+* 			var element = document.querySelectorAll('selector');
+* 
+* Ví dụ:
+* 	var element = document.querySelectorAll('ul li a’);
+* 	element[0].classList.add("class-test"); 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style> 
+		.box-1 .box-2 h2 .link {
+			background-color: yellow;
+		}
+
+		.active {
+			background-color: orange;
+		}
+	</style>
+
+	<div class="box-1">
+		<div class="box-2">
+			<h2>
+				<a href="#" class="link">Nội dung thẻ a</a>
+                <a href="#" class="link">Nội dung thẻ a</a>
+                <a href="#" class="link">Nội dung thẻ a</a>
+                <a href="#" class="link">Nội dung thẻ a</a>
+                <a href="#" class="link">Nội dung thẻ a</a>
+			</h2>
+		</div>
+	</div>	
+
+	<script>
+		const elements = document.querySelectorAll(".box-1 .box-2 h2 .link");
+		console.log(elements);
+	</script>
+</body>
+</html>
+
+
+<!-- 03. DOM HTML--------------------------------------------------------------------------------------------------------------------------------------------------  -->
+
+<!-- 3.1. Lấy nội dung trong thẻ HTML------------------------------------------------------------------------------------------------------------------------------  -->
+
+<!-- 
+* Để lấy nội dung của một element ta dùng innerHTML:
+* 
+* 			<h2>Nội dung hiện tại</h2>
+* 			document.querySelector("h2").innerHTML;
+-->
+
+<!-- 
+* Để thay đổi nội dung của một element ta dùng innerHTML và gán lại giá trị:
+* 	
+* 			document.querySelector("h2").innerHTML = "Nội dung mới"; 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h2 class="test">
+		<div>Nội dung thẻ 1</div>
+	</h2>
+
+	<script>
+		const h2 = document.querySelector("h2");
+		console.log(h2.innerHTML);
+
+        // h2.innerHTML = "Test";           //Dùng để thay đổi nội dung của 1 thẻ html
+        // console.log(h2.innerHTML);
+
+        console.log(h2.textContent);        //Dùng để in ra nội dung bên trong (chỉ có text)
+	</script>
+</body>
+</html>
+
+
+<!-- 3.2. Thay đổi thuộc tính thẻ HTML-----------------------------------------------------------------------------------------------------------------------------  -->
+<!-- 
+* Để lấy giá trị của thuộc tính HTML ta sử dụng cú pháp sau:
+* 
+* 			<h2>Nội dung hiện tại</h2>
+* 			document.querySelector("h2").attributeName;
+* 
+* Hoặc:
+* 	 	
+* 			document.querySelector("h2") .getAttribute("attributeName");
+-->
+
+<!-- 
+* Để thay đổi giá trị của thuộc tính HTML thì ta sử dụng cú pháp như sau:
+* 
+* 			document.querySelector("h2"). attributeName = "Nội dung mới";
+* Hoặc:
+* 	
+* 			document.querySelector("h2"). setAttribute("attributeName", "Nội dung mới"); 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="product-item" data-id="2352538">
+		Ảnh 1
+		Tiêu đề 1
+		Giá 1
+	</div>
+
+	<div class="product-item" data-id="2352951">
+		Ảnh 2
+		Tiêu đề 2
+		Giá 2
+	</div>
+
+	<script>
+		const productList = document.querySelectorAll("product-item");
+		console.log(productList);
+
+		[...productList].forEach(item => {
+			let dataId = item.getAttribute("data-id");
+			console.log(dataId);
+
+			item.setAttribute("data-category", "1234");
+		});
+	</script>
+</body>
+</html>
+
+<!-- 04. DOM CSS--------------------------------------------------------------------------------------------------------------------------------------------------  -->
+<!-- 
+* Cú pháp thiết lập giá trị:
+* 	
+* 			document.getElementById("idName").style.propertyName = 'value';
+-->
+<!-- 
+* Cú pháp lấy giá trị:
+* 
+* 			document.getElementById("idName").style.propertyName;
+* 
+* Trường hợp thuộc tính có dấu gạch ngang như: font-size, line-height, margin-bottom thì thì nó sẽ có tên là fontSize, lineHeight, marginBottom (nghĩa là sẽ bỏ đi dấu gạch ngang và viết hoa ký tự đầu tiên của chữ thứ hai).
+* 
+* Tài liệu tham khảo thêm: https://www.w3schools.com/jsref/dom_obj_style.asp 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box" id="box">OK</div>
+
+	<script>
+		const tmp = document.getElementById("box");
+		tmp.style.fontSize = "14";
+	</script>
+</body>
+</html>

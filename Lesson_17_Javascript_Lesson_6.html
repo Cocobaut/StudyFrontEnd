@@ -1,0 +1,511 @@
+<!-- 01. DOM Events------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- Dom Event (sự kiện) là một tác động nào đó lên các đối tượng HTML. Qua đó ta có thể bắt được sự kiện và viết một đoạn Javascript để thực thi một chương trình nào đó. -->
+
+<!-- 
+* Cú pháp:      element.eventname = function() {
+* 	                // Code
+*               }
+* 
+* Trong đó:     + element: là phần tử muốn bắt sự kiện.
+* 
+*               + eventname: Tên sự kiện. 
+-->
+
+<!-- 
+* Danh sách một số DOM Events phổ biến:
+* 
+*   + onload: Khi trình duyệt đã load xong mọi thứ (image, js, css) thì những đoạn code nằm bên trong đó mới được chạy.
+* 
+*   + onblur: Kích hoạt khi một phần tử mất trọng tâm (không được focus vào nữa)
+* 
+*   + onfocus: Kích hoạt khi một phần tử hiển thị đúng trọng tâm (được focus vào)
+* 
+*   + onkeydown: Kích hoạt khi một phím được nhấn
+* 
+*   + onkeyup: Kích hoạt khi một phím được nhả ra
+* 
+*   + onclick: Kích hoạt trên con chuột vừa nhấn vào phần tử
+* 
+*   + onchange: Kích hoạt khi giá trị được thay đổi khác đi so với giá trị trước đó 
+-->
+
+<!-- Onload -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+		window.onload = function() {
+			const menu = document.querySelector("#menu");
+			console.log(menu);
+		};
+	</script>
+
+	<ul id="menu">
+		<li>Mục 1</li>
+		<li>Mục 2</li>
+		<li>Mục 3</li>
+	</ul>
+
+	
+</body>
+</html>
+
+<!-- Onblur & Onfocus -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.focus {
+			background-color: yellow;
+		}
+	</style>
+	<input type="text" id="inputname" placeholder="Nhập họ và tên">
+
+	<script>
+		const inputName = document.querySelector("#inputname");
+
+		console.log(inputname);
+		inputName.onblur = function() {
+			console.log(inputName.value.toUpperCase());
+		};
+		 
+		inputName.onfocus = function() {
+			inputName.classList.add("focus");
+		};
+	</script>
+	
+</body>
+</html>
+
+
+<!-- Onkeydown && Onkeyup -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<input type="text" id="inputname" placeholder="Nhập họ và tên">
+	
+	<script>
+		const inputName = document.getElementById("inputname");
+
+		inputName.onkeydown = function() {
+			console.log("onkeydown");
+		};
+
+		inputName.onkeyup = function() {
+			console.log("onkeyup");
+		};
+	</script>
+	
+</body>
+</html>
+
+
+<!-- onclick -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .show {
+            display: none;
+        }
+    </style>
+
+    <div class="menu" id="menu">
+        <ul>
+            <li>Mục 1</li>
+            <li>Mục 2</li>
+            <li>Mục 3</li>
+        </ul>
+    </div>
+
+    <button class="button" id="buttonMenu">
+        Đóng
+    </button>
+
+	<button class="button" id="buttonOpen">
+		Mở
+    </button>
+
+    <script>
+        const buttonMenu = document.querySelector("#buttonMenu");
+        const menu = document.querySelector("#menu");
+		const buttonOpen = document.querySelector("#buttonOpen");
+
+        buttonMenu.onclick = function() {
+            menu.classList.add("show");
+        };
+
+		buttonOpen.onclick = function() {
+			menu.classList.remove("show");
+		};
+    </script>
+</body>
+</html>
+
+
+<!-- onchange -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<select id="colors">
+		<option value="red">Màu đỏ</option>
+		<option value="yellow">Màu vàng</option>
+		<option value="black">Màu đen</option>
+	</select>
+
+	<script>
+		const colors = document.querySelector("#colors");
+
+		colors.onchange = function() {
+			console.log("OK");
+		};
+	</script>
+</body>
+</html>
+
+
+
+<!-- 02. DOM Events Listener----------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* DOM Events Listener giống Dom Event, nhưng khác ở chỗ:
+* 
+*   + Một element có thể gọi được nhiều sự kiện.
+* 
+*   + Có thể hủy bỏ lắng nghe sự kiện bất kỳ (Dom Events chỉ lắng nghe được nhưng không hủy bỏ lắng nghe được). 
+-->
+
+<!-- 
+* Cú pháp:      element.addEventListener("eventname", function(e) {
+*                   // Code
+*               });
+* 
+* Trong đó:     + element: là phần tử muốn bắt sự kiện.
+* 
+*               + eventname: Tên sự kiện (bỏ chữ on, Ví dụ: onclick 🡪 click). 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button id="button">Button</button>
+
+	<script>
+		function func1() {
+			console.log("Ok1");
+		}
+
+		function func2() {
+			console.log("Ok2");
+		}
+
+		const button = document.querySelector("#button");
+
+		// button.onclick = function() {
+		// 	func1();
+		// }
+
+		// button.onclick = function() {
+		// 	func2();
+		// }
+
+		button.addEventListener("click", func1);
+		button.addEventListener("click", func2);
+
+		setTimeout(() => {
+			button.removeEventListener("click", func2);
+		}, 5000);
+	</script>
+</body>
+</html>
+
+
+<!-- 03. DOM Navigation------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- 
+* Dùng để quản lý, thao tác với các thẻ HTML, thể hiện mối quan hệ cha – con của các thẻ HTML.
+* 
+* Các thuộc tính:   + parentNode: dùng để truy cập nút cha của nút được chỉ định trong cây DOM
+* 
+*                   + childNodes: truy cập tất cả các node con của một phần tử nhất định. Node con có thể là một văn bản, chú thích,…
+* 
+*                   + firstElementChild: trả về phần tử là node con đầu tiên của phần tử cha.
+* 
+*                   + lastElementChild: trả về phần tử là node con cuối cùng của phần tử cha.
+* 
+*                   + nextElementSibling: trả về phần tử là node kế tiếp.
+* 
+*                   + previousElementSibling: trả về phần tử là node trước đó.
+* 
+*                   + nodeName: Trả về tên một node. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="child-1" id="child-1">
+            <div class="box">Box1</div>
+            <div class="box">Box2</div>
+            <div class="box">Box3</div>
+        </div>
+        <div class="child-2" id="child-2"></div>
+        <div class="child-3" id="child-3"></div>
+    </div>
+
+    <script>
+        const childOne = document.querySelector("#child-1");
+        console.log(childOne);
+        console.log(childOne.parentNode);
+        console.log(childOne.childNodes);
+		console.log(childOne.firstElementChild);
+		console.log(childOne.lastElementChild);
+		console.log(childOne.nextElementSibling);
+		console.log(childOne.previousElementSibling);
+    </script>
+</body>
+</html>
+
+
+<!-- 04. DOM Nodes----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- 4.1. document.createElement()----------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Tạo một Node mới hoàn toàn và không liên quan tới những thẻ HTML đang hiển thị trên website.
+* 
+* Cú pháp: var tenBien = document.createElement(“tagName");
+* 
+* Trong đó: tagName: là tên thẻ. Ví dụ: p, h1, div,… 
+-->
+
+
+<!-- 4.2. Phương thức appendChild()---------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Dùng để thêm (bổ sung) vào vị trí cuối cùng của đối tượng một thẻ HTML nào đó.
+* 
+* Cú pháp: element_parent.appendChild(node_insert);
+* 
+* Trong đó:     + element_parent: là element cha.
+* 
+*               + node_insert: là node bạn muốn thêm vào. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="ads"></div>
+	<script>
+		const p = document.createElement("p");
+		p.innerHTML = "Quảng cáo...";
+		console.log(p);
+
+		const divAds = document.querySelector("#ads");
+		divAds.appendChild(p);
+	</script>
+</body>
+</html>
+
+
+<!-- 4.3. document.createTextNode()---------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Text node là một node đặc biệt, nó không phải là một thẻ HTML thông thường mà chỉ là một chuỗi (string).
+* 
+* Cú pháp: var tenBien = document.createTextNode("Nội dung…"); 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="ads"></div>
+	<script>
+		const p = document.createElement("p");
+		const text = document.createTextNode("Quảng cáo....");
+		p.appendChild(text);
+		console.log(p);
+
+		const divADs = document.querySelector("#ads");
+		divADs.appendChild(p);
+	</script>
+</body>
+</html>
+
+
+<!-- 4.4. Phương thức insertBefore()-------------------------------------------------------------------------------------------- -->
+<!-- 
+* Được dùng để thêm một Node vào đằng trước một node con nào đó.
+* 
+* Cú pháp: element_parent.insertBefore(node_insert, node_child);
+* 
+* Trong đó:     + element_parent: là element cha.
+* 
+*               + node_insert: là node bạn muốn thêm vào.
+* 
+*               + node_child: là node con mà bạn muốn them node_insert vào đằng trước nó. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item</li>
+    </ul>
+
+    <button id="buttonAdd">Thêm mới</button>
+
+    <script>
+        const Menu = document.querySelector("#menu");
+        const buttonAdd = document.querySelector("#buttonAdd");
+
+        buttonAdd.onclick = function() {
+            const firstElement = menu.firstElementChild;
+
+            const newItem = document.createElement("li");
+            newItem.innerHTML="item mới";
+
+            menu.insertBefore(newItem, firstElement);
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 4.5. Phương thức removeChild()-------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Được dùng để xóa một node con ra khỏi node hiện tại.
+* 
+* Cú pháp: element_parent.removeChild(node_remove);
+* 
+* Trong đó:     + element_parent: là element cha.
+* 
+*               + node_remove: là node cần xóa. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>removeChild demo</title>
+</head>
+<body>
+  <ul id="menu">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  <button id="btnRemove">Xóa phần tử đầu</button>
+
+  <script>
+    const menus = document.querySelector("#menu");
+    const btnRemove = document.querySelector("#btnRemove");
+
+    btnRemove.onclick = function() {
+      const firstElement = menus.firstElementChild; // lấy <li> đầu tiên
+      if (firstElement) {
+        menus.removeChild(firstElement); // xóa phần tử đó
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- 4.6. Phương thức replaceChild()------------------------------------------------------------------------------------------- -->
+
+<!-- 
+* Dùng để replace (thay thế) một node con nào đó bằng một node khác mới hoàn toàn.
+* 
+* Cú pháp: element_parent.replaceChild(node_insert, node_remove);
+* 
+* Trong đó:     + element_parent: là element cha.
+* 
+*               + node_insert: là element mới muốn thay thế.
+* 
+*               + node_remove: là element cũ muốn bỏ đi. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>replaceChild demo</title>
+</head>
+<body>
+  <ul id="menu">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  <button id="btnReplace">Thay phần tử đầu</button>
+
+  <script>
+    const menuss = document.querySelector("#menu");
+    const btnReplace = document.querySelector("#btnReplace");
+
+    btnReplace.onclick = function() {
+      const firstElement = menuss.firstElementChild; // lấy <li> đầu tiên
+      if (firstElement) {
+        const newItem = document.createElement("li");
+        newItem.textContent = "Item mới thay thế"; // phần tử mới
+        menuss.replaceChild(newItem, firstElement);  // thay thế
+      }
+    }
+  </script>
+</body>
+</html>
